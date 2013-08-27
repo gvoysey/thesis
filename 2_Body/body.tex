@@ -1,0 +1,31 @@
+\chapter{Body of my thesis}
+\label{chapter:body}
+\thispagestyle{myheadings}
+
+% set this to the location of the figures for this chapter. it may
+% also want to be ../Figures/2_Body/ or something. make sure that
+% it has a trailing directory separator (i.e., '/')!
+\graphicspath{{2_Body/Figures/}}
+
+\section{Some results}
+\label{sec:results}
+
+Here's the important stuff, and example of using graphics.
+
+\begin{figure}[htb]
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \includegraphics[width=7.7cm]{figure_sampling_view1.eps}
+    \medskip
+    \centerline{(a)}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \includegraphics[width=7.7cm]{figure_sampling_view2.eps}
+    \medskip
+    \centerline{(b)}
+  \end{minipage}
+  \caption{Assignment of single-view intensities to RGB components: (a) view
+    \#1; and (b) view \#2. }
+  \label{fig:Sampling}
+\end{figure}
+
+And also how to use citations \cite{lamport1985:latex},\cite{Debr01}.
