@@ -19,6 +19,7 @@
 \usepackage{lscape,afterpage}
 \usepackage{xspace}
 \usepackage{color}
+\usepackage{pdfpages}
 %==========================================================================%
 %%% graphicx and pdf creation
 \usepackage[dvips]{graphicx}
@@ -87,12 +88,13 @@ citecolor=gray,
 \bibliographystyle{apalike}
 
 % each subdirectory can have its own BiBTeX file
-\bibliography{thesis}
+\bibliography{Remote}
 \cleardoublepage
 
 %==========================================================================%
 % Curriculum Vitae
-\include{0_Prelim/cv} 
+% TODO -- uncomment this one day and check this symlink so that it points to the correct version of the CV. 
+%\includepdf[pages={ - }]{0_Prelim/gvoysey-cv.pdf}
 
 %==========================================================================%
 \end{document}
