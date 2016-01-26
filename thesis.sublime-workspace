@@ -19,7 +19,7 @@
 			"file": "gvoysey-thesis.tex",
 			"settings":
 			{
-				"buffer_size": 3548,
+				"buffer_size": 3579,
 				"line_ending": "Windows"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "0_Prelim/prelim.tex",
 			"settings":
 			{
-				"buffer_size": 4815,
+				"buffer_size": 4898,
 				"line_ending": "Unix"
 			}
 		}
@@ -40,9 +40,41 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "insta",
+		"last_filter": "clean",
 		"selected_items":
 		[
+			[
+				"clean",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"git com",
+				"Git: Quick Commit"
+			],
+			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"git commit",
+				"Git: Quick Commit"
+			],
+			[
+				"git  add ",
+				"Git: Add All"
+			],
+			[
+				"latex cle",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"latex",
+				"LaTeXing: Synchronise Remote Data"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -54,10 +86,6 @@
 			[
 				"latexing sy",
 				"LaTeXing: Synchronise Remote Data"
-			],
-			[
-				"clean",
-				"Build With: LaTeX - Clean up Files"
 			],
 			[
 				"remove",
@@ -112,10 +140,6 @@
 				"Git: Commit"
 			],
 			[
-				"git add",
-				"Git: Add..."
-			],
-			[
 				"instlal",
 				"Package Control: Install Package"
 			],
@@ -126,10 +150,6 @@
 			[
 				"open f",
 				"Github: Open File"
-			],
-			[
-				"latex",
-				"LaTeXTools: View PDF"
 			]
 		],
 		"width": 464.0
@@ -156,15 +176,28 @@
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/1_Intro",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/2_Body",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/2_Body/Figures",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/3_Conclusion"
 	],
 	"file_history":
 	[
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/voysey - startup instructions.md",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/periphery.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/amtoolbox/Contents.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/ANF_Sarah.py",
+		"/C/Users/Graham Voysey/AppData/Roaming/ESME Workbench/app.log",
+		"/C/Projects/wagner-bellhop/csharp/oaml-extractor/bin/Debug/oamlData--19-01-2016--01-06.json",
+		"/C/Projects/wagner-bellhop/csharp/oaml-extractor/bin/Debug/oamlData--18-01-2016--08-24.json",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/Remote.bib",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.tex",
+		"//corti.bu.edu/Software/Windows/Visual Studio 2015/KEY.txt",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/1_Intro/intro.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/gvoysey-thesis.bbl",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/.gitignore",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/1_Intro/intro.aux",
 		"/C/Users/Graham Voysey/Desktop/labstreaminglayer/LSL/liblsl-Csharp/readme.txt",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.tex",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.md",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim.tex",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim (1).aux",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/abs.tex",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/gvoysey-thesis.tex",
@@ -275,19 +308,7 @@
 		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Reflec.tejson",
 		"/C/Projects/noah/EquipmentImporter/EquipmentImporter/Program.cs",
 		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/Admin.tskjson",
-		"/C/Projects/noah/EquipmentImporter/.gitignore",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/.tejson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/3a01093c-39b7-427d-b8b4-4cc6ecf43474.tchjson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/e75fab6c-1b44-4d6e-b376-7b5caf308a3f.tchjson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/7268b5dc-5acb-4d39-b910-da2f2e95ea3e.tchjson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Weapon.tejson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Armor.tejson",
-		"/C/Users/Graham Voysey/Downloads/Traveller Gear (Updated).xlsx - Weapons.tsv",
-		"/C/Projects/noah/TCG_CS_Engine/resources/EntitiesToMeet.txt",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/careers/Army.tcjson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/a382b6c1-37fb-4b15-9f3e-5bce15bb72f8.tchjson",
-		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Resources/EngineData/EntitiesToMeet.txt",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/careers/Scouts.tcjson"
+		"/C/Projects/noah/EquipmentImporter/.gitignore"
 	],
 	"find":
 	{
@@ -306,6 +327,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"abbreviation",
+			"\\cite{",
+			"TBD",
 			"Review",
 			"Parent",
 			"6f50f525-19e9-4966-bf97-5606e2048d76",
@@ -399,7 +423,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -408,15 +432,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3548,
+						"buffer_size": 3579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2657,
-								2657
+								2509,
+								2509
 							]
 						],
 						"settings":
@@ -424,70 +448,70 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
 							"color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1260.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -496,15 +520,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4815,
+						"buffer_size": 4898,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3646,
-								3646
+								398,
+								398
 							]
 						],
 						"settings":
@@ -512,31 +536,36 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -547,37 +576,31 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
-							"color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1242.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -621,6 +644,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 118.0
 	},
 	"pinned_build_system": "",
 	"project": "thesis.sublime-project",
