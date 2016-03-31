@@ -9,6 +9,7 @@
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
 %\usepackage{natbib}
+\usepackage{subfiles}
 \usepackage{apalike}
 \usepackage{float,subfigure}
 \usepackage[bf]{caption}       
@@ -25,18 +26,19 @@
 %%% graphicx and pdf creation
 \usepackage{graphicx}
 \definecolor{gray}{RGB}{102,102,102}
+\definecolor{mediumBlue}{RGB}{0,0,205}
 %\usepackage{psfrag}
 \DeclareGraphicsExtensions{.eps}   % extension for included graphics
 %\usepackage{thumbpdf}              % thumbnails for ps2pdf
 \usepackage[                       % hyper-references for ps2pdf
 colorlinks=true,
-linkcolor=black,
+linkcolor=mediumBlue,
 citecolor=gray,
 bookmarks=true,%                   % generate bookmarks ...
 bookmarksnumbered=true,%           % ... with numbers
 %hypertexnames=false,%              % needed for correct links to figures !!!
 %breaklinks=true,%                  % breaks lines, but links are very small
-linkbordercolor={0 0 0},%          % blue frames around links
+%linkbordercolor={0,0,0},%          % blue frames around links
 %pdfborder={0 0 112.0}				% border-width of frames 
 ]{hyperref}%  
 %                                   % will be multiplied with 0.009 by ps2pdf

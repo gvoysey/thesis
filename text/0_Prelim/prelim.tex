@@ -1,4 +1,5 @@
 % -*- root: ../gvoysey-thesis.tex -*-
+
 % This file contains all the necessary setup and commands to create
 % the preliminary pages according to the buthesis.sty option.
 
@@ -56,29 +57,29 @@
 % environment and leave blank lines where you want vertical space.
 % The spaces will be adjusted to fill the entire page.
 \maketitle
-\cleardoublepage
+\cleardoublepage{}
 
 % The copyright page is blank except for the notice at the bottom. You
 % must provide your name in capitals.
-\copyrightpage
-\cleardoublepage
+\copyrightpage{}
+\cleardoublepage{}
 
 % Now include the approval page based on the readers information
-\approvalpage
-\cleardoublepage
+\approvalpage{}
+\cleardoublepage{}
 
 % Here goes your favorite quote.
 \newpage
 \thispagestyle{empty}
 \input{0_Prelim/quote}
-\cleardoublepage
+\cleardoublepage{}
 
 % The acknowledgment page should go here. Use something like
 % \newpage\section*{Acknowledgments} followed by your text.
 \newpage
 \section*{\centerline{Acknowledgments}}
 \input{0_Prelim/ack}
-\cleardoublepage
+\cleardoublepage{}
 
 % The abstractpage environment sets up everything on the page except
 % the text itself.  The title and other header material are put at the
@@ -91,23 +92,23 @@
 \begin{abstractpage}
 \input{0_Prelim/abs}
 \end{abstractpage}
-\cleardoublepage
+\cleardoublepage{}
 
 % Now you can include a preface. Again, use something like
 % \newpage\section*{Preface} followed by your text
 
 % Table of contents comes after preface
 \tableofcontents
-\cleardoublepage
+\cleardoublepage{}
 
 % If you have tables, uncomment the following line
 %\listoftables
-%\cleardoublepage
+%\cleardoublepage{}
 
 % If you have figures, uncomment the following line
 \newpage
 \listoffigures
-\cleardoublepage
+\cleardoublepage{}
 
 % List of Abbrevs is NOT optional (Martha Wellman likes all abbrevs listed)
 \chapter*{List of Abbreviations}
@@ -118,9 +119,9 @@
     
   \end{tabular}
 \end{center}
-\cleardoublepage
+\cleardoublepage{}
 
 % END OF THE PRELIMINARY PAGES
 
 \newpage
-\endofprelim
+\endofprelim{}
