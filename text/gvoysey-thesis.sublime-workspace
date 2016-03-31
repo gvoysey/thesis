@@ -22,8 +22,45 @@
 			"file_write_time": 130988504700000000,
 			"settings":
 			{
-				"buffer_size": 3681,
-				"line_ending": "Windows"
+				"buffer_size": 3602,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "1_Intro/intro.tex",
+			"settings":
+			{
+				"buffer_size": 162,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "0_Prelim/prelim.tex",
+			"settings":
+			{
+				"buffer_size": 4573,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 34 files for \"buecethesistitleboxpage\"\n\n/Users/gvoysey/Projects/thesis/text/bu_ece_thesis.sty:\n  158  %\n  159  % BU-ECE title box page - first page to fit the cut-out in the front cover\n  160: \\def\\buecethesistitleboxpage{%\n  161    \\thispagestyle{empty}\n  162    \\vglue 3.6cm\n\n/Users/gvoysey/Projects/thesis/text/0_Prelim/prelim.tex:\n   49  % boxed-in title, author and degree statement so that they are visible through\n   50  % the opening in BU covers used for reports. This makes a nicely bound copy.\n   51: \\buecethesistitleboxpage{}\n   52  \n   53  % Make the titlepage based on the above information.  If you need\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 656,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "% bu_ece_thesis.sty  --  March 2004\n%\n% For Boston University Graduate theses in the Department of Electrical\n% and Computer Engineering based on \"Guide for writers of theses and\n% dissertations\", a publication of Mugar Library.\n%\n% This style option is designed to work with the report document\n% style of LaTeX.  Use\n% \\documentstyle[bu_ece_thesis]{report}\n%\n% Prepared by Janusz Konrad <jkonrad@bu.edu> March 2004\n% based on earlier versions by Stephen Gildea, Paolo Gaudiano, and\n% Jonathan Polimeni\n\n% some heavy mods enacted by the CV/CNS lab, so don't trust all comments\n% jonathan polimeni <jonnyreb@athlete-2.bu.edu>, 03/09/2003\n% $Id: buthesis.sty,v 1.3 2003/09/24 18:50:22 jonnyreb Exp $\n%**************************************************************************%\n%%\n%% DISCLAIMER: This software is only meant to assist Boston University\n%% students in following the guidelines for dissertation format\n%% established by the Graduate School. The format is based on the\n%% ``Guide for writers of theses and dissertations'', a Mugar Library\n%% publications. Each student is responsible for obtaining a copy of\n%% this publication to insure that the format is still valid. For\n%% information you can call Sister Mary Virginia, Thesis/dissertation\n%% coordinator, Mugar Library, Bibliographic Services, 353-3713,\n%% 353-9387. You should always contact the graduate school and your\n%% department to insure that your format meets al their requirements.\n\n% Adapted to Boston University standards by Paolo Gaudiano, based on\n% Stephen Gildea's mitthesis.sty (1989). Original Copyright notice follows\n\n%%% Copyright (c) 1987 by Stephen Gildea\n%%% Permission to copy all or part of this work is granted, provided\n%%% that the copies are not made or distributed for resale, and that\n%%% the copyright notice and this notice are retained.\n%%% \n%%% THIS WORK IS PROVIDED ON AN \"AS IS\" BASIS.  THE AUTHOR PROVIDES NO\n%%% WARRANTY WHATSOEVER, EITHER EXPRESS OR IMPLIED, REGARDING THE WORK,\n%%% INCLUDING WARRANTIES WITH RESPECT TO ITS MERCHANTABILITY OR FITNESS\n%%% FOR ANY PARTICULAR PURPOSE.\n\n%%% If you make any improvements, I'd like to hear about them.\n\n%%% Stephen Gildea\n%%% MIT Earth Resources Lab\n%%% Cambridge, Massachusetts 02139\n%%% mit-erl!gildea\n%%% gildea@erl.mit.edu\n\n%%% 29 Jun 87 original version\n%%% 12 Sep 89 <prange> \\supervisor optional arg added\n\n% A few words of caution, which were imparted upon me by Martha\n% Wellman, the person that will probably pick your thesis format\n% apart, no matter how good you think it looks:\n% (1) Use a single font type/face throughout the preliminary pages. In\n% other words, everything on the preliminary pages should be\n% identical.\n% (2) ``Elite type'' means no more than 12 characters in one inch.\n% Some 12-point formats don't even make it in this category!\n% (3) YOUR NAME AND THE TITLE SHOULD ALWAYS BE IN ALL CAPS!\n\n% Now set up the parameters for the size and location of text on the page.\n\n% The top and left margins should be 1.5in, and the bottom and right\n% margins should be 1in. The measures below are always added to 1in\n\n\\hoffset = 0pt                 % Additional offset to the hidden 1in\n\\voffset = 0pt                 % at left and on top\n\n\\oddsidemargin 0.5in           % Additional left margin on odd-numbered pages (was 0.375in)\n                               % Total left margin: 1in + 0.5in = 1.5in\n\n\\evensidemargin 0.0in          % Additional left margin on even-numbered pages (was -0.1in)\n                               % Total left margin: 1in + 0in = 1in (needed for 2-sided prints)\n\n\\textwidth 6.0in               % Leaves 1.0in right margin (was 6.1875in)\n\n\\topmargin 0in                 % Additional top margin (to the top of the header).\n                               % Header height and header separator add 0.5in \n                               % Total top margin: 1in + 0.5in = 1.5in\n\n\\headheight 12pt               % Header for numbering and running titles.\n\\headsep 24pt                  % Separator between header and text.\n\n\\textheight 8.5in              % Leaves 1.0in bottom margin (was 8.4in)\n\n\\footskip 0.4in                % Distance from bottom of text to bottom of foot,\n                               % which is where page number goes for preliminary\n                               % pages. Hence number will be 0.6\" from bottom.\n\n% \"Double-space all textual material and all preliminary pages.\n% Footnotes and long quotations may be single-spaced\"\n%\\input doublespace.sty          % available from Clarkson LaTeX-style collection\n\\usepackage{setspace}\n\n\\def\\baselinestretch{1.6}       % double spacing\n\n\\renewcommand{\\arraystretch}{.625} % to fix a problem with arrays\n\n%% End of formatting parameters %%\n\n%% DEFINE ALL THE PIECES THAT GO ON THE TITLE PAGE AND THE ABSTRACT.\n\n% \\title and \\author already exist\n\n% Type of degree as a counter:\n%   1 - Master of Science Thesis,\n%   2 - Doctoral Dissertation,\n%   3 - Master of Science Thesis and Doctoral Dissertation\n\\newcount\\degree\n\n% Your previous degree(s). If more than one degree, use single spacing\n\\def\\prevdegrees#1{\\gdef\\@prevdegrees{#1}}\n\\def\\@prevdegrees{}\n\n\\def\\department#1{\\gdef\\@department{#1}}\n\n% If you are getting two degrees, use \\and between the names.\n\\def\\thisdegree#1{\\setbox0\\hbox{#1}  %for side effect of setting \\@degreeword\n  \\gdef\\@thisdegree{#1}}\n\n% \\and is used inside the \\thisdegree argument to separate two degrees\n\\def\\and{\\gdef\\@degreeword{degrees} \\par and \\par}\n\\def\\@degreeword{degree}\n\n\\def\\thesisdate#1{\\gdef\\@thesisdate{#1}}\n\n% Only the year for BU. Month is used by MIT\n\\def\\degreeyear#1{\\gdef\\@degreeyear{#1}}\n\\def\\defenseyear#1{\\gdef\\@defenseyear{#1}}\n\n% Since there are multiple readers (at least two), we build\n% appropriate boxes for the approval page as the user makes multiple\n% calls to \\reader\n\\newbox\\@approvalreader\n\n% The \\reader command is based on the original MIT \\supervisor command. It\n% takes three arguments: An argument indicating whether it is first, second,\n% third etc., then the name, then the title. For example,\n% \\reader{First}{John Doe}{Professor of Mathematics}\n% For some reason, the name and title must be SINGLE SPACED\n\n\\def\\reader{\\@reader}\n\\def\\@reader#1#2#3{\\setbox\\@approvalreader\\vbox\n  {\\unvbox\\@approvalreader \\vskip 2\\baselineskip % NO stretchy stuff\n  \\hspace{-0.22in}\\parbox[t]{0.2\\textwidth}{#1 Reader}\\parbox[t]{0.75\\textwidth}{\n        \\singlespace\n        \\rule{0.75\\textwidth}{0.1mm}\\\\#2\\\\#3}}}\n\n% Major professor, should be same as first reader. Goes in abstract page\n\\def\\majorprof#1#2{\\gdef\\@majorprofname{#1}\\gdef\\@majorproftitle{#2}}\n\n\n%               TITLE BOX PAGE\n%\n% BU-ECE title box page - first page to fit the cut-out in the front cover\n% old value was 6.2 cm not 7.0 -- gv\n\\def\\buecethesistitleboxpage{%\n  \\thispagestyle{empty}\n  \\vglue 3.6cm\n  \\fboxsep=10pt\\fboxrule=1pt\\hglue 1.25cm\n  \\Ovalbox{\\vbox to 7.0cm{\\vfill\\hbox{\\vtop{\\hsize=9.7cm\\parindent=0pt\n        \\renewcommand{\\baselinestretch}{1.5}\n        \\bf\\sffamily\\begin{center}\\MakeUppercase{\\@title}\\end{center}\n        \\sl\\sffamily\\begin{center}\\MakeUppercase{\\@author}\\end{center}\n        \\rm\\sffamily\n        \\ifcase\\degree\\or\\thisdegree{Master of Science}\\or\n                         \\thisdegree{Doctor of Philosophy}\\or\n                         \\thisdegree{\\gdef\\@degreeword{degrees}\n                           Master of Science \\and Doctor of Philosophy}\n                         \\fi\n        \\centerline{\\ifcase\\degree\\or Thesis \\or Dissertation \\or Dissertation\\fi\n                    submitted in partial fulfillment}\n        \\centerline{of the requirements for the \\@degreeword\\ of}\n        \\centerline{\\@thisdegree}}}\\vfill}}\n    \\vglue 6.0cm\\hglue 4.5cm\n    \\vglue -1.0cm\\hglue 4.5cm\\includegraphics[width=4.0cm]{BUlogo_cmyk.eps}\\\\\n    \\clearpage\\mbox{}\\thispagestyle{empty}\\clearpage\n  \\setcounter{page}{1}}\n\n\n%               PRELIMINARY PAGES\n%\n% ``The preliminary pages -- title page, copyright page, reader's\n% approval page, etc. -- are numbered with lower-case Roman numerals\n% (i, ii, iii,).'' No page number on the title page, although it\n% counts as page #i. This command is undone at the beginning of the\n% text with the command \\endofprelim (see below)\n%\n% According to the BU guide the correct order for preliminary pages is:\n% title, copyright (optional), approval,  acknowledgments (opt.),\n% abstract, preface (opt.), Table of contents, List of tables (if\n% any), List of illustrations (if any).\n\n% TITLE PAGE\n% You can use the titlepage environment to do it all yourself if you\n% don't want to use \\maketitle.\n\\def\\titlepage{\\newpage \\thispagestyle{empty}\n\\parindent 0pt\n\\def\\baselinestretch{1.8}\n\\parskip 8pt plus 1fill\n\\@normalsize\n\\begin{center}\n}\n\\def\\endtitlepage{\\end{center}\\newpage}\n\n% Got tired of screwing around with \\parskips that refuse to stretch,\n% so I manually put a \\vfill after each \\par.\n\\def\\maketitle{\\begin{titlepage}\n\\pagenumbering{roman}\n\\large\n\\BU\\\\\\COE\\par\\vfill\n\\ifcase\\degree\\or Thesis \\or Dissertation \\or Dissertation \\fi\\par\\vfill\n\\MakeUppercase{{\\bf \\@title}}\\par\\vfill\nby\\par\\vfill\n\\MakeUppercase{{\\bf \\@author}}\\\\\n\\begin{singlespace}\n\\@prevdegrees\n\\end{singlespace}\n\\ifcase\\degree\\or\\thisdegree{Master of Science}\\or\n                 \\thisdegree{Doctor of Philosophy}\\or\n                 \\thisdegree{Master of Science \\and Doctor of Philosophy}\n                 \\fi\n\\par\\vfill\nSubmitted in partial fulfillment of the\\\\\nrequirements for the \\@degreeword\\ of\\\\\n\\@thisdegree\\\\\n\\@degreeyear\n\\end{titlepage}}\n\n%               COPYRIGHT PAGE\n% Separate Copyright page. If it exists, it gets roman numeral ii but\n% the page number is not printed. The name must be in allcaps\n% \\def\\copyrightpage{\\newpage\\thispagestyle{empty}\n% \\null\\vfill\\par\n% \\begin{center}\\large\n% \\copyright Copyright by\\par\n% \\@author\n% \\par\n% \\@degreeyear\n% \\end{center}}\n\\def\\copyrightpage{\\newpage\\thispagestyle{empty}\n\\null\\vfill\\par\n\\begin{singlespace}\n\n\\hspace{2in}\n\\large \\copyright \\hspace{1ex} \n\\begin{minipage}[t]{3in}\nCopyright \\\\\n\\@author\\\\\n\\@defenseyear\n\\end{minipage}\n\\end{singlespace}}\n\n%               APPROVAL PAGE\n% Separate approval page for BU style.\n% NO NUMBER on approval page, even if it is page #3. This differs from\n% the handbook, but Martha Wellman tells us it is the way to do it,\n% and the handbook will be updated.\n\\def\\approvalpage{\\newpage\\thispagestyle{empty}\n\\def\\baselinestretch{1.2}\n\\begin{center}\\large\nApproved by\\\\[2em]\n\\unvbox\\@approvalreader\n\\end{center}\\newpage}\n\n\n%               ABSTRACT PAGE\n\n\\def\\abstractpage{\\newpage\n\\begin{center}\n\\begin{doublespace}\n{\\large\n\\MakeUppercase{{\\bf \\@title}}\\par\n\\ifcase\\degree\\or\\or\n  (Order No. \\hspace{1.0in})\\\\[1em] \\or\n  (Order No. \\hspace{1.0in})\\\\[1em] \\fi\n\\MakeUppercase{{\\bf \\@author}}\\\\[1em]\n\\ifcase\\degree\\or\\or\n\\Bu,\\ \\Coe, \\@degreeyear\n\\par\n% Major Professor: \\@majorprofname, \\@majorproftitle\n\\mbox{Major Professor: \\begin{minipage}[t]{4in}\n    \\vspace*{-0.7\\baselineskip} \\begin{singlespace} \\@majorprofname, \n    \\@majorproftitle \\end{singlespace} \\end{minipage}}\n\\par\n\\vspace{\\baselineskip}\n\\or\n\\Bu,\\ \\Coe, \\@degreeyear\n\\par\n% Major Professor: \\@majorprofname, \\@majorproftitle\n\\mbox{Major Professor: \\begin{minipage}[t]{4in}\n    \\vspace*{-0.79\\baselineskip} \\begin{singlespace} \\@majorprofname, \n    \\@majorproftitle \\end{singlespace} \\end{minipage}}\n\\par\n\\vspace{\\baselineskip}\n\\fi\n}\n\\end{doublespace}\nABSTRACT\n\\end{center}\n}\n\n\\def\\endabstractpage{\\newpage}\n\n%               END OF PRELIMINARY PAGES\n\n\n\n% Here is the peachy part: It is STRONGLY recommended that the page\n% number for the text be located in the top-center of the page.\n% IN the report style, LaTeX refuses to remove the page number in the\n% \\pagestyle{myheadings}, so we have to hack the actual ps@myheadings\n% definition, then do a \\markboth{}{} etc., which is done in the\n% \\endofprelim command.\n\n% Definition of 'myheadings' page style.\n%\n\\def\\ps@myheadings{\\let\\@mkboth\\@gobbletwo\n\\def\\@oddhead{\\hfil \\rm\\thepage \\hfil}%\n\\def\\@oddfoot{}\\def\\@evenhead{\\hfil\\rm \\thepage\\hfil}%\n\\def\\@evenfoot{}\\def\\chaptermark##1{}\\def\\sectionmark##1{}%\n\\def\\subsectionmark##1{}}\n\n% The \\endofprelim command is used after all the preliminary pages.\n% The command changes the page numbering to arabic numerals.\n% In order to suppress printing of the number on the first page, you\n% should manually add the command \\thispagestyle{empty} to the text,\n% and if you use chapter you have to put the \\thispagestyle command\n% AFTER the first \\chapter command, while \\endofprelim can be before.\n\\def\\endofprelim{\n\\pagenumbering{arabic}\n\\markboth{}{}\n\\pagestyle{myheadings}\n}\n\n% The chapter-making command is toned down a bit.\n% Compare this to the one in rep12.doc\n% \\@makechapterhead {TEXT} : Makes the heading for the \\chapter\n% command.\n%\n\n\\def\\@makechapterhead#1{             % Heading for \\chapter command\n  \\vspace*{32pt}                     % Space at top of text page.\n  { \\parindent 0pt \\raggedright\n    \\ifnum \\c@secnumdepth >\\m@ne     % IF secnumdepth > -1 THEN\n    %\\LARGE\\bf \\@chapapp{} \\thechapter % Print 'Chapter' and number.\n    \\Large\\bf \\@chapapp{} \\thechapter % Print 'Chapter' and number.\n    \\par\n    \\vskip 12pt \\fi                  % Space between number and\n                                % title.\n    %\\Large \\bf                         % Title.\n    \\LARGE \\bf                         % Title.\n    #1\\par\n    \\nobreak                         % TeX penalty to prevent page\n                                % break.\n    \\vskip 24pt                      % Space between title and text.\n  } }\n\n% Must also do the \\chapter* command which gets used for table of\n% contents, list of figures, and such.\n\\def\\@makeschapterhead#1{             % Heading for \\chapter* command\n  \\vspace*{32pt}                     % Space at top of page.\n  { \\parindent 0pt \\raggedright\n    %\\Large\\bf                        % Title.\n    \\LARGE\\bf                        % Title.\n    #1\\par\n    \\nobreak                         % TeX penalty to prevent page\n                                     % break.\n    \\vskip 24pt                      % Space between title and text.\n  } }\n\n\n% Also tone down the section headings a bit.\n\\def\\section{\\@startsection {section}{1}{\\z@}{-3.5ex plus -1ex minus\n    -.2ex}{2.3ex plus .2ex}{\\large\\bf}}\n\\def\\subsection{\\@startsection{subsection}{2}{\\z@}{-3.25ex plus -1ex\nminus\n   -.2ex}{1.5ex plus .2ex}{\\normalsize\\bf}}\n\n% If using the report style, use \\cdotinstead of . in the figure number.\n\\@ifundefined{thechapter}{}{\\def\\thefigure{\\thechapter$\\cdot$\\arabic{figure}}}\n\n\n%       BIBLIOGRAPHY\n% Scientific-style bibliography: no number, first line indented backwards\n% Note that for proper citations apalike.bst BiBTeX style file and apalike.sty\n% Latex style file need to be used.\n\\def\\thebibliography#1{\\def\\baselinestretch{1.2}\n%\\section*{\\centerline{References}}\n\\chapter*{\\centerline{References}}\n%\\addcontentsline{toc}{section}{References}\n\\addcontentsline{toc}{chapter}{References}\n\\list\n{}{\n  \\setlength{\\itemindent}{-1em}\n  \\setlength{\\leftmargin}{1em} \n%  \\setlength{\\leftmargin}{0.6in} % Change suggested by Saikat Ray\n%  \\setlength{\\rightmargin}{0.1in} % Change suggested by Saikat Ray\n  \\usecounter{enumi}}\n\\def\\newblock{\\hskip .11em plus .33em minus -.07em}\n}\n\\def\\endthebibliography{\\endlist}\n\n\n%               USEFUL MACROS\n\\def\\BU{BOSTON UNIVERSITY}\n\\def\\Bu{Boston University}\n\\def\\COE{COLLEGE OF ENGINEERING}\n\\def\\Coe{College of Engineering}\n",
+			"file": "bu_ece_thesis.sty",
+			"file_size": 15341,
+			"file_write_time": 131017557480000000,
+			"settings":
+			{
+				"buffer_size": 15378,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -186,12 +223,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Projects/thesis/text",
+		"/Users/gvoysey/Projects/thesis/text"
 		"/C/Projects/thesis/text/2_LiteratureReview"
 	],
 	"file_history":
 	[
-		"/C/Users/Graham Voysey/Google Drive/BU/old/tinnitus-spiker/models/zbcatmodel2007v2/gvproject.m",
+		"/Users/gvoysey/Projects/thesis/text/gvoysey-thesis.tex",
 		"/C/Projects/wagner-bellhop/Docker/build.sh",
 		"/C/Projects/thesis-code/docker/Dockerfile",
 		"/C/Users/Graham Voysey/Desktop/17 Mar 16 - 1447/test.yaml",
@@ -319,10 +356,11 @@
 		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/15eab82a-8b90-4730-aa01-e6f5d82a7948.tchjson",
 		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/df19484f-58eb-4767-a9b5-0f403dba6547.tchjson",
 		"/C/Users/Graham Voysey/Desktop/TCGApp/support/EntitiesToMeet.txt"
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/careers/Drifter.tcjson"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -337,7 +375,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"\\buecethesistitleboxpage{}",
+			"buecethesistitleboxpage",
 			"\\cleardoublepage{}",
 			"\\cleardoublepage",
 			"Review",
@@ -434,16 +472,16 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "gvoysey-thesis.tex",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3681,
+						"buffer_size": 3602,
 						"regions":
 						{
 						},
@@ -519,6 +557,142 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "1_Intro/intro.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "0_Prelim/prelim.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2352,
+								2375
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 481.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 656,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										208,
+										231
+									],
+									[
+										523,
+										546
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								222,
+								222
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "bu_ece_thesis.sty",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15378,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6729,
+								6729
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2512.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
