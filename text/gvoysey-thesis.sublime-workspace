@@ -19,7 +19,7 @@
 			"file": "0_Prelim/quote.tex",
 			"settings":
 			{
-				"buffer_size": 1258,
+				"buffer_size": 1265,
 				"line_ending": "Unix"
 			}
 		}
@@ -218,6 +218,7 @@
 	],
 	"file_history":
 	[
+		"/C/Projects/infrasound/infrasound-tester/SubjectID 168370/Subject 168370 - Sep 08 2015 14-44-29.json",
 		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
 		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim.tex",
@@ -344,8 +345,7 @@
 		"/C/Users/Graham Voysey/newApp/newApp.yapsy-plugin",
 		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Stunner, TL 8.tejson",
 		"/C/Users/Graham Voysey/Downloads/Traveller Gear (Updated).xlsx - Armor.tsv",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Aerosol Grenade.tejson",
-		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/skills.json"
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Aerosol Grenade.tejson"
 	],
 	"find":
 	{
@@ -364,6 +364,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"32767",
 			"buecethesistitleboxpage",
 			"BUlogo_cmyk",
 			"Here's the important stuff!",
@@ -453,6 +454,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"168370 ",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -469,18 +472,18 @@
 				{
 					"buffer": 0,
 					"file": "0_Prelim/quote.tex",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1258,
+						"buffer_size": 1265,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								686,
-								686
+								816,
+								816
 							]
 						],
 						"settings":
@@ -488,31 +491,36 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
@@ -523,26 +531,21 @@
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
 							],
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
 							"tab_size": 2,
@@ -601,7 +604,7 @@
 	"project": "gvoysey-thesis.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
