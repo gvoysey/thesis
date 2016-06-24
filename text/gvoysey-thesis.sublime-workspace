@@ -16,24 +16,18 @@
 	"buffers":
 	[
 		{
-			"contents": "% BU ECE template for MS thesis and PhD dissertation.\n%\n%==========================================================================%\n% MAIN PREAMBLE \n%==========================================================================%\n\\documentclass[12pt]{report}          % Single-sided printing for the library\n%\\documentclass[12pt,twoside]{report} % Double-sided printing\n\\usepackage[intlimits]{amsmath}\n\\usepackage{amsfonts,amssymb}\n\\DeclareSymbolFontAlphabet{\\mathbb}{AMSb}\n%\\usepackage{natbib}\n\\usepackage{subfiles}\n\\usepackage{apalike}\n\\usepackage{float,subfigure}\n\\usepackage[bf]{caption}       \n\\setcaptionmargin{0.5in}\n\\usepackage{fancyheadings,fancybox,ifthen}\n\\usepackage{bu_ece_thesis}\n\\usepackage{url}\n\\usepackage{lscape,afterpage}\n\\usepackage{xspace}\n\\usepackage{color}\n\\usepackage{pdfpages}\n%\\usepackage{doi}\n%==========================================================================%\n%%% graphicx and pdf creation\n\\usepackage{graphicx}\n\\definecolor{gray}{RGB}{102,102,102}\n\\definecolor{mediumBlue}{RGB}{0,0,205}\n%\\usepackage{psfrag}\n\\DeclareGraphicsExtensions{.eps}   % extension for included graphics\n%\\usepackage{thumbpdf}              % thumbnails for ps2pdf\n\\usepackage[                       % hyper-references for ps2pdf\ncolorlinks=true,\nlinkcolor=mediumBlue,\ncitecolor=gray,\nbookmarks=true,%                   % generate bookmarks ...\nbookmarksnumbered=true,%           % ... with numbers\n%hypertexnames=false,%              % needed for correct links to figures !!!\n%breaklinks=true,%                  % breaks lines, but links are very small\n%linkbordercolor={0,0,0},%          % blue frames around links\n%pdfborder={0 0 112.0}				% border-width of frames \n]{hyperref}%  \n%                                   % will be multiplied with 0.009 by ps2pdf\n \\hypersetup{\n  pdfauthor   = {Graham Voysey <gvoysey@bu.edu>},\n  pdftitle    = {gvoysey-thesis.pdf},\n  pdfsubject  = {Master's thesis},\n  pdfkeywords = {biomedical engineering, hearing},\n  pdfcreator  = {LaTeX/hyperref},\n  pdfproducer = {LaTeX/P}\n }\n%==========================================================================%\n% customized commands can be placed here\n%\\newcommand{\\figref}[1]{Figure~\\ref{#1}}\n%\\newcommand{\\chapref}[1]{Chapter~\\ref{#1}}\n%\\newcommand{\\latex}{\\LaTeX\\xspace}\n%==========================================================================%\n\n%==========================================================================%\n% BEGIN\n%==========================================================================%\n\\begin{document}\n\n% The preliminary pages\n\\include{0_Prelim/prelim}        \n\\cleardoublepage{}\n\n% -------------------------------------\n% CHAPTER 1: INTRODUCTION\n% -------------------------------------\n\\include{1_Intro/intro}\n\\cleardoublepage{}\n\n% -------------------------------------\n% CHAPTER 2: THE BODY OF THESIS\n% -------------------------------------\n\\include{2_LiteratureReview/LiteratureReview}\n\\cleardoublepage{}\n\n% -------------------------------------\n% CHAPTER 3: CONCLUSION\n% -------------------------------------\n\\include{3_Conclusion/conclusion}\n\\cleardoublepage{}\n\n%==========================================================================%\n% Bibliography\n\\newpage\n\\singlespace{}\n\\bibliographystyle{jneurosci}\n\n% each subdirectory can have its own BiBTeX file\n\\nocite{*}\n\\bibliography{Remote}\n\\cleardoublepage{}\n\n%==========================================================================%\n% Curriculum Vitae\n% TODO -- uncomment this one day and check this symlink so that it points to the correct version of the CV. \n%\\includepdf[pages={ - }]{0_Prelim/gvoysey-cv.pdf}\n\n%==========================================================================%\n\\end{document}\n ",
 			"file": "gvoysey-thesis.tex",
-			"file_size": 3783,
-			"file_write_time": 130988504700000000,
 			"settings":
 			{
-				"buffer_size": 3602,
+				"buffer_size": 3571,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "% -*- root: ../gvoysey-thesis.tex -*-\n\\chapter{Literature Review}\n\\label{chapter:literaturereview}\n\\thispagestyle{myheadings}\n\n% set this to the location of the figures for this chapter. it may\n% also want to be ../Figures/2_Body/ or something. make sure that\n% it has a trailing directory separator (i.e., '/')!\n\\graphicspath{{2_LiteratureReview/Figures/}}\n\n\\section{Cochlear Synaptopathy} % (fold)\n\\label{sec:cochlear_synaptopathy}\n% section cochlear_synaptopathy (end)\n\n\\section{Physiology of the Auditory Nerve} % (fold)\n\\label{sec:physiology_of_the_auditory_nerve}\n\\subsection{Spontaneous Rates of Fibers} % (fold)\n\\label{sub:spontaneous_rates_of_fibers}\n\n% subsection spontaneous_rates_of_fibers (end)\n\\subsection{Low Spontaneous Rate Fibers Suffer Selective Losses} % (fold)\n\\label{sub:low_spontaneous_rate_fibers_suffer_selective_losses}\n\n% subsection low_spontaneous_rate_fibers_suffer_selective_losses (end)\n\n\\subsection{Current Controversies} % (fold)\n\\label{sub:current_controversies}\n% subsection current_controversies (end)\n% section physiology_of_the_auditory_nerve (end)\n\n\\section{Relevant Functional Neuroanatomy of the Auditory Midbrain} % (fold)\n\\label{sec:relevant_functional_neuroanatomy_of_the_auditory_midbrain}\n\\subsection{The Dorsal Cochlear Nucleus} % (fold)\n\\label{sub:the_dorsal_cochlear_nucleus}\n\\subsubsection{The Small Cap Area} % (fold)\n\\label{ssub:the_small_cap_area}\n\n% subsubsection the_small_cap_area (end)\n% subsection the_dorsal_cochlear_nucleus (end)\n\\subsection{The Ventral Cochlear Nucleus} % (fold)\n\\label{sub:the_ventral_cochlear_nucleus}\n\n% subsection the_ventral_cochlear_nucleus (end)\n\\subsection{The Inferior Colliculus} % (fold)\n\\label{sub:the_inferior_colliculus}\n\n% subsection the_inferior_colliculus (end)\n% section functional_neuroanatomy_of_the_auditory_midbrain (end)\n\n\\section{Auditory Modeling Environments} % (fold)\n\\label{sec:auditory_modeling_environments}\n\\subsection{The Carney Models} % (fold)\n\\label{sub:the_carney_models}\n\\subsubsection{The Zilany and Bruce Models} % (fold)\n\\label{ssub:zilany_and_bruce_2009_2014}\n\n% subsubsection zilany_and_bruce_2009_2014 (end)\n\\subsubsection{Modulation Transfer Functions in the Inferior Colliculus} % (fold)\n\\label{ssub:modulation_transfer_functions_in_the_inferior_colliculus}\n\n% subsubsection modulation_transfer_functions_in_the_inferior_colliculus (end)\n% subsection the_carney_models (end)\n\n\\subsection{The Verhulst Model} % (fold)\n\\label{sub:the_verhulst_model}\n\n% subsection the_verhulst_model (end)\n\n% section auditory_modeling_environments (end)\n\n\\section{Objective Measures of Cochlear Synaptopathy} % (fold)\n\\label{sec:objective_measures_of_cochlear_synaptopathy}\n\n% section objective_measures_of_cochlear_synaptopathy (end)\n",
-			"file": "2_LiteratureReview/LiteratureReview.tex",
-			"file_size": 2747,
-			"file_write_time": 131031565011435821,
+			"file": "apalike.sty",
 			"settings":
 			{
-				"buffer_size": 2739,
+				"buffer_size": 1113,
 				"line_ending": "Unix"
 			}
 		},
@@ -42,6 +36,46 @@
 			"settings":
 			{
 				"buffer_size": 4599,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "1_Intro/intro.tex",
+			"settings":
+			{
+				"buffer_size": 238,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "4_Methods/methods.tex",
+			"settings":
+			{
+				"buffer_size": 329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "5_Results/results.tex",
+			"settings":
+			{
+				"buffer_size": 329,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "6_Discussion/discussion.tex",
+			"settings":
+			{
+				"buffer_size": 338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "2_LiteratureReview/LiteratureReview.tex",
+			"settings":
+			{
+				"buffer_size": 2741,
 				"line_ending": "Unix"
 			}
 		}
@@ -53,30 +87,12 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "package",
+		"height": 127.0,
+		"last_filter": "git push ",
 		"selected_items":
 		[
 			[
-				"package",
-				"Package Control: List Packages"
-			],
-			[
-				"git commit",
-				"Git: Commit"
-			],
-			[
-				"git add",
-				"Git: Add All"
-			],
-			[
-			],
-			[
-				"pretty",
-				"Pretty JSON: Format (Pretty Print) JSON"
-			],
-			[
-				"git push",
+				"git push ",
 				"Git: Push"
 			],
 			[
@@ -84,36 +100,48 @@
 				"Git: Quick Commit"
 			],
 			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"git pull ",
+				"Git: Pull"
+			],
+			[
+				"latex clea",
+				"LaTeXing: Clean up (Remove) all Nonessential Files"
+			],
+			[
+				"git merge",
+				"Git: Merge Branch"
+			],
+			[
+				"git stash",
+				"Git: Stash Changes"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
 				"git add",
-				"Git: Add Current File"
-			],
-			[
-				"buid",
-				"Build With: LaTeX - Clean up Files"
-			],
-			[
-				"html",
-				"HTMLBeautify"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"latexing ca",
-				"LaTeXing: Rebuild Cache"
-			],
-			[
-				"clean",
-				"Build With: LaTeX - Clean up Files"
+				"Git: Add All"
 			],
 			[
 				"latexing sy",
 				"LaTeXing: Synchronise Remote Data"
 			],
 			[
+				"clean",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
 				"remove",
 				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"LaTeXing: Install License"
 			],
 			[
 				"insta",
@@ -122,6 +150,10 @@
 			[
 				"markdo",
 				"MarkdownEditing: Markdown Lint"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
 			],
 			[
 				"google",
@@ -156,6 +188,10 @@
 				"Package Control: Install Package"
 			],
 			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
 				"git comm",
 				"Git: Commit"
 			],
@@ -176,7 +212,7 @@
 				"LaTeXTools: View PDF"
 			]
 		],
-		"width": 464.0
+		"width": 485.0
 	},
 	"console":
 	{
@@ -196,60 +232,34 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/gvoysey/Projects/thesis/text"
-		"/C/Projects/thesis/text/2_LiteratureReview"
+		"/Users/gvoysey/Projects/thesis/text",
+		"/Users/gvoysey/Projects/thesis/text/0_Prelim",
+		"/Users/gvoysey/Projects/thesis/text/1_Intro",
+		"/Users/gvoysey/Projects/thesis/text/2_LiteratureReview",
+		"/Users/gvoysey/Projects/thesis/text/3_Aims",
+		"/Users/gvoysey/Projects/thesis/text/4_Methods",
+		"/Users/gvoysey/Projects/thesis/text/5_Results",
+		"/Users/gvoysey/Projects/thesis/text/6_Discussion",
+		"/Users/gvoysey/Projects/thesis/text/7_Conclusion"
 	],
 	"file_history":
 	[
+		"/Users/gvoysey/Projects/wagner-bellhop/c/bfg/bfgexample.c",
+		"/Users/gvoysey/Projects/wagner-bellhop/c/bfg/bfgexample.",
+		"/Users/gvoysey/Projects/thesis/text/3_Aims/aims.tex",
+		"/Users/gvoysey/Projects/wagner-bellhop/c/argparse-usage.txt",
 		"/Users/gvoysey/Projects/thesis/text/1_Intro/intro.tex",
+		"/Users/gvoysey/Library/Application Support/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
+		"/Users/gvoysey/Library/Application Support/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/Users/gvoysey/Projects/thesis/text/gvoysey-thesis.tex",
+		"/Users/gvoysey/Google Drive/docs/poems/musee des beaux arts.txt",
+		"/Users/gvoysey/.jupyter/jupyter_qtconsole_config.py",
+		"/Users/gvoysey/Projects/verhulst-model-core/README.md",
+		"/Users/gvoysey/verhulst-output/pip",
+		"/usr/local/bin/dataexplore",
+		"/Users/gvoysey/Projects/thesis/text/0_Prelim/quote.tex",
 		"/Users/gvoysey/Projects/thesis/text/0_Prelim/prelim.tex",
 		"/Users/gvoysey/Projects/thesis/text/bu_ece_thesis.sty",
-		"/Users/gvoysey/Projects/thesis/text/gvoysey-thesis.tex",
-		"/C/Projects/wagner-bellhop/Docker/build.sh",
-		"/C/Projects/thesis-code/docker/Dockerfile",
-		"/C/Users/Graham Voysey/Desktop/17 Mar 16 - 1447/test.yaml",
-		"/C/Users/Graham Voysey/.jupyter/jupyter_qtconsole_config.py",
-		"//ad.bu.edu/eng/users/g/v/gvoysey/verhulst-output/17 Mar 16 - 1326/conf.yaml",
-		"/C/Users/Graham Voysey/.gitconfig",
-		"/C/Projects/noah/TCG_CS_Engine/.git/credential.log",
-		"/C/Projects/noah/TCG_CS_Engine/.git/config",
-		"/C/Users/Graham Voysey/.ipython/profile_default/startup/00-first.py",
-		"/C/Projects/thesis-code/.gitignore",
-		"/C/Users/Graham Voysey/Downloads/verhulst-2016/verhulst-2016/run_periphery.py",
-		"/C/Projects/thesis-code/models/verhulst-2016/out/Clicks/CNIC/ICClicksRatio.m",
-		"/C/Users/Graham Voysey/.ipython/README",
-		"/C/Users/Graham Voysey/.ipython/profile_default/startup/README",
-		"/C/Projects/noah/TCG_CS_Engine/deploy.py",
-		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/RUN_BMAN.m",
-		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 38/configuration.json",
-		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 27/configuration.json",
-		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 00/configuration.json",
-		"/C/Projects/unlock-plugins/unlock/lsltest.py",
-		"/C/Projects/unlock-plugins/unlock/unlock_runtime.py",
-		"/C/Users/Graham Voysey/Desktop/slack-2.0.1-full/slack.nuspec",
-		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Scripts/Backdrops/LoadingScreen.cs",
-		"/C/Projects/thesis-code/configuration-notes.md",
-		"/C/Projects/thesis-code/thesis-code-dockerfile",
-		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/winconv.m",
-		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/ps3.m",
-		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/ps3_6.m",
-		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/energy.m",
-		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/zerocross.m",
-		"/C/Users/Graham Voysey/Desktop/dict.json",
-		"/C/Users/Graham Voysey/Desktop/list.json",
-		"/C/Users/Graham Voysey/Desktop/container.json",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/voysey - startup instructions.md",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/cochlea_utils.c",
-		"/C/Users/Graham Voysey/WinPython-64bit/python-2.7.6.amd64/Lib/site-packages/numpy/f2py/docs/FAQ.txt",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis/text/1_Intro/intro.tex",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis/text/0_Prelim/prelim.aux",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/RUN_BMAN.m",
-		"/C/Projects/unlock-plugins/unlock/base.py",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/cochlear_model_old.py",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/run_periphery.py",
-		"/C/Users/Graham Voysey/Desktop/odedghitza.github.io/research.html",
-		"/C/Users/Graham Voysey/Desktop/odedghitza.github.io/research_deck1.html",
-		"/C/Users/Graham Voysey/Google Drive/BU/thesis/README.md",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.tex",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.md",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim.tex",
@@ -258,6 +268,7 @@
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis/gvoysey-thesis.tex",
 		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.bbl",
 		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/Default (Windows).sublime-keymap",
+		"/C/Projects/noah/TCG_CS_Engine/deploy.py",
 		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/bin/Debug/TCGApp/equipment/ships.tejson",
 		"/C/Users/Graham Voysey/AppData/Roaming/DigitalArcSystems/TCGApp/careers/Drifter.tcjson",
 		"/C/Users/Graham Voysey/AppData/Roaming/DigitalArcSystems/TCGApp/careers/Agent.tcjson",
@@ -331,7 +342,36 @@
 		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/7a2a40e3-ef61-4821-aeb9-531f4e93d67d.tchjson",
 		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/15eab82a-8b90-4730-aa01-e6f5d82a7948.tchjson",
 		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/df19484f-58eb-4767-a9b5-0f403dba6547.tchjson",
-		"/C/Users/Graham Voysey/Desktop/TCGApp/support/EntitiesToMeet.txt"
+		"/C/Users/Graham Voysey/Desktop/TCGApp/support/EntitiesToMeet.txt",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/874d9646-d6f2-4682-ae44-288ceeb8cc8c.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/worlds/spinward.sec",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Combat Implant.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/default.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/armor.json",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Scientific Equipment.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/weapons.json",
+		"/C/Users/Graham Voysey/Desktop/newApp/app.py",
+		"/C/Users/Graham Voysey/newApp/newApp.py",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis research/review of auditory neuropathy.md",
+		"/C/Users/Graham Voysey/newApp/newApp.yapsy-plugin",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Stunner, TL 8.tejson",
+		"/C/Users/Graham Voysey/Downloads/Traveller Gear (Updated).xlsx - Armor.tsv",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Aerosol Grenade.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/skills.json",
+		"/C/Users/Graham Voysey/Google Drive/curriculum vitae/.gitignore",
+		"/C/Users/Graham Voysey/Google Drive/BU/pandoc-config.json",
+		"/K/ME425 _Copy This_2013/ME425GUI.m",
+		"/K/ME425 _Copy This_2013/gen_pcodes.m",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Submachine Gun.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/talents.tcjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/careers/Agent.tcjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/898f1ffe-09a0-4671-b1f1-6ec2c8c6f0e9.tchjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/b919be62-fcfb-4b7c-b8fd-9168ccc8e18a.tchjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Accelerator Rifle.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/2f83f469-b090-4409-aa97-b5068bc39da2.tchjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/characters/ff4cd916-1259-4a15-97af-93272b63db9c.tchjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Reflec.tejson",
+		"/C/Projects/noah/EquipmentImporter/EquipmentImporter/Program.cs"
 	],
 	"find":
 	{
@@ -350,9 +390,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"range_size",
+			"depth_size",
 			"buecethesistitleboxpage",
-			"\\cleardoublepage{}",
-			"\\cleardoublepage",
 			"Review",
 			"Parent",
 			"6f50f525-19e9-4966-bf97-5606e2048d76",
@@ -436,7 +476,8 @@
 		"regex": false,
 		"replace_history":
 		[
-			"\\cleardoublepage{}"
+			"%",
+			"{}\n"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -447,87 +488,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
 					"file": "gvoysey-thesis.tex",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3602,
+						"buffer_size": 3571,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3197,
-								3197
+								817,
+								817
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -539,89 +521,32 @@
 				},
 				{
 					"buffer": 1,
-					"file": "2_LiteratureReview/LiteratureReview.tex",
+					"file": "apalike.sty",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2739,
+						"buffer_size": 1113,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								569,
-								569
+								61,
+								61
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+							"syntax": "Packages/LaTeX/TeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -637,71 +562,40 @@
 						"selection":
 						[
 							[
-								2301,
-								2301
+								2376,
+								2376
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "1_Intro/intro.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 238,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content"
-							],
+								237,
+								237
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -709,6 +603,118 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "4_Methods/methods.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								318,
+								318
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "5_Results/results.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 329,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								318,
+								318
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "6_Discussion/discussion.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "2_LiteratureReview/LiteratureReview.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								473,
+								473
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -757,10 +763,6 @@
 	{
 		"height": 112.0
 	},
-	"output.git":
-	{
-		"height": 118.0
-	},
 	"pinned_build_system": "",
 	"project": "gvoysey-thesis.sublime-project",
 	"replace":
@@ -775,6 +777,10 @@
 		"selected_items":
 		[
 			[
+				"intro",
+				"1_Intro/intro.tex"
+			],
+			[
 				"body",
 				"2_Body\\body.tex"
 			]
@@ -783,12 +789,12 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -807,7 +813,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 200.0,
+	"side_bar_width": 238.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
