@@ -7,4 +7,112 @@
 % also want to be ../Figures/2_Body/ or something. make sure that
 % it has a trailing directory separator (i.e., '/')!
 \graphicspath{{4_Methods/Figures/}}
-% scaling factor to equalize zilany and verhulst ANR output to a 15uV wave1 for an 80dB click
+
+\section{Summary} % (fold)
+\label{sec:summary}
+This chapter gives a detailed description of the modeling environment created for this Thesis.  First, the configuration of the overall system is detailed.  Second, the configuration and use of two models of the auditory periphery are detailed.  Third, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  Fourth, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Reponses.  Last, the utility of the system for large-scale simulation is shown. 
+% section summary (end)
+
+\section{Overview of Modeling Framework} % (fold)
+\label{sec:overview_of_modeling_framework}
+This section lays out the conceptual overview of the modeling framework created for this Thesis.  It is provisionally named ``Corti''\cite{Voysey2016Corti}, and is inspired by the EarLab project developed at Boston University as well as the ``Cochlea''\cite{Rudnicki2014Cochlea} modeling environment developed at the Technical University of Munich, from which it incorporates one peripheral model. 
+
+\begin{figure}[htbp]
+	\centering
+	%\includegraphics[width=0.95\textwidth]{}
+	\caption{Conceptual Overview of the Corti modeling environment.}
+	\label{fig:corti-overview}
+\end{figure}
+
+% section overview_of_modeling_framework (end)
+
+\section{Peripheral Models} % (fold)
+\label{sec:peripheral_models}
+Two models of the auditory periphery are included: the transmission-line model by \cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenoligical model by \cite{Zilany2014Updated} (henceforth ``The Zilany model'').
+
+\subsection{The Verhulst Model} % (fold)
+\label{sub:the_verhulst_model1}
+The Verhulst model is useful for broadband stimuli.  It handles off-frequency effects (dispersion) well, and produces detailed information about many stages of sound propagation.  Otoacoustic emissions are also modeled. 
+% subsection the_verhulst_model (end)
+\subsection{The Zilany Model} % (fold)
+\label{sub:the_zilany_model}
+The implementation of the Zilany model here was adapted from \cite{Rudnicki2014Cochlea}, who provided a python and C implementation that has been shown to produce identical output to the version documented by \cite{Zilany2014Updated}. 
+
+% subsection interoperability_of_the_zilany_and_verhulst_models (end)
+\subsection{Interoperability of the Zilany and Verhulst Models} % (fold)
+\label{sub:interoperability_of_the_zilany_and_verhulst_models}
+The classification of SR types differs between the Zilany and Verhulst models in their firing rate classification cutoffs.  For the purposes of this work, both support combining the low- and medium- rate fibers into one population with mean spike rates less than 18 spikes/sec.  
+% subsection the_zilany_model (end)
+
+\subsection{Peripheral Model Output} % (fold)
+\label{sub:peripheral_model_output}
+The Verhulst model provides estimates of many behaviors of the auditory periphery.  The Zilany model provides some of the same. 
+
+Both provide estimates of Instantaneous Firing Rate as a function of post-stimulus time for each combination of fiber type and best frequency, and these are passed to the next stage of the Corti environment.
+% subsection peripheral_model_output (end)
+
+% section peripheral_models (end)
+
+\section{Auditory Nerve Response Models} % (fold)
+\label{sec:auditory_nerve_response_models}
+This stage of processing converts IFRs of specific fiber populations into an estimate of the summed activity of the auditory nerve. 
+
+\subsection{Modeling Contributions of Inner Hair Cells} % (fold)
+\label{sub:contributions_to_the_response_by_inner_hair_cells}
+Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give responses of ``one'' fiber of each spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively summing the responses of each SR type. 
+
+Based on anatomical data, the Verhulst model assigns 19 fibers to each inner hair cell.  
+
+The Zilany model's output is summed accordingly. 
+% subsection contributions_to_the_response_by_inner_hair_cells (end)
+\subsection{Weighting of IHC contribution} % (fold)
+\label{sub:weighting_of_ihc_contribution}
+The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was emmpirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model Wave-1 ABR amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+
+To produce comparable results, the Zilany model was scaled accordingly. Using a small utility program which iteratively converged on a scaling factor with a tolerance of 1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
+% subsection weighting_of_ihc_contribution (end)
+
+
+\subsection{Weighting of Fiber Types per IHC} % (fold)
+\label{sub:weighting_of_fiber_types_per_ihc}
+Based on data from \cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
+\begin{figure}[htbp]
+	\centering
+	%\includegraphics[width=0.95\textwidth]{}
+	\caption{Curve-fitting of experimental results by Temchin}
+	\label{fig:temchin-curvefit}
+\end{figure}
+
+\subsubsection{Fractional weights}
+A consequence of determining fiber percentages at each IHC from experimental data is that it's more appropriate to think of them as weighted contributions rather than integer number of spiral ganglia.  Non-integer values are normal.  This is OK in the context of summing everything into auditory nerve responses, but probably isn't for probing individual fibers.  The modeling environment does let individual fiber responses be saved at the earlier stage if that's a desired feature.
+% subsection weighting_of_fiber_types_per_ihc (end)
+
+\subsection{Modeling Synaptopathy} % (fold)
+\label{sub:modeling_synaptopathy}
+Selective degredation of the auditory nerve response is modeled by scaling each fiber type at each CF by a percentage factor.  
+
+This will matter a lot when fiber types aren't linearlly allocated, and especially at high frequencies.
+% subsection modeling_synaptopathy (end)
+% section auditory_nerve_response_models (end)
+
+\section{Brainstem Models} % (fold)
+\label{sec:brainstem_models}
+This section details the two brainstem models in use, given by \cite{Nelson2004Phenomenological} and \cite{Carney2015Speech}.
+
+\subsection{The Nelson Carney 2004 Brainstem} % (fold)
+\label{sub:the_nelson_carney_2004_brainstem}
+
+% subsection the_nelson_carney_2004_brainstem (end)
+\subsection{The Carney 2015 Brainstem} % (fold)
+\label{sub:the_carney_2015_brainstem}
+
+% subsection the_carney_2015_brainstem (end)
+% section brainstem_models (end)
+
+\section{Usage of the Modeling Environment} % (fold)
+\label{sec:usage_of_the_modeling_environment}
+\subsection{Automated Parameter Exploration} % (fold)
+\label{sub:automated_parameter_exploration}
+
+% subsection automated_parameter_exploration (end)
+% section usage_of_the_modeling_environment (end)

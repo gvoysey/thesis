@@ -22,7 +22,8 @@
 \usepackage{color}
 \usepackage{pdfpages}
 \usepackage{parskip}
-%\usepackage{doi}
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 %==========================================================================%
 %%% graphicx and pdf creation
 \usepackage{graphicx}
@@ -92,7 +93,7 @@ bookmarksnumbered=true,%           % ... with numbers
 % Bibliography
 \newpage
 \singlespace{}
-\bibliographystyle{jneurosci}
+\bibliographystyle{plainnat}
 
 % each subdirectory can have its own BiBTeX file
 \nocite{*}
