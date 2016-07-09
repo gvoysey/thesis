@@ -10,7 +10,7 @@
 
 \section{Summary} % (fold)
 \label{sec:summary}
-This chapter gives a detailed description of the modeling environment created for this Thesis.  First, the configuration of the overall system is detailed.  Second, the configuration and use of two models of the auditory periphery are detailed.  Third, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  Fourth, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Reponses.  Last, the utility of the system for large-scale simulation is shown. 
+This chapter gives a detailed description of the modeling environment created for this Thesis.  First, the configuration of the overall system is detailed.  Second, the configuration and use of two models of the auditory periphery are detailed.  Third, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  Fourth, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Responses.  Last, the utility of the system for large-scale simulation is shown. 
 % section summary (end)
 
 \section{Overview of Modeling Framework} % (fold)
@@ -22,13 +22,13 @@ This section lays out the conceptual overview of the modeling framework created 
 	%\includegraphics[width=0.95\textwidth]{}
 	\caption{Conceptual Overview of the Corti modeling environment.}
 	\label{fig:corti-overview}
-\end{figure}
+	\end{figure}
 
 % section overview_of_modeling_framework (end)
 
 \section{Peripheral Models} % (fold)
 \label{sec:peripheral_models}
-Two models of the auditory periphery are included: the transmission-line model by \cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenoligical model by \cite{Zilany2014Updated} (henceforth ``The Zilany model'').
+Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenoligical model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').
 
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model1}
@@ -36,7 +36,7 @@ The Verhulst model is useful for broadband stimuli.  It handles off-frequency ef
 % subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
-The implementation of the Zilany model here was adapted from \cite{Rudnicki2014Cochlea}, who provided a python and C implementation that has been shown to produce identical output to the version documented by \cite{Zilany2014Updated}. 
+The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}. 
 
 % subsection interoperability_of_the_zilany_and_verhulst_models (end)
 \subsection{Interoperability of the Zilany and Verhulst Models} % (fold)
@@ -67,7 +67,7 @@ The Zilany model's output is summed accordingly.
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
 \subsection{Weighting of IHC contribution} % (fold)
 \label{sub:weighting_of_ihc_contribution}
-The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was emmpirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model Wave-1 ABR amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was emmpirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
 
 To produce comparable results, the Zilany model was scaled accordingly. Using a small utility program which iteratively converged on a scaling factor with a tolerance of 1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
@@ -75,7 +75,7 @@ To produce comparable results, the Zilany model was scaled accordingly. Using a 
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from \cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
+Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
 \begin{figure}[htbp]
 	\centering
 	%\includegraphics[width=0.95\textwidth]{}
@@ -97,7 +97,7 @@ This will matter a lot when fiber types aren't linearlly allocated, and especial
 
 \section{Brainstem Models} % (fold)
 \label{sec:brainstem_models}
-This section details the two brainstem models in use, given by \cite{Nelson2004Phenomenological} and \cite{Carney2015Speech}.
+This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
 \label{sub:the_nelson_carney_2004_brainstem}
