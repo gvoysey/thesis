@@ -23,6 +23,7 @@
 \usepackage{pdfpages}
 \usepackage{parskip}
 \usepackage{siunitx}
+\usepackage{cleveref}
 \sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
 %==========================================================================%
 %%% graphicx and pdf creation
@@ -34,7 +35,7 @@
 %\usepackage{thumbpdf}              % thumbnails for ps2pdf
 \usepackage[                       % hyper-references for ps2pdf
 colorlinks=true,
-linkcolor=mediumBlue,
+linkcolor=gray,
 citecolor=gray,
 bookmarks=true,%                   % generate bookmarks ...
 bookmarksnumbered=true,%           % ... with numbers
@@ -58,7 +59,7 @@ bookmarksnumbered=true,%           % ... with numbers
 %\newcommand{\chapref}[1]{Chapter~\ref{#1}}
 %\newcommand{\latex}{\LaTeX\xspace}
 %==========================================================================%
-
+\renewcommand*{\chapterautorefname}{Chapter}
 %==========================================================================%
 % BEGIN
 %==========================================================================%
@@ -71,7 +72,7 @@ bookmarksnumbered=true,%           % ... with numbers
 \include{1_Intro/intro}
 \cleardoublepage{}
 
-\include{2_LiteratureReview/LiteratureReview}
+\include{2_LiteratureReview/literature_review}
 \cleardoublepage{}
 
 \include{3_Aims/aims}
@@ -94,9 +95,7 @@ bookmarksnumbered=true,%           % ... with numbers
 \newpage
 \singlespace{}
 \bibliographystyle{plainnat}
-
-% each subdirectory can have its own BiBTeX file
-\nocite{*}
+ % each subdirectory can have its own BiBTeX file
 \bibliography{Remote}
 \cleardoublepage{}
 

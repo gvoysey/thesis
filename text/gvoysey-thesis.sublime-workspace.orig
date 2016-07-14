@@ -1,0 +1,801 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"this",
+				"thisValueOfX"
+			],
+			[
+				"string",
+				"string2"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "0_Prelim/quote.tex",
+			"settings":
+			{
+<<<<<<< HEAD
+				"buffer_size": 3602,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "% -*- root: ../gvoysey-thesis.tex -*-\n\\chapter{Literature Review}\n\\label{chapter:literaturereview}\n\\thispagestyle{myheadings}\n\n% set this to the location of the figures for this chapter. it may\n% also want to be ../Figures/2_Body/ or something. make sure that\n% it has a trailing directory separator (i.e., '/')!\n\\graphicspath{{2_LiteratureReview/Figures/}}\n\n\\section{Cochlear Synaptopathy} % (fold)\n\\label{sec:cochlear_synaptopathy}\n% section cochlear_synaptopathy (end)\n\n\\section{Physiology of the Auditory Nerve} % (fold)\n\\label{sec:physiology_of_the_auditory_nerve}\n\\subsection{Spontaneous Rates of Fibers} % (fold)\n\\label{sub:spontaneous_rates_of_fibers}\n\n% subsection spontaneous_rates_of_fibers (end)\n\\subsection{Low Spontaneous Rate Fibers Suffer Selective Losses} % (fold)\n\\label{sub:low_spontaneous_rate_fibers_suffer_selective_losses}\n\n% subsection low_spontaneous_rate_fibers_suffer_selective_losses (end)\n\n\\subsection{Current Controversies} % (fold)\n\\label{sub:current_controversies}\n% subsection current_controversies (end)\n% section physiology_of_the_auditory_nerve (end)\n\n\\section{Relevant Functional Neuroanatomy of the Auditory Midbrain} % (fold)\n\\label{sec:relevant_functional_neuroanatomy_of_the_auditory_midbrain}\n\\subsection{The Dorsal Cochlear Nucleus} % (fold)\n\\label{sub:the_dorsal_cochlear_nucleus}\n\\subsubsection{The Small Cap Area} % (fold)\n\\label{ssub:the_small_cap_area}\n\n% subsubsection the_small_cap_area (end)\n% subsection the_dorsal_cochlear_nucleus (end)\n\\subsection{The Ventral Cochlear Nucleus} % (fold)\n\\label{sub:the_ventral_cochlear_nucleus}\n\n% subsection the_ventral_cochlear_nucleus (end)\n\\subsection{The Inferior Colliculus} % (fold)\n\\label{sub:the_inferior_colliculus}\n\n% subsection the_inferior_colliculus (end)\n% section functional_neuroanatomy_of_the_auditory_midbrain (end)\n\n\\section{Auditory Modeling Environments} % (fold)\n\\label{sec:auditory_modeling_environments}\n\\subsection{The Carney Models} % (fold)\n\\label{sub:the_carney_models}\n\\subsubsection{The Zilany and Bruce Models} % (fold)\n\\label{ssub:zilany_and_bruce_2009_2014}\n\n% subsubsection zilany_and_bruce_2009_2014 (end)\n\\subsubsection{Modulation Transfer Functions in the Inferior Colliculus} % (fold)\n\\label{ssub:modulation_transfer_functions_in_the_inferior_colliculus}\n\n% subsubsection modulation_transfer_functions_in_the_inferior_colliculus (end)\n% subsection the_carney_models (end)\n\n\\subsection{The Verhulst Model} % (fold)\n\\label{sub:the_verhulst_model}\n\n% subsection the_verhulst_model (end)\n\n% section auditory_modeling_environments (end)\n\n\\section{Objective Measures of Cochlear Synaptopathy} % (fold)\n\\label{sec:objective_measures_of_cochlear_synaptopathy}\n\n% section objective_measures_of_cochlear_synaptopathy (end)\n",
+			"file": "2_LiteratureReview/LiteratureReview.tex",
+			"file_size": 2747,
+			"file_write_time": 131031565011435821,
+			"settings":
+			{
+				"buffer_size": 2739,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "0_Prelim/prelim.tex",
+			"settings":
+			{
+				"buffer_size": 4599,
+=======
+				"buffer_size": 1258,
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXing/LaTeX.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+<<<<<<< HEAD
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+=======
+				"git stat",
+				"Git: Status"
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit"
+			],
+			[
+				"git add a",
+				"Git: Add All"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"set syntax te",
+				"Set Syntax: TeX"
+			],
+			[
+				"git commt",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"git commit",
+				"Git: Quick Commit"
+			],
+			[
+				"git add ",
+				"Git: Add All"
+			],
+			[
+				"git quic",
+				"Git: Quick Commit"
+			],
+			[
+				"clean",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"git com",
+				"Git: Quick Commit"
+			],
+			[
+				"git  add ",
+				"Git: Add All"
+			],
+			[
+				"latex cle",
+				"Build With: LaTeX - Clean up Files"
+			],
+			[
+				"latex",
+				"LaTeXing: Synchronise Remote Data"
+			],
+			[
+				"latexing sy",
+				"LaTeXing: Synchronise Remote Data"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"markdo",
+				"MarkdownEditing: Markdown Lint"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"google",
+				"Google Spell Check"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"update ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"latexing",
+				"Preferences: LaTeXing Settings - Default (Extended)"
+			],
+			[
+				"isn",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"instlal",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Pull"
+			],
+			[
+				"open f",
+				"Github: Open File"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"clear()"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Graham Voysey/Projects/thesis/text",
+		"/C/Users/Graham Voysey/Projects/thesis/text/0_Prelim"
+	],
+	"file_history":
+	[
+<<<<<<< HEAD
+		"/Users/gvoysey/Projects/thesis/text/1_Intro/intro.tex",
+		"/Users/gvoysey/Projects/thesis/text/0_Prelim/prelim.tex",
+		"/Users/gvoysey/Projects/thesis/text/bu_ece_thesis.sty",
+		"/Users/gvoysey/Projects/thesis/text/gvoysey-thesis.tex",
+		"/C/Projects/wagner-bellhop/Docker/build.sh",
+		"/C/Projects/thesis-code/docker/Dockerfile",
+		"/C/Users/Graham Voysey/Desktop/17 Mar 16 - 1447/test.yaml",
+		"/C/Users/Graham Voysey/.jupyter/jupyter_qtconsole_config.py",
+		"//ad.bu.edu/eng/users/g/v/gvoysey/verhulst-output/17 Mar 16 - 1326/conf.yaml",
+		"/C/Users/Graham Voysey/.gitconfig",
+		"/C/Projects/noah/TCG_CS_Engine/.git/credential.log",
+		"/C/Projects/noah/TCG_CS_Engine/.git/config",
+		"/C/Users/Graham Voysey/.ipython/profile_default/startup/00-first.py",
+		"/C/Projects/thesis-code/.gitignore",
+		"/C/Users/Graham Voysey/Downloads/verhulst-2016/verhulst-2016/run_periphery.py",
+		"/C/Projects/thesis-code/models/verhulst-2016/out/Clicks/CNIC/ICClicksRatio.m",
+		"/C/Users/Graham Voysey/.ipython/README",
+		"/C/Users/Graham Voysey/.ipython/profile_default/startup/README",
+		"/C/Projects/noah/TCG_CS_Engine/deploy.py",
+		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/RUN_BMAN.m",
+		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 38/configuration.json",
+		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 27/configuration.json",
+		"//ad.bu.edu/eng/users/g/v/gvoysey/Projects/thesis-code/output/02 Mar 16 11 00/configuration.json",
+		"/C/Projects/unlock-plugins/unlock/lsltest.py",
+		"/C/Projects/unlock-plugins/unlock/unlock_runtime.py",
+		"/C/Users/Graham Voysey/Desktop/slack-2.0.1-full/slack.nuspec",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Scripts/Backdrops/LoadingScreen.cs",
+		"/C/Projects/thesis-code/configuration-notes.md",
+		"/C/Projects/thesis-code/thesis-code-dockerfile",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/winconv.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/ps3.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/ps3_6.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/energy.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be519/zerocross.m",
+		"/C/Users/Graham Voysey/Desktop/dict.json",
+		"/C/Users/Graham Voysey/Desktop/list.json",
+		"/C/Users/Graham Voysey/Desktop/container.json",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/voysey - startup instructions.md",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/cochlea_utils.c",
+		"/C/Users/Graham Voysey/WinPython-64bit/python-2.7.6.amd64/Lib/site-packages/numpy/f2py/docs/FAQ.txt",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/text/1_Intro/intro.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/text/0_Prelim/prelim.aux",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/RUN_BMAN.m",
+		"/C/Projects/unlock-plugins/unlock/base.py",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/cochlear_model_old.py",
+=======
+		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXing.sublime-settings",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/1_Intro/intro.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/2_LiteratureReview/LiteratureReview.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/ack.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/3_Conclusion/conclusion.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/quote.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/bu_ece_thesis.sty",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/2_Body/LiteratureReview.tex",
+		"/C/Users/Graham Voysey/AppData/Roaming/DigitalArcSystems/TCGDebugLog.txt",
+		"/C/Users/Graham Voysey/AppData/Roaming/Microsoft/VisualStudio/14.0/ActivityLog.xml",
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/run_periphery.py",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/RUN_BMAN.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/voysey - startup instructions.md",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/abs.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/2_Body/body.tex",
+		"/C/Users/Graham Voysey/Google Drive/curriculum vitae/.git/index[Conflict]",
+		"/C/Projects/wagner-bellhop/csharp/oaml-converters/readme.md",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/tridiag.so",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/periphery.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/amtoolbox/Contents.m",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis-code/models/verhulst-2016/ANF_Sarah.py",
+		"/C/Users/Graham Voysey/AppData/Roaming/ESME Workbench/app.log",
+		"/C/Projects/wagner-bellhop/csharp/oaml-extractor/bin/Debug/oamlData--19-01-2016--01-06.json",
+		"/C/Projects/wagner-bellhop/csharp/oaml-extractor/bin/Debug/oamlData--18-01-2016--08-24.json",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/Remote.bib",
+		"//corti.bu.edu/Software/Windows/Visual Studio 2015/KEY.txt",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/gvoysey-thesis.bbl",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/.gitignore",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/1_Intro/intro.aux",
+		"/C/Users/Graham Voysey/Desktop/labstreaminglayer/LSL/liblsl-Csharp/readme.txt",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.md",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/0_Prelim/prelim (1).aux",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis/gvoysey-thesis.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis proposal/proposal.bbl",
+		"/C/Users/Graham Voysey/AppData/Roaming/Sublime Text 3/Packages/LaTeXing/Default (Windows).sublime-keymap",
+		"/C/Projects/noah/TCG_CS_Engine/deploy.py",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/bin/Debug/TCGApp/equipment/ships.tejson",
+		"/C/Users/Graham Voysey/AppData/Roaming/DigitalArcSystems/TCGApp/careers/Drifter.tcjson",
+		"/C/Users/Graham Voysey/AppData/Roaming/DigitalArcSystems/TCGApp/careers/Agent.tcjson",
+		"/C/Users/Graham Voysey/Google Drive/pdfs/Authority and American Usage/authority.md",
+		"/C/Users/Graham Voysey/Downloads/usb140201/readme.txt",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/ek501/article_template.tex",
+		"/C/Users/Graham Voysey/Google Drive/BU/old/be517/lab 1/lab1.tex",
+		"/C/Projects/noah/TCG_CS_Engine/resources/skills.skjson",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/bin/Debug/TCGApp/equipment/gear.tejson",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/bin/Debug/TCGApp/equipment/armor.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/weapons.tejson",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/bin/Debug/TCGApp/support/skills.skjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/gear.tejson",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool/AssetAuthoringTool.csproj",
+		"/C/Projects/noah/RPGsuite_Utilities/AssetAuthoringTool.sln",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/tcg_config.conf",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/careers/Agent.tcjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/armor.tejson",
+		"/C/Projects/noah/RPGsuite_Utilities/EquipmentImporter/bin/Debug/TCGApp/careers/Agent.tcjson",
+		"/C/Projects/noah/RPGsuite_Utilities/EquipmentImporter/bin/Debug/TCGApp/support/talents.tcjson",
+		"/C/Projects/noah/RPGsuite_Utilities/EquipmentImporter/bin/Debug/TCGApp/support/skills.skjson",
+		"/C/Projects/noah/TCG_CS_Engine/src/com/digitalarcsystems/Traveller/DataManager.cs",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/support/skills.skjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/support/talents.tcjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/00446fd0-a306-49c9-8ce9-39554aa9221f.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/fb0d2a83-2c95-4ba6-9e86-2b931f0977d1.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/5d5a2a41-6fa4-4cf5-87a9-093ae24a135b.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/e8c6c3b6-2f23-4724-a603-f7cb28b7b3a1.tchjson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/armor.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/skills.skjson",
+		"/C/Projects/noah/TCG_CS_Engine/.gitignore",
+		"/C/Projects/noah/RPGsuite_Utilities/resources/Traveller Gear (Updated).xlsx - Armor.tsv",
+		"/C/Projects/noah/TCG_CS_Engine/deploy.sh",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/Imivetokulup.tchjson",
+		"/C/Users/Graham Voysey/Google Drive/curriculum vitae/gvoysey-resume.tex",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/careers/Army.tcjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/Ocopubenotay.tchjson",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/DebugLog.txt",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Resources/EngineData/TCGApp/careers/Marines.tcjson",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Resources/EngineData/TCGApp/careers/Navy.tcjson",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Resources/EngineData/TCGApp/careers/Army.tcjson",
+		"/C/Projects/infrasound/presentationGUI.m",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/careers/Prison.tcjson",
+		"/C/Users/Graham Voysey/Downloads/Zilany 2014 Code and paper/model_IHC.c",
+		"/C/Projects/infrasound/har_an.m",
+		"/C/Users/Graham Voysey/AppData/Local/Temp/Temp1_Zilany 2014 Code and paper.zip/readme.txt",
+		"/C/Users/Graham Voysey/Downloads/Zilany 2014 Code and paper/ANmodel.m",
+		"/C/Users/Graham Voysey/Downloads/Zilany 2014 Code and paper/ffGn.m",
+		"/C/Users/Graham Voysey/Downloads/Zilany 2014 Code and paper/testANModel.m",
+		"/C/Users/Graham Voysey/Downloads/Zilany 2014 Code and paper/mexANmodel.m",
+		"/C/Projects/noah/TCG_CS_Engine/deployDLLs.bat",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/equipment/armor.tejson",
+		"/C/Projects/noah/EquipmentImporter/EquipmentImporter/EquipmentImporter.csproj.user",
+		"/C/Projects/noah/EquipmentImporter/EquipmentImporter/App.config",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/races/Aslan.trjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/Ovivikoputuy.tchjson",
+		"/C/Projects/noah/EquipmentImporter/EquipmentImporter/packages.config",
+		"/C/Projects/noah/EquipmentImporter/packages/repositories.config",
+		"/C/Projects/noah/TCG_CS_Engine/buildallplatforms.bat",
+		"/C/Projects/esme/BuildAndDeploy.bat",
+		"/C/Projects/esme/BuildAndDeployPublicRelease.bat",
+		"/C/Projects/esme/generateDox.bat",
+		"/C/Projects/noah/TravellerUnity/CharacterGenerator/Assets/Engine Unity/UnityCharaterGenerationAlgorithm.cs",
+		"/C/Projects/noah/TCG_CS_Engine/resources/spinward.txt",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/6131bbc5-30b9-4783-ba07-17765c808cba.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/af8e2702-4de8-49a9-bbb7-15b50f27aff2.tchjson",
+		"/C/Projects/LMR-Acquisition/matlab/consolidate.m",
+		"/C/Projects/LMR-Acquisition/matlab/concatenateDICOM.m",
+		"/C/Projects/infrasound/mongo-matlab-driver-master/Mongo.m",
+		"/C/Projects/infrasound/matlab-bson-master/README.md",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/7a2a40e3-ef61-4821-aeb9-531f4e93d67d.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/15eab82a-8b90-4730-aa01-e6f5d82a7948.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/df19484f-58eb-4767-a9b5-0f403dba6547.tchjson",
+<<<<<<< HEAD
+		"/C/Users/Graham Voysey/Desktop/TCGApp/support/EntitiesToMeet.txt"
+=======
+		"/C/Users/Graham Voysey/Desktop/TCGApp/support/EntitiesToMeet.txt",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/characters/874d9646-d6f2-4682-ae44-288ceeb8cc8c.tchjson",
+		"/C/Users/Graham Voysey/Desktop/TCGApp/worlds/spinward.sec",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Combat Implant.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/default.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/armor.json",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Scientific Equipment.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/weapons.json",
+		"/C/Users/Graham Voysey/Desktop/newApp/app.py",
+		"/C/Users/Graham Voysey/newApp/newApp.py",
+		"/C/Users/Graham Voysey/Google Drive/BU/thesis research/review of auditory neuropathy.md",
+		"/C/Users/Graham Voysey/newApp/newApp.yapsy-plugin",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Stunner, TL 8.tejson",
+		"/C/Users/Graham Voysey/Downloads/Traveller Gear (Updated).xlsx - Armor.tsv",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/equipment/Aerosol Grenade.tejson",
+		"/C/Projects/noah/TCG_CS_Engine/resources/TCGApp/support/skills.json"
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"buecethesistitleboxpage",
+			"BUlogo_cmyk",
+			"Here's the important stuff!",
+			"abbreviation",
+			"\\cite{",
+			"TBD",
+			"Review",
+			"Parent",
+			"6f50f525-19e9-4966-bf97-5606e2048d76",
+			"d9907fb0-35e6-4018-b6ca-045917e31485",
+			"createconfiguration",
+			"zero",
+			"Id",
+			"commisionedRanks",
+			"Flight",
+			"hasC",
+			"_Renamed",
+			"_has",
+			"Ranks",
+			"ranks",
+			"commission",
+			"comission",
+			"has",
+			"UI is done: ScreenManager is caling enginee.nextStep(); isEngineBusy == False (current screen was: HOMEWORLD)",
+			"calling decision ",
+			"genericState",
+			"Prison",
+			"Name",
+			"Cost",
+			"Cost		",
+			"cost",
+			"cfr",
+			"covered entity",
+			"phi",
+			"disclosure acc",
+			"authorization",
+			"inducements",
+			"deferential vul",
+			"legally auth",
+			"informed consent",
+			"information",
+			"continuing review",
+			"changes",
+			"expedited",
+			"adverse",
+			"national research",
+			"prisoners",
+			"nuremberg",
+			"dataManager",
+			"talchek",
+			"failureoutcomes",
+			"failures",
+			"challenges",
+			"mishap",
+			"Multiple",
+			"skills",
+			"age",
+			"specializationskills",
+			"attribute",
+			"education",
+			"rank",
+			"ranks",
+			"draft",
+			"specializationSkills",
+			"barbarian",
+			"Name",
+			"got race:",
+			"got r",
+			"fromJS",
+			"in race",
+			"droyn",
+			"aslan",
+			"Aslan",
+			"saving race",
+			"Character.generateCharacteristics:",
+			"worlds loaded",
+			"switch",
+			"estimation",
+			"# ",
+			"\n%",
+			"gaze",
+			"gaze_pos"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "0_Prelim/quote.tex",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								686,
+								686
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+<<<<<<< HEAD
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "2_LiteratureReview/LiteratureReview.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								569,
+								569
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+=======
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+<<<<<<< HEAD
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.git":
+	{
+		"height": 118.0
+	},
+=======
+>>>>>>> 504c30d4c2d9f461e9405e93b84ac9e1fd6be730
+	"pinned_build_system": "",
+	"project": "gvoysey-thesis.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"body",
+				"2_Body\\body.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Graham Voysey\\Google Drive\\BU\\thesis proposal\\proposal.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

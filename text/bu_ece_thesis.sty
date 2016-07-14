@@ -78,8 +78,8 @@
 
 \textwidth 6.0in               % Leaves 1.0in right margin (was 6.1875in)
 
-\topmargin 0in                 % Additional top margin (to the top of the header).
-                               % Header height and header separator add 0.5in 
+\topmargin 0.6875in            % Additional top margin (to the top of the header).
+% \topmargin 0.4in                              % Header height and header separator add 0.5in 
                                % Total top margin: 1in + 0.5in = 1.5in
 
 \headheight 12pt               % Header for numbering and running titles.
@@ -111,6 +111,9 @@
 %   2 - Doctoral Dissertation,
 %   3 - Master of Science Thesis and Doctoral Dissertation
 \newcount\degree
+
+% Number of advisors (1 or 2)
+\newcount\numadvisors
 
 % Your previous degree(s). If more than one degree, use single spacing
 \def\prevdegrees#1{\gdef\@prevdegrees{#1}}
@@ -153,16 +156,23 @@
 % Major professor, should be same as first reader. Goes in abstract page
 \def\majorprof#1#2{\gdef\@majorprofname{#1}\gdef\@majorproftitle{#2}}
 
+% Second major professor
+\def\majorprofb#1#2{\gdef\@majorprofnameb{#1}\gdef\@majorproftitleb{#2}}
+
+% Third major professor
+\def\majorprofc#1#2{\gdef\@majorprofnamec{#1}\gdef\@majorproftitlec{#2}}
+
+% Third major professor
+\def\majorprofd#1#2{\gdef\@majorprofnamed{#1}\gdef\@majorproftitled{#2}}
 
 %               TITLE BOX PAGE
 %
 % BU-ECE title box page - first page to fit the cut-out in the front cover
-% old value was 6.2 cm not 7.0 -- gv
 \def\buecethesistitleboxpage{%
   \thispagestyle{empty}
   \vglue 3.6cm
   \fboxsep=10pt\fboxrule=1pt\hglue 1.25cm
-  \Ovalbox{\vbox to 7.0cm{\vfill\hbox{\vtop{\hsize=9.7cm\parindent=0pt
+  \Ovalbox{\vbox to 6.2cm{\vfill\hbox{\vtop{\hsize=9.7cm\parindent=0pt
         \renewcommand{\baselinestretch}{1.5}
         \bf\sffamily\begin{center}\MakeUppercase{\@title}\end{center}
         \sl\sffamily\begin{center}\MakeUppercase{\@author}\end{center}
@@ -232,8 +242,9 @@ requirements for the \@degreeword\ of\\
 \end{titlepage}}
 
 %               COPYRIGHT PAGE
-% Separate Copyright page. If it exists, it gets roman numeral ii but
-% the page number is not printed. The name must be in allcaps
+% Separate Copyright page. It gets roman numeral ii but the page
+% number is not printed. The name must be in allcaps. This page
+% MUST NOT be removed or the library will not accept the thesis.
 % \def\copyrightpage{\newpage\thispagestyle{empty}
 % \null\vfill\par
 % \begin{center}\large
@@ -249,9 +260,9 @@ requirements for the \@degreeword\ of\\
 \hspace{2in}
 \large \copyright \hspace{1ex} 
 \begin{minipage}[t]{3in}
-Copyright \\
-\@author\\
-\@defenseyear
+\@degreeyear \ by \\
+\MakeUppercase{\@author}\\
+All rights reserved
 \end{minipage}
 \end{singlespace}}
 
@@ -274,27 +285,121 @@ Approved by\\[2em]
 \begin{center}
 \begin{doublespace}
 {\large
-\MakeUppercase{{\bf \@title}}\par
-\ifcase\degree\or\or
-  (Order No. \hspace{1.0in})\\[1em] \or
-  (Order No. \hspace{1.0in})\\[1em] \fi
+\MakeUppercase{{\bf \@title}}\\[1em]%\par
+%\ifcase\degree\or\or
+%  (Order No. \hspace{1.0in})\\[1em] \or
+%  (Order No. \hspace{1.0in})\\[1em] \fi
 \MakeUppercase{{\bf \@author}}\\[1em]
 \ifcase\degree\or\or
 \Bu,\ \Coe, \@degreeyear
 \par
+
 % Major Professor: \@majorprofname, \@majorproftitle
-\mbox{Major Professor: \begin{minipage}[t]{4in}
-    \vspace*{-0.7\baselineskip} \begin{singlespace} \@majorprofname, 
-    \@majorproftitle \end{singlespace} \end{minipage}}
+\ifcase\numadvisors\or
+	\mbox{Major Professor:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle}
+		\end{singlespace}
+	\end{minipage}}
+	\or
+	\mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+    	\vspace*{-0.7\baselineskip}
+    	\begin{singlespace}
+    		\flushleft{\@majorprofname \\
+    			\@majorproftitle \\ \vspace{3mm}
+    			\@majorprofnameb  \\
+    			\@majorproftitleb}
+    	\end{singlespace}
+    \end{minipage}}
+    \or
+    \mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle \\ \vspace{3mm}
+				\@majorprofnameb  \\
+				\@majorproftitleb \\ \vspace{3mm}
+				\@majorprofnamec  \\
+				\@majorproftitlec}
+		\end{singlespace}
+	\end{minipage}}
+	\or
+	\mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle \\ \vspace{3mm}
+				\@majorprofnameb  \\
+				\@majorproftitleb \\ \vspace{3mm}
+				\@majorprofnamec  \\
+				\@majorproftitlec \\ \vspace{3mm}
+				\@majorprofnamed  \\
+				\@majorproftitled}
+		\end{singlespace}
+	\end{minipage}}
+\fi
 \par
 \vspace{\baselineskip}
 \or
 \Bu,\ \Coe, \@degreeyear
 \par
+
 % Major Professor: \@majorprofname, \@majorproftitle
-\mbox{Major Professor: \begin{minipage}[t]{4in}
-    \vspace*{-0.79\baselineskip} \begin{singlespace} \@majorprofname, 
-    \@majorproftitle \end{singlespace} \end{minipage}}
+\ifcase\numadvisors\or
+	\mbox{Major Professor:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle}
+		\end{singlespace}
+	\end{minipage}}
+	\or
+	\mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle \\ \vspace{3mm}
+				\@majorprofnameb  \\
+				\@majorproftitleb}
+		\end{singlespace}
+	\end{minipage}}
+	\or
+	\mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle \\ \vspace{3mm}
+				\@majorprofnameb  \\
+				\@majorproftitleb \\ \vspace{3mm}
+				\@majorprofnamec  \\
+				\@majorproftitlec}
+		\end{singlespace}
+	\end{minipage}}
+	\or
+	\mbox{Major Professors:
+	\begin{minipage}[t]{4.5in}
+		\vspace*{-0.7\baselineskip}
+		\begin{singlespace}
+			\flushleft{\@majorprofname \\
+				\@majorproftitle \\ \vspace{3mm}
+				\@majorprofnameb  \\
+				\@majorproftitleb \\ \vspace{3mm}
+				\@majorprofnamec  \\
+				\@majorproftitlec \\ \vspace{3mm}
+				\@majorprofnamed  \\
+				\@majorproftitled}
+		\end{singlespace}
+	\end{minipage}}
+\fi
 \par
 \vspace{\baselineskip}
 \fi
@@ -342,7 +447,6 @@ ABSTRACT
 % \@makechapterhead {TEXT} : Makes the heading for the \chapter
 % command.
 %
-
 \def\@makechapterhead#1{             % Heading for \chapter command
   \vspace*{32pt}                     % Space at top of text page.
   { \parindent 0pt \raggedright
