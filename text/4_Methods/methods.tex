@@ -30,7 +30,10 @@ Corti is a command-line tool written in Python and C, and designed to be used in
 
 % subsection inputs_to_corti (end)
 % section overview_of_modeling_framework (end)
-
+\section{Stimulus Generation} % (fold)
+\label{sec:stimulus_generation}
+Corti supports simulations of stimuli of arbitrary duration and level.  Simple stimuli such as clicks are generated programmatically by specifying a series of parameters such as onset time and duration, and more complex stimuli can be specified as WAV files.  All WAV stimuli must have a level in dB SPL (re 20$\mu$Pa) specified; the waveform is then normalized by the peak value (in the case of a click) or the RMS value (for spectrally complex stimuli) and rescaled to have units of Pascals. 
+% section stimulus_generation (end)
 \section{Peripheral Models} % (fold)
 \label{sec:peripheral_models}
 Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').
@@ -41,8 +44,8 @@ The Verhulst model is useful for broadband stimuli.  It handles off-frequency ef
 
 The theoretical background of the model is discussed in chapter 2.
 
-Since the development of the Verhulst model is still underway, Corti provides an interface to it as a seperate Python package.  This provides a seperation of concerns between the projects, and allows both Corti and the Verhulst model to be updated independently of each other as new features are made available in both. 
-.% subsection the_verhulst_model (end)
+Since the development of the Verhulst model is still underway, Corti provides an interface to it as a separate Python package.  This provides a separation of concerns between the projects, and allows both Corti and the Verhulst model to be updated independently of each other as new features are made available in both. 
+% subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
 The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}. 
@@ -95,9 +98,6 @@ Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber typ
 \end{figure}
 
 The empirical fit equation that estimates the percentage of fibers innervating a given inner hair cell as a function of best frequency was found to be: 
-\begin{equation}
-	
-\end{equation}
 
 \subsubsection{Fractional weights}
 A consequence of the approach taken in section~\ref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summmed response of that IHC that arises from a given fiber type is no longer guaranteed to be an integer number of fibers.  Therefore, it is appropriate to think of such values as weighted contributions rather than individual spiral ganglia.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. If the model response of individual unitary fibers is desired, the modeling environment saves individual fiber responses at the level of the periphery.

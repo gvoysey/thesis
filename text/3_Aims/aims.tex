@@ -10,20 +10,20 @@
 
 This thesis investigates the models of the peripheral and central auditory systems and the utility of their predictive abilities of cochlear synaptopathy. 
 
-This project was divided into three aims.  First, developing a coherent modeling environment that combined two leading models of the auditory periphery into one software package where the efficacy of each model could be compared ``head to head.''  Second, to advance the state of the models of the auditory periphery by extending them with new capabilities supported by available anatomical and physiological research.  Third, to use the improved toolchain to explore the proposed mechanisms underlying psychophysical and large-scale electrophysiological studies of cochlear synaptopathy with higher fidelity.
+Three aims were established.  First, to develop a coherent modeling environment that combines two leading models of the auditory periphery into one software package where the utility of each model could be compared head to head.  Second, to advance the state of the models of the auditory periphery by extending them with new capabilities supported by available anatomical and physiological research.  Third, to use the developed tool to explore the proposed mechanisms underlying psychophysical and large-scale electrophysiological studies of cochlear synaptopathy with higher fidelity.
 
 
 \section{Aim I. Simulate the ABR response to a forward-masking task with variable SR contributions.}
-A modeling environment was created using Python.  It incorporates two peripheral models of the auditory system: the Zilany model with humanized parameters \citep{Zilany2014Updated} and the Verhulst model \citep{Verhulst2015Functional}.  
+A modeling environment was created.  It incorporates two peripheral models of the auditory system: the Zilany model with humanized parameters \citep{Zilany2014Updated} and the Verhulst model \citep{Verhulst2015Functional}.  
 
 The Cochlea modeling environment \citep{Rudnicki2014Cochlea} was used to provide easy integration of the Zilany model. The transmission-line model of~\cite{Verhulst2015Functional}, which has the potential to perform better in broadband noise and accounts for cochlear dispersion, was directly integrated.
 At the conclusion of this aim, direct comparisons between the outputs of~\cite{Zilany2014Updated} and~\cite{Verhulst2015Functional} were performed.
 
 \section{Aim II. Integrate improved brainstem models.}  
 
-We hypothesize that the current approach to IC modeling taken in~\cite{Verhulst2015Functional} does not fully account for the responses to a low-SR knockout AN model, and consequently under-represents the effects on the ABR wave V that have been experimentally measured.  
+We hypothesized that the current approach to IC modeling taken in~\cite{Verhulst2015Functional,Mehraei2016Auditory} does not fully account for the responses to a low-SR knockout AN model, and consequently under-represents the effects on the ABR wave V that have been experimentally measured.  
 
-In particular, an extension of the approach currently taken by~\cite{Verhulst2015Functional} was presented by~\cite{Carney2015Speech}.  It provides multiple classes of IC neurons that were shown to track complex tones (vowel formants) in noise.  To guide the selection of model weights and connectivities, relevant neuro-anatomical literature will be consulted.  Crucially, studies by~\cite{Ryugo2008Projections} and others have shown selectivities in SR projections to the small cap of the DCN, which will guide modeling work by introducing specificities in weighting. Further, while the latency change trend is preserved between both the models proposed by \citeauthor{Zilany2014Updated} and \citeauthor{Verhulst2015Functional}, the magnitude of the effect is greatly different.  
+In particular, an extension of the approach currently taken by~\cite{Verhulst2015Functional} was presented by~\cite{Carney2015Speech}.  It provides multiple classes of IC neurons that were shown to track complex tones (vowel formants) in noise.  To guide the selection of model weights and connectivities, relevant neuro-anatomical literature were consulted.  Crucially, studies by~\cite{Ryugo2008Projections} and others have shown selectivities in SR projections to the small cap of the DCN, which will guide modeling work by introducing specificities in weighting. Further, while the latency change trend is preserved between both the models proposed by \citeauthor{Zilany2014Updated} and \citeauthor{Verhulst2015Functional}, the magnitude of the effect is greatly different.  
 
 This discrepancy may be remedied by introduction of new IC modeling components, which are better incorporated in the~\cite{Zilany2014Updated} model.
 
