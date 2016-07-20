@@ -7,6 +7,39 @@
 % also want to be ../Figures/2_Body/ or something. make sure that
 % it has a trailing directory separator (i.e., '/')!
 \graphicspath{{5_Results/Figures/}}
+\section{Chapter Summary} % (fold)
+\label{sec:chapter_summary}
+This chapter describes the results obtained when using the modeling environment described in~\autoref{chapter:Methods} to simulate a series of tone---in---noise experiments thought to elucidate certain aspects of cochlear synaptopathy. 
 
-This chapter describes the results obtained when using the modeling environment described in~\autoref{chapter:Methods} to simulate a series of tone--in--noise experiments thought to elucidate certain aspects of cochlear synaptopathy. 
+% section chapter_summary (end)
 
+\section{Tone in noise} % (fold)
+\label{sec:tone_in_noise}
+\begin{itemize}
+	\item Ran the same stimului used by \cite{Mehraei2015Auditory}: 80dB click, varying SNR
+	\item Ran 1208 model configurations which varied  the stimulus SNR, the level and type of synaptopathy applied to the results, which peripheral model was used, whether the BM had any cf-weighting, and which brainstem model was used. 
+	\item used a python library and cluster resources to make sure the results are easily searchable. 
+	\item roughly 400 GB of model results.
+	\item Can now examine the effects of individual parameter changes. 
+	\item can now compare results to both prior modeling results and human data. 
+\end{itemize}
+% section tone_in_noise (end)
+\section{Effect of peripheral model} % (fold)
+\label{sec:effect_of_peripheral_model}
+The verhulst and zilany models will produce different estimates of the auditory nerve response. Prior work had their results very different; with recent changes to the verhulst model, this may have changed.
+% section effect_of_peripheral_model (end)
+
+\section{Effect of Synaptopathy} % (fold)
+\label{sec:effect_of_synaptopathy}
+Six kinds of synaptopathy were simulated: uniform and low-- and medium--SR specific losses of 10, 25, and 50 percent of each fiber type. 
+% section effect_of_synaptopathy (end)
+
+\section{Effect of CF weighting} % (fold)
+\label{sec:effect_of_cf_weighting}
+In models of the periphery that include more low SR fibers at high frequencies, synaptopathic losses will change.
+% section effect_of_cf_weighting (end)
+
+\section{Effect of brainstem model} % (fold)
+\label{sec:effect_of_brainstem_model}
+Does our intuition about a more physiologicaly relevant brainstem and midbrain model capturing more of the diversity of human responses bear out? 
+% section effect_of_brainstem_model (end)
