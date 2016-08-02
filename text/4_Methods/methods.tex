@@ -15,7 +15,12 @@ This chapter gives a detailed description of the modeling environment created fo
 
 \section{Overview of Modeling Framework} % (fold)
 \label{sec:overview_of_modeling_framework}
-The modeling framework created for this thesis has been named Corti\citep{Voysey2016Corti}. It is architecturally inspired by the EarLab project developed at Boston University as well as the Cochlea\citep{Rudnicki2014Cochlea} modeling environment developed at the Technical University of Munich, from which it incorporates a peripheral model. 
+The modeling framework created for this thesis has been named Corti\citep{Voysey2016Corti}. It is architecturally inspired by the EarLab project developed at Boston University as well as the Cochlea\citep{Rudnicki2014Cochlea} modeling environment developed at the Technical University of Munich, from which it incorporates a peripheral model.
+
+Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters define which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
+
+\subsection{Configuration options define a parameter space}
+As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of parameters, ranging from sampling frequency to the time constants and relative inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
 
 \begin{figure}[htbp]
 	\centering
@@ -24,11 +29,9 @@ The modeling framework created for this thesis has been named Corti\citep{Voysey
 	\label{fig:corti-overview}
 	\end{figure}
 
-Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters define which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
-
 \subsection{Model Parameters} % (fold)
 \label{sub:model_parameters}
-The following parameters are
+
 % subsection model_parameters (end)
 % section overview_of_modeling_framework (end)
 \section{Stimulus Generation} % (fold)
@@ -49,7 +52,7 @@ Since the development of the Verhulst model is still underway, it has been progr
 % subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
-The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}. 
+The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}. 
 
 % subsection interoperability_of_the_zilany_and_verhulst_models (end)
 \subsection{Interoperability of the Zilany and Verhulst Models} % (fold)
@@ -61,7 +64,7 @@ The classification of SR types differs between the Zilany and Verhulst models in
 
 \subsection{Peripheral Model Output} % (fold)
 \label{sub:peripheral_model_output}
-The Verhulst model provides estimates of many behaviors of the auditory periphery.  The Zilany model provides some of the same. 
+The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.  The Zilany model provides some of the same.  
 
 Both provide estimates of Instantaneous Firing Rate as a function of post-stimulus time for each combination of fiber type and best frequency, and these are passed to the next stage of the Corti environment.
 % subsection peripheral_model_output (end)
@@ -76,13 +79,13 @@ This stage of processing converts IFRs of specific fiber populations into an est
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
 Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give responses of ``one'' fiber of each spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively summing the responses of each SR type. 
 
-Based on anatomical data, the Verhulst model assigns 19 fibers to each inner hair cell.  
+Based on anatomical data (liberman 1978), the Verhulst model assigns 19 fibers to each inner hair cell.  
 
 The Zilany model's output is summed accordingly. 
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
 \subsection{Weighting of IHC contribution} % (fold)
 \label{sub:weighting_of_ihc_contribution}
-The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was emmpirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
 
 To produce comparable results, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
@@ -90,7 +93,7 @@ To produce comparable results, the Zilany model was scaled accordingly. By itera
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
+Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
 \begin{figure}[htbp]
 	\centering
 	%\includegraphics[width=0.95\textwidth]{}
@@ -129,27 +132,23 @@ Refer to laurel's EPL talk spring 2016 -- 100 Hz because it's physiologically re
 % subsection the_carney_2015_brainstem (end)
 % section brainstem_models (end)
 
-\section{Usage of the Modeling Environment} % (fold)
-\label{sec:usage_of_the_modeling_environment}
-\subsection{Automated Parameter Exploration} % (fold)
+\section{Automated Parameter Exploration} % (fold)
 \label{sub:automated_parameter_exploration}
+Corti may be run in one of two modes.  In the first, a single set of parameters defines a single trajectory and the model is run once.   However, while this mode of operation is convenient for fast simulations whose parameters can be defined \emph{a priori}, it rapidly becomes impractical for situations where the relative effects of different parameter choices are to be compared, and reliable book-keeping of which parameters were used to generate which results becomes unnecessarily challenging.
 
-The second mode is detailed in \autoref{fig:corti-overview}, and provides a convenient interface to explore the parameter space generated by the specification of many available models, impairments, and options.  They are explored in parallel in a clustered computing environment so that the relative effects of each model, neuropathic impairment, and other features may be directly compared.  The results for all combinations of model components are stored in one Hierarchical Data Format (HDF5) file.  Comparisons of the effect of using different trajectories to the same stimuli can then be made.
+Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-overview}.  It provides a convenient interface to explore the parameter space generated by the specification of many available models, impairments, and options in a manner that allows easy \emph{post-hoc} analysis. Individual trajectories may be computed in parallel on a single workstation or in a high-performance cluster so that the relative effects of each model, neuropathic impairment, and other features may be directly compared.  The results for all combinations of model components are stored in one Hierarchical Data Format (HDF5) file.  Comparisons of the effect of using different trajectories to the same stimuli can then be made in a way that guarantees an internally consistent analysis.
 
-python library for parametric exploration. 
-
-data is stored in a database. 
-
-advantages of open data access---reproducibility, etc. 
-
-code open source. 
+The core of this mode is the Python library 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{pypet-workflow.pdf}
-	\caption[Automated exploration of model parameters]{\textbf{Automated exploration of model parameters}}
+	\caption[Automated exploration of model parameters]{\textbf{Automated exploration of model parameters} P$_i$ is the set of parameters required to specify one trajectory.  $N$ trajectories, where $N$ is the cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
 	\label{fig:pypet-overview}
 \end{figure}
+\subsection{Design of new experiments} % (fold)
+\label{sub:design_of_new_experiments}
 
+% subsection design_of_new_experiments (end)
 % subsection automated_parameter_exploration (end)
 % section usage_of_the_modeling_environment (end)
