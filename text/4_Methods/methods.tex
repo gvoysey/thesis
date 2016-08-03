@@ -97,17 +97,19 @@ Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber typ
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-curvefit.pdf}
-	\caption{Curve-fitting of experimental results by Temchin}
+	\caption{Curve-fitting of experimental results reported by \citeauthor{Temchin2008Threshold}.  Experimental data points (blue circles) were fit to a logistic model (red solid line).}
 	\label{fig:temchin-curvefit}
 \end{figure}
 
-The empirical fit equation that estimates the percentage of fibers with spontaneous rates below 18 spikes/sec innervating a given inner hair cell as a function of best frequency was found to be: 
+The empirical logistic fit equation that estimates $p$, the percentage of fibers with spontaneous rates below 18 spikes/sec innervating a given inner hair cell as a function of best frequency was found to be: 
 \begin{equation}
-p(\textit{cf}) = 21 + \frac{k}{1+e^{-r\cdot(\mathit{cf}-\mathit{cf}_0)}}
+p(\mathit{cf}) = 21 + \frac{k}{1+e^{-r\cdot(\mathit{cf}-\mathit{cf}_0)}}
 \end{equation}
 where $k = 22$, $r = $ \num{9e-6} and $\mathit{cf}_0 = 2500$.
 \subsubsection{Fractional weights}
-A consequence of the approach taken in section~\ref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summmed response of that IHC that arises from a given fiber type is no longer guaranteed to be an integer number of fibers.  Therefore, it is appropriate to think of such values as weighted contributions rather than individual spiral ganglia.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. If the model response of individual unitary fibers is desired, the modeling environment saves individual fiber responses at the level of the periphery.
+A consequence of the approach taken in \autoref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is no longer guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
+
+Therefore, it is appropriate to think of such values as weighted contributions rather than individual spiral ganglia.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
 % subsection weighting_of_fiber_types_per_ihc (end)
 
 \subsection{Modeling Synaptopathy} % (fold)
