@@ -36,12 +36,12 @@ To run a simulation, the following parameters must be given.  Each parameter wil
 \begin{enumerate}
 	\item The periphery model type.
 	\item Which components of the peripheral response to save to disk for later analysis.
+	\item The degree and kind of cochlear synaptopathy to simulate.
+	\item Whether or not the distribution of fibers per inner hair cell should vary as a function of basilar membrane location.
 	\item Whether or not a brainstem/midbrain response should be simulated.
 	\item The brainstem/midbrain model type.
-	\item Whether or not the distribution of fibers per inner hair cell should vary as a function of basilar membrane location.
 	\item The stimulus to simulate a response to. 
 	\item The stimulus level.
-	\item The degree and kind of cochlear synaptopathy to simulate.
 	\item Whether or not the model is being run as part of a larger parallel simulation.
 \end{enumerate}
 % subsection model_parameters (end)
@@ -49,33 +49,49 @@ To run a simulation, the following parameters must be given.  Each parameter wil
 
 \section{Peripheral Models} % (fold)
 \label{sec:peripheral_models}
-Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').
+Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
+
+Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce timeseries estimates of instantaneous firing rates for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane. 
 
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model1}
-The Verhulst model is useful for broadband stimuli.  It handles off-frequency effects (dispersion) well, and produces detailed information about many stages of sound propagation.  Otoacoustic emissions are also modeled. 
-
-The theoretical background of the model is discussed in chapter 2.
+The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling otoacoustic emissions in response to complex stimuli. 
 
 Since the development of the Verhulst model is still underway, it has been programmatically isolated in a separate package.  This provides a separation of concerns between the projects, and allows both Corti and the Verhulst model to be updated independently of each other as new features are made available in both.
 % subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
-The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}. 
+The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model, originally developed based on measurements in animal models, was updated with humanized parameters to better reflect psychophysical data\citep{Zilany2014Updated,Zilany2007Predictions,Zilany2006Modeling}. 
+
+The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
 
 % subsection interoperability_of_the_zilany_and_verhulst_models (end)
-\subsection{Interoperability of the Zilany and Verhulst Models} % (fold)
+\subsection{Variations in spontaneous rates between models} % (fold)
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
-The classification of SR types differs between the Zilany and Verhulst models in their firing rate classification cutoffs.  For the purposes of this work, both support combining the low- and medium- rate fibers into one population with mean spike rates less than 18 spikes/sec.  
+While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
+The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/sec, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.
 
 % subsection the_zilany_model (end)
 
 \subsection{Peripheral Model Output} % (fold)
 \label{sub:peripheral_model_output}
-The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.  The Zilany model provides some of the same.  
+The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 sections. 
 
-Both provide estimates of Instantaneous Firing Rate as a function of post-stimulus time for each combination of fiber type and best frequency, and these are passed to the next stage of the Corti environment.
+ While running the simulation, the following model estimates may be stored to disk for further analysis: 
+\begin{enumerate}
+	\item Basilar membrane velocities for each section.
+	\item Basilar membrane displacements for each section.
+	\item Inner hair cell receptor potentials. 
+	\item IFR for a high spontaneous rate fiber.
+	\item IFR for a medium spontaneous rate fiber.
+	\item IFR for a low spontaneous rate fiber. 
+	\item The Otoacoustic emission. 
+\end{enumerate}
+
+The Zilany model, as implemented, provides IFR estimates only.  Hair cell potentials could also be modeled, but are omitted.
+
+Both models provide estimates of Instantaneous Firing Rate as a function of post-stimulus time for each combination of fiber type and best frequency, and these are passed to the next stage of the Corti environment.
 % subsection peripheral_model_output (end)
 
 % section peripheral_models (end)
