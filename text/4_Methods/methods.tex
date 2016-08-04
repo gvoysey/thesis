@@ -61,7 +61,7 @@ Since the development of the Verhulst model is still underway, it has been progr
 % subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
-The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model, originally developed based on measurements in animal models, was updated with humanized parameters to better reflect psychophysical data\citep{Zilany2014Updated,Zilany2007Predictions,Zilany2006Modeling}. 
+The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model, originally developed based on measurements in animal models, was updated with humanized parameters to better reflect psychophysical data \citep{Zilany2014Updated,Zilany2007Predictions,Zilany2006Modeling}. 
 
 The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
 
@@ -70,7 +70,7 @@ The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014C
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
-The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/sec, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.
+The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/sec, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.
 
 % subsection the_zilany_model (end)
 
@@ -98,27 +98,29 @@ Both models provide estimates of Instantaneous Firing Rate as a function of post
 
 \section{Auditory Nerve Response Models} % (fold)
 \label{sec:auditory_nerve_response_models}
-This stage of processing converts IFRs of specific fiber populations into an estimate of the summed activity of the auditory nerve. 
+This stage of processing converts IFRs of specific fiber populations into an estimate of the summed activity of the auditory nerve. It corresponds to the green region of \autoref{fig:corti-overview}. 
 
 \subsection{Modeling Contributions of Inner Hair Cells} % (fold)
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
-Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give responses of ``one'' fiber of each spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively summing the responses of each SR type. 
+Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give unitary responses for spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively weighting and then summing the responses of each SR type to obtain the total contribution of one modeled hair cell. 
 
-Based on anatomical data (liberman 1978), the Verhulst model assigns 19 fibers to each inner hair cell.  
+Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model assigns 19 fibers to each inner hair cell.  
 
 The Zilany model's output is summed accordingly. 
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
 \subsection{Weighting of IHC contribution} % (fold)
 \label{sub:weighting_of_ihc_contribution}
-The Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers per IHC with 3 fibers for Low and Medium SR fibers and 13 High SR fibers. The scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
+
+Once each hair cell's contribution has been computed, a scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
 
 To produce comparable results, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
 
-
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from~\cite{Temchin2008Threshold}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, fiber types may be weighted per IHC, rather than kept at the fixed 3-3-13 ratio set by Verhulst.  
+Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter. 
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-curvefit.pdf}
@@ -139,7 +141,7 @@ Therefore, it is appropriate to think of such values as weighted contributions r
 
 \subsection{Modeling Synaptopathy} % (fold)
 \label{sub:modeling_synaptopathy}
-Modeling 
+
 Selective degredation of the auditory nerve response is modeled by scaling each fiber type at each CF by a percentage factor.  
 
 This will matter a lot when fiber types aren't linearlly allocated, and especially at high frequencies.
@@ -181,7 +183,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 \end{figure}
 \subsection{Design of new experiments} % (fold)
 \label{sub:design_of_new_experiments}
-
+While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sub:automated_parameter_exploration} is much more generally applicable.  A modeller, using Corti, can easily define and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values. 
 % subsection design_of_new_experiments (end)
 % subsection automated_parameter_exploration (end)
 % section usage_of_the_modeling_environment (end)
