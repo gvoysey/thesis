@@ -112,9 +112,9 @@ The Zilany model's output is summed accordingly.
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed, a scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
 
-To produce comparable results, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
+To produce comparable results in this work, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
@@ -129,10 +129,13 @@ Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:
 \end{figure}
 
 The empirical logistic fit equation that estimates $p$, the percentage of fibers with spontaneous rates below 18 spikes/sec innervating a given inner hair cell as a function of best frequency was found to be: 
+
 \begin{equation}
-p(\mathit{cf}) = 21 + \frac{k}{1+e^{-r\cdot(\mathit{cf}-\mathit{cf}_0)}}
+	p(\mathit{cf}) = 21 + \frac{k}{1+e^{-r\cdot(\mathit{cf}-\mathit{cf}_0)}}
 \end{equation}
+
 where $k = 22$, $r = $ \num{9e-6} and $\mathit{cf}_0 = 2500$.
+
 \subsubsection{Fractional weights}
 A consequence of the approach taken in \autoref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is no longer guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
 
@@ -141,16 +144,23 @@ Therefore, it is appropriate to think of such values as weighted contributions r
 
 \subsection{Modeling Synaptopathy} % (fold)
 \label{sub:modeling_synaptopathy}
+Cochlear synaptopathy is the loss of the synapse between an inner hair cell and an individual spiral ganglion.  At the level of the summed auditory nerve response, selective degradation is modeled by reducing the contribution of each fiber type per hair cell by a scaling factor. 
 
-Selective degredation of the auditory nerve response is modeled by scaling each fiber type at each CF by a percentage factor.  
+Six predetermined severity levels were chosen to model cochlear synaptopathy, all of which work in a similar manner.  In each case, the portion of the response from a hair cell of a given center frequency is scaled by a percentage of its magnitude before being summed into the auditory nerve response.  
 
-This will matter a lot when fiber types aren't linearlly allocated, and especially at high frequencies.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{percentage-degradation.pdf}
+	\caption[Cochlear Synaptopathy parameters]{The default types of cochlear synaptopathy that may be simulated.}
+	\label{fig:synaptopathy}
+\end{figure}
 % subsection modeling_synaptopathy (end)
 % section auditory_nerve_response_models (end)
 
 \section{Brainstem Models} % (fold)
 \label{sec:brainstem_models}
 This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.
+
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
 \label{sub:the_nelson_carney_2004_brainstem}
@@ -174,7 +184,6 @@ Corti may be run in one of two modes.  In the first, a single set of parameters 
 
 Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-overview}. The core of this mode is the Python Parameter Exploration Toolkit\citep{Meyer2016Pypet}. It provides the tools to allow a convenient interface to explore the parameter space generated by the specification of many available models, impairments, and options in a manner that allows easy \emph{post-hoc} analysis. Individual trajectories may be computed in parallel on a single workstation or in a high-performance cluster so that the relative effects of each model, neuropathic impairment, and other features may be directly compared.  The results for all combinations of model components are stored in one Hierarchical Data Format (HDF5) file.  Comparisons of the effect of using different trajectories to the same stimuli can then be made in a way that guarantees an internally consistent analysis.
 
-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{pypet-workflow.pdf}
@@ -183,7 +192,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 \end{figure}
 \subsection{Design of new experiments} % (fold)
 \label{sub:design_of_new_experiments}
-While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sub:automated_parameter_exploration} is much more generally applicable.  A modeller, using Corti, can easily define and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values. 
+While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sub:automated_parameter_exploration} is much more generally applicable.  A modeller, using Corti, can easily design and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values. 
 % subsection design_of_new_experiments (end)
 % subsection automated_parameter_exploration (end)
 % section usage_of_the_modeling_environment (end)
