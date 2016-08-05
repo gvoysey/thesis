@@ -112,7 +112,7 @@ The Zilany model's output is summed accordingly.
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirally chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
 
 To produce comparable results in this work, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
@@ -124,7 +124,7 @@ Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-curvefit.pdf}
-	\caption[Variation in Spontaneous Rate as a function of frequency]{Eperimental results (blue circles)reported by \citeauthor{Temchin2008Threshold} were fit to a logistic model (red solid line).}
+	\caption[Variation in Spontaneous Rate as a function of frequency]{Experimental results (blue circles) reported by \citeauthor{Temchin2008Threshold} were fit to a logistic model (red solid line).}
 	\label{fig:temchin-curvefit}
 \end{figure}
 
@@ -162,9 +162,10 @@ Six predetermined severity levels were chosen to model cochlear synaptopathy, al
 This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.
 
 \subsection{Choice of Best Modulation Frequency}
-Refer to laurel's EPL talk spring 2016 -- 100 Hz because it's physiologically relevant.  No ``MTF Bank'' because the science isn't there yet. Unclear how or why they'd affect wave V delays. 
+The included models of the CN and IC are tuned to a best modulation frequency---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by \citeauthor{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants.   It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', so this has not been implemented.
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
+In the case of the simpler brainstem and midbrain model of \citeauthor{Nelson2004Phenomenological}, the CN and IC are both represented as single processing stages where an excitatory and inhibitory alpha function are convolved with, in the CN, the ANR population response, and in the IC, the output of the CN stage. 
 \label{sub:the_nelson_carney_2004_brainstem}
 \begin{figure}[htbp]
 	\centering
@@ -175,7 +176,9 @@ Refer to laurel's EPL talk spring 2016 -- 100 Hz because it's physiologically re
 % subsection the_nelson_carney_2004_brainstem (end)
 \subsection{The Carney 2015 Brainstem} % (fold)
 \label{sub:the_carney_2015_brainstem}
+In the case of the more complex model proposed by \citeauthor{Carney2015Speech}, the IC processing stage incorporates three types of filters, which better reflect the diversity of neural responses observed electrophysiologically. 
 
+Weights of contribution for each type are as shown in \autoref{fig:carney-2015}, and were chosen to represent the relative magnitudes of effect observed by \citeauthor{Carney2015Speech} in electrophysiological study.  Weighing is uniform across center frequency.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{carney-2015.pdf}
@@ -199,7 +202,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{pypet-workflow.pdf}
-	\caption[Automated exploration of model parameters]{\textbf{Automated exploration of model parameters} P$_i$ is the set of parameters required to specify one trajectory.  $N$ trajectories, where $N$ is the cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
+	\caption[Automated exploration of model parameters]{\textbf{Automated exploration of model parameters} P$_i$ is the set of parameters required to specify one trajectory.  $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
 	\label{fig:pypet-overview}
 \end{figure}
 \subsection{Design of new experiments} % (fold)
