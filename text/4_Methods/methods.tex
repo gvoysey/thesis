@@ -161,16 +161,28 @@ Six predetermined severity levels were chosen to model cochlear synaptopathy, al
 \label{sec:brainstem_models}
 This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.
 
+\subsection{Choice of Best Modulation Frequency}
+Refer to laurel's EPL talk spring 2016 -- 100 Hz because it's physiologically relevant.  No ``MTF Bank'' because the science isn't there yet. Unclear how or why they'd affect wave V delays. 
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
 \label{sub:the_nelson_carney_2004_brainstem}
-
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{nelson-carney-2004.pdf}
+	\caption[Overview of the Nelson-Carney Midbrain and Brainstem]{Overview of the processing stages of the Nelson-Carney brainstem model and model output at various stages for an 80dB click stimulus. Coefficients for the CN and IC are given. }
+	\label{fig:nelson-carney}
+\end{figure}
 % subsection the_nelson_carney_2004_brainstem (end)
 \subsection{The Carney 2015 Brainstem} % (fold)
 \label{sub:the_carney_2015_brainstem}
 
-\subsubsection{Choice of Best Modulation Frequency}
-Refer to laurel's EPL talk spring 2016 -- 100 Hz because it's physiologically relevant.  No ``MTF Bank'' because the science isn't there yet. Unclear how or why they'd affect wave V delays. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{carney-2015.pdf}
+	\caption[Overview of the Carney Midbrain and Brainstem]{Overview of the processing stages of the \citeauthor{Carney2015Speech} brainstem model for an 80dB click.  Coefficients and weights for the three-stage IC model are shown; other parameters are as in \autoref{fig:nelson-carney}}
+	\label{fig:carney-2015}
+\end{figure}
+
 
 % subsection the_carney_2015_brainstem (end)
 % section brainstem_models (end)
@@ -192,7 +204,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 \end{figure}
 \subsection{Design of new experiments} % (fold)
 \label{sub:design_of_new_experiments}
-While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sub:automated_parameter_exploration} is much more generally applicable.  A modeller, using Corti, can easily design and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values. 
+While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sub:automated_parameter_exploration} is much more generally applicable.  Using Corti, one can easily design and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values without modification of the code for the core model functionality. 
 % subsection design_of_new_experiments (end)
 % subsection automated_parameter_exploration (end)
 % section usage_of_the_modeling_environment (end)
