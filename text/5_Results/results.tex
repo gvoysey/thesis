@@ -9,14 +9,11 @@
 \graphicspath{{5_Results/Figures/}}
 \section{Chapter Summary} % (fold)
 \label{sec:results_summary}
-This chapter describes the results obtained when using the modeling environment described in~\autoref{chapter:Methods} to simulate a series of tone-in-noise experiments performed in humans by \citeauthor{Mehraei2016Auditory} to elucidate certain aspects of cochlear synaptopathy. 
-
+This chapter describes the results obtained when using the modeling environment described in~\autoref{chapter:Methods}.
 % section results_summary (end)
 \section{Tone in noise} % (fold)
 \label{sec:tone_in_noise}
-
-
-\section{Simulations}
+The model ABR in response to a clicktrain in noise was computed for a variety of masker ratios.   
 The experiment design tool described in \autoref{sec:automated_parameter_exploration} was used to specify a range of values for each parameter in Corti to reveal the relative contributions of each. 
 
 \subsection{Stimuli} % (fold)
@@ -34,36 +31,56 @@ All other parameters--choice of peripheral and brainstem model and logistically 
 
 In total, 240 separate simulations were run in parallel on Boston University's high-performance computing cluster over the course of approximately 9 days.  Model output was automatically stored into a HDF5 database approximately 250 GB in size.
 
-
 \section{Effect of Synaptopathy} % (fold)
 \label{sec:effect_of_synaptopathy}
 The effects of four types of synaptopathy---moderate, severe, low-SR specific moderate, and low-SR specific severe---were simulated, with the synaptic degradation parameters as given in \autoref{fig:synaptopathy}. 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[page=5,width=0.95\textwidth]{wave1and5.pdf}
+	\includegraphics[width=\textwidth]{synaptopathy-all.pdf}
 	\caption[Effects of Synaptopathy]{The effects of varying levels of synaptopathy on model responses to a stimulus at multiple noise levels.  Some traces (top) are present but not visible as they precisely overlay other results.}
-	\label{fig:wave1results}
+	\label{fig:synaptopathy_results}
 \end{figure}
 
-The effect of fiber loss on Wave V peak latency and Wave 1 peak amplitude are given in \autoref{fig:wave1results}.  Consistent with prediction, Wave I amplitudes are decreased as a function of synaptopathy, as well as a function of increasing noise masker level.  Wave V latencies exhibit a decrease in latency but non-monotonically, and only for some masker levels.
+The effect of fiber loss on Wave V peak latency and Wave I peak amplitude are given in \autoref{fig:synaptopathy_results}.  Consistent with prediction, Wave I amplitudes are decreased as a function of synaptopathy, as well as a function of increasing noise masker level.  Wave V latencies exhibit a decrease in latency but non-monotonically, and only for some masker levels.
 % section effect_of_synaptopathy (end)
 
 \section{Effect of peripheral model} % (fold)
 \label{sec:effect_of_peripheral_model}
 Because the response trends vary quite little as a function of the types of synaptopathy modeled in \autoref{sec:effect_of_synaptopathy}, the relative effects of model types can be explored while holding the type of synaptopathy fixed. 
 
+The effects of peripheral model choice on Wave V peak latency and Wave I peak amplitudes are given in \autoref{fig:periphery_results}.   In general, the Verhulst model predicts both larger Wave V latencies and larger changes as a function of SNR compared to the Zilany model, which predicts generally small changes.  Wave I amplitude estimations follow similar shapes.  While both produce physiologically plausible responses, the Verhulst model predicts amplitudes approximately half the magnitude of the Zilany model. 
 
-The verhulst and zilany models will produce different estimates of the auditory nerve response. Prior work had their results very different; with recent changes to the verhulst model, this may have changed.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{periphery-all.pdf}
+	\caption[Effects of Peripheral Models]{Effects of Peripheral Models}
+	\label{fig:periphery_results}
+\end{figure}
+
 % section effect_of_peripheral_model (end)
 
 
 \section{Effect of CF weighting} % (fold)
 \label{sec:effect_of_cf_weighting}
-In models of the periphery that include more low SR fibers at high frequencies, synaptopathic losses will change.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{weighting-all.pdf}
+	\caption[Effects of CF Weighting]{Effects of CF Weighting}
+	\label{fig:cf_results}
+\end{figure}
+
+The effects of logisitically weighing the fiber type distribution along the basilar membrane is given in \autoref{fig:cf_results}.  Surprisingly, there was very little relative effect with the Verhulst model.  The Zilany model showed consistent but relatively small elevation of Wave V latency and suppression of Wave I amplitudes. 
 % section effect_of_cf_weighting (end)
 
 \section{Effect of brainstem model} % (fold)
 \label{sec:effect_of_brainstem_model}
-Does our intuition about a more physiologicaly relevant brainstem and midbrain model capturing more of the diversity of human responses bear out? 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{brainstem-all.pdf}
+	\caption[Effects of Brainstem Models]{Effects of Brainstem Models.  Wave 1 amplitudes are unaffected by the brainstem model.}
+	\label{fig:brainstem_results}
+\end{figure}
+
+The effects of a more complex brainstem model is given in \autoref{fig:brainstem_results}.  No effects are observed for Wave I amplitudes, as Wave I originates at the level of the auditory nerve.  Only slight elevations of Wave V latencies are observed.  
 % section effect_of_brainstem_model (end)
