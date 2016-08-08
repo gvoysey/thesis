@@ -12,8 +12,12 @@
 This chapter describes the results obtained when using the modeling environment described in~\autoref{chapter:Methods} to simulate a series of tone-in-noise experiments performed in humans by \citeauthor{Mehraei2016Auditory} to elucidate certain aspects of cochlear synaptopathy. 
 
 % section results_summary (end)
-\section{Tone in noise experiment} % (fold)
+\section{Tone in noise} % (fold)
 \label{sec:tone_in_noise}
+
+
+\section{Simulations}
+The experiment design tool described in \autoref{sec:automated_parameter_exploration} was used to specify a range of values for each parameter in Corti to reveal the relative contributions of each. 
 
 \subsection{Stimuli} % (fold)
 \label{sub:stimuli}
@@ -25,32 +29,31 @@ Following \citeauthor{Mehraei2015Auditory,Mehraei2016Auditory}, 6 stimului were 
 	\caption[Experimental Stimuli]{Stimuli used to drive the auditory models.}
 	\label{fig:stimuli-used}
 \end{figure}
-% subsection stimuli (end)
 
-\begin{itemize}
-	\item Ran the same stimului used by~\cite{Mehraei2015Auditory}: 80dB click, varying SNR
-	\item Ran 1208 model configurations which varied  the stimulus SNR, the level and type of synaptopathy applied to the results, which peripheral model was used, whether the BM had any cf-weighting, and which brainstem model was used. 
-	\item used a python library and cluster resources to make sure the results are easily searchable. 
-	\item roughly 400 GB of model results.
-	\item Can now examine the effects of individual parameter changes. 
-	\item can now compare results to both prior modeling results and human data. 
-\end{itemize}
-
-
-\section{Simulations}
-The experiment design tool described in \autoref{sec:automated_parameter_exploration} was used to specify a range of values for each parameter in Corti to reveal the relative contributions of each. 
+All other parameters--choice of peripheral and brainstem model and logistically weighted fiber distributions---were fully explored.
 
 In total, 240 separate simulations were run in parallel on Boston University's high-performance computing cluster over the course of approximately 9 days.  Model output was automatically stored into a HDF5 database approximately 250 GB in size.
+
+
+\section{Effect of Synaptopathy} % (fold)
+\label{sec:effect_of_synaptopathy}
+The effects of four types of synaptopathy---moderate, severe, low-SR specific moderate, and low-SR specific severe---were simulated, with the synaptic degradation parameters as given in \autoref{fig:synaptopathy}. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[page=5,width=0.95\textwidth]{wave1and5.pdf}
+	\caption[Effects of Synaptopathy]{The effects of varying levels of synaptopathy on model responses to a stimulus at multiple noise levels.  Some traces (top) are present but not visible as they precisely overlay other results.}
+	\label{fig:wave1results}
+\end{figure}
+
+The effect of fiber loss on Wave V peak latency and Wave 1 peak amplitude are given in \autoref{fig:wave1results}.  Consistent with prediction, Wave I amplitudes are decreased as a function of synaptopathy, as well as a function of increasing noise masker level.  Wave V latencies exhibit a decrease in latency but only for some masker levels.  
+% section effect_of_synaptopathy (end)
 
 \section{Effect of peripheral model} % (fold)
 \label{sec:effect_of_peripheral_model}
 The verhulst and zilany models will produce different estimates of the auditory nerve response. Prior work had their results very different; with recent changes to the verhulst model, this may have changed.
 % section effect_of_peripheral_model (end)
 
-\section{Effect of Synaptopathy} % (fold)
-\label{sec:effect_of_synaptopathy}
-Six kinds of synaptopathy were simulated: uniform and low-- and medium--SR specific losses of 10, 25, and 50 percent of each fiber type. 
-% section effect_of_synaptopathy (end)
 
 \section{Effect of CF weighting} % (fold)
 \label{sec:effect_of_cf_weighting}
