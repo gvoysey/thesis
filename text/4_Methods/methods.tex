@@ -11,7 +11,7 @@
 \section{Chapter Summary} % (fold)
 \label{sec:methodsummary}
 This chapter gives a detailed description of the modeling environment created for this thesis.  \hyperref[sec:overview_of_modeling_framework]{First}, the configuration of the overall system is detailed.  \hyperref[sec:peripheral_models]{Second}, the configuration and use of two models of the auditory periphery are detailed.  \hyperref[sec:auditory_nerve_response_models]{Third}, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  \hyperref[sec:brainstem_models]{Fourth}, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Responses.  \hyperref[sec:automated_parameter_exploration]{Finally}, the utility of the system for large-scale simulation is shown. 
-% section methodsummary (end)
+
 
 \section{Overview of Modeling Framework} % (fold)
 \label{sec:overview_of_modeling_framework}
@@ -25,7 +25,7 @@ As detailed in \autoref{chapter:literaturereview}, the constituent models of thi
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{high-level-overview.pdf}
-	\caption[Overview of the Corti modeling environment.]{\textbf{Overview of the Corti modeling environment.} Two parameter trajectories are shown: a simulation of auditory neuropathy using the Verhulst periphery, nonlinear weights of fiber type contributions, and the Nelson and Carney brainstem (orange), and a simulation without neuropathy using the Zilany periphery, linear fiber weighting, and the Carney 2015 brainstem (red).}
+	\caption[Overview of the Corti Modeling Environment.]{\textbf{Overview of the Corti modeling environment.} Two parameter trajectories are shown: a simulation of auditory neuropathy using the Verhulst periphery, nonlinear weights of fiber type contributions, and the Nelson and Carney brainstem (orange), and a simulation without neuropathy using the Zilany periphery, linear fiber weighting, and the Carney 2015 brainstem (red).}
 	\label{fig:corti-overview}
 	\end{figure}
 
@@ -51,11 +51,11 @@ To run a simulation, the following parameters must be given.  Each parameter wil
 \label{sec:peripheral_models}
 Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
 
-Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce timeseries estimates of instantaneous firing rates for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane. 
+Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of instantaneous firing rates for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane. 
 
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model1}
-The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling otoacoustic emissions in response to complex stimuli. 
+The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling Otoacoustic emissions in response to complex stimuli. 
 
 Since the development of the Verhulst model is still underway, it has been programmatically isolated in a separate package.  This provides a separation of concerns between the projects, and allows both Corti and the Verhulst model to be updated independently of each other as new features are made available in both.
 % subsection the_verhulst_model (end)
@@ -124,7 +124,7 @@ Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-curvefit.pdf}
-	\caption[Variation in Spontaneous Rate as a function of frequency]{Experimental results (blue circles) reported by \citeauthor{Temchin2008Threshold} were fit to a logistic model (red solid line).}
+	\caption[Variation in Spontaneous Rate as a Function of Frequency]{Experimental results (blue circles) reported by \citeauthor{Temchin2008Threshold} were fit to a logistic model (red solid line).}
 	\label{fig:temchin-curvefit}
 \end{figure}
 
@@ -146,12 +146,12 @@ Therefore, it is appropriate to think of such values as weighted contributions r
 \label{sub:modeling_synaptopathy}
 Cochlear synaptopathy is the loss of the synapse between an inner hair cell and an individual spiral ganglion.  At the level of the summed auditory nerve response, selective degradation is modeled by reducing the contribution of each fiber type per hair cell by a scaling factor. 
 
-Six predetermined severity levels were chosen to model cochlear synaptopathy, all of which work in a similar manner.  In each case, the portion of the response from a hair cell of a given center frequency is scaled by a percentage of its magnitude before being summed into the auditory nerve response.  
+Six predetermined severity levels, as given in \autoref{fig:synaptopathy} were chosen to model cochlear synaptopathy, all of which work in a similar manner.  In each case, the portion of the response from a hair cell of a given center frequency is scaled by a percentage of its magnitude before being summed into the auditory nerve response.  
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{percentage-degradation.pdf}
-	\caption[Cochlear Synaptopathy parameters]{The default types of cochlear synaptopathy that may be simulated.}
+	\caption[Cochlear Synaptopathy Parameters]{The default types of cochlear synaptopathy that may be simulated.}
 	\label{fig:synaptopathy}
 \end{figure}
 % subsection modeling_synaptopathy (end)
@@ -179,6 +179,7 @@ In the case of the simpler brainstem and midbrain model of \citeauthor{Nelson200
 In the case of the more complex model proposed by \citeauthor{Carney2015Speech}, the IC processing stage incorporates three types of filters, which better reflect the diversity of neural responses observed electrophysiologically. 
 
 Weights of contribution for each type are as shown in \autoref{fig:carney-2015}, and were chosen to represent the relative magnitudes of effect observed by \citeauthor{Carney2015Speech} in electrophysiological study.  Weighing is uniform across center frequency.
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{carney-2015.pdf}
@@ -202,7 +203,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{pypet-workflow.pdf}
-	\caption[Automated exploration of model parameters]{\textbf{Automated exploration of model parameters} P$_i$ is the set of parameters required to specify one trajectory.  $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
+	\caption[Automated Exploration of Model Parameters]{\textbf{Automated exploration of model parameters} P$_i$ is one set of multiple parameter values required to specify one trajectory.  A total of $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
 	\label{fig:pypet-overview}
 \end{figure}
 \subsection{Design of new experiments} % (fold)
