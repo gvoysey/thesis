@@ -21,16 +21,14 @@ This chapter compares the results obtained in this thesis with the human results
 \subsection{Prior Experimental Results} % (fold)
 \label{sub:prior_experimental_results}
 
-% subsection prior_experimental_results (end)
-% section comparison_of_results_to_prior_work (end)
 
 \section{Nonlinear behaviors in the Verhulst Model} % (fold)
 \label{sec:nonlinear_behaviors_in_the_verhulst_model}
-During the course of this work, an unexpected phenomenon was observed in the behavior of the Verhulst model in its response to stimuli of long duration.  In response to a sustained pure tone stimulus, the model predicts a strong response along the sections of the basilar membrane near the frequency of the pure tone.  Further, the model predicts small amplitude BM displacement at higher frequencies, reflecting dispersion of energies along the BM.  However, at the level of the IHC synapse, the off-frequency firing rate estimates are several times larger than the on-frequency response, and fall outside physiological boundaries.   
+During the course of this work, an unexpected phenomenon was observed in the behavior of the Verhulst model in its response to stimuli of long duration.  In response to a sustained pure tone stimulus, the model predicts a strong response along the sections of the basilar membrane near the frequency of the pure tone.  Further, the model predicts small amplitude BM displacement at higher frequencies, reflecting dispersion of energies along the BM.  However, at the level of the IHC synapse, the off-frequency firing rate estimates are several times larger than the on-frequency response, and fall outside physiological boundaries. This behavior is not consistent with the BM displacement predictions of the previous stage of the model.  
 
 To relate basilar membrane displacement to IHC firing rates, the Verhulst model implements a three-store synaptic diffusion model adapted from~\cite{Westerman1988Diffusion} to have place-dependent initial values of vesicle state.   Following~\cite{Liberman1978AuditoryNerve}, the saturated firing rate of a hair cell was also adapted to be place-dependent and used as a reset threshold for the diffusion model parameters.  It is possible that in certain situations, this threshold is never reached and thus the firing rate estimate grows disproportionately.  
 
-This behavior would potentially overestimate the off-frequency basal response to a sustained more apical stimulus.  However, some evidence exists \citep{Kiang1974Tails,Yates1990Basilar} that basal responses to apical stimuli can approach threshold in some cases. 
+This behavior would potentially overestimate the off-frequency basal (high frequency) response to a sustained, more apical (low frequency) stimulus.  However, some evidence exists \citep{Kiang1974Tails,Yates1990Basilar} that basal responses to apical stimuli can approach threshold in some cases. 
 % section nonlinear_behaviors_in_the_verhulst_model (end)
 
 \section{Consequences of percentage weighting degradation for synaptopathy} % (fold)
