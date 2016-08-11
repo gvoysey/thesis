@@ -19,7 +19,7 @@ The modeling framework created for this thesis has been named Corti \citep{Voyse
 
 Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters define which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
 
-\subsection{Configuration options define a parameter space}
+\subsection{Configuration Options Define a Parameter Space}
 As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of parameters, ranging from sampling frequency to the time constants and relative inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
 
 \begin{figure}[htbp]
@@ -66,7 +66,7 @@ The Zilany model is a very commonly used model of the auditory periphery, and ro
 The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
 
 % subsection interoperability_of_the_zilany_and_verhulst_models (end)
-\subsection{Variations in spontaneous rates between models} % (fold)
+\subsection{Accounting for Variations in Spontaneous Rates Between Models} % (fold)
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
@@ -100,7 +100,7 @@ Both models provide estimates of Instantaneous Firing Rate as a function of post
 \label{sec:auditory_nerve_response_models}
 This stage of processing converts IFRs of specific fiber populations into an estimate of the summed activity of the auditory nerve. It corresponds to the green region of \autoref{fig:corti-overview}. 
 
-\subsection{Modeling Contributions of Inner Hair Cells} % (fold)
+\subsection{Modeling the Contributions of Inner Hair Cells} % (fold)
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
 Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give unitary responses for spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively weighting and then summing the responses of each SR type to obtain the total contribution of one modeled hair cell. 
 
@@ -108,7 +108,7 @@ Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model a
 
 The Zilany model's output is summed accordingly. 
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
-\subsection{Weighting of IHC contribution} % (fold)
+\subsection{Weighting of IHC contributions} % (fold)
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
@@ -136,7 +136,7 @@ The empirical logistic fit equation that estimates $p$, the percentage of fibers
 
 where $k = 22$, $r = $ \num{9e-6} and $\mathit{cf}_0 = 2500$.
 
-\subsubsection{Fractional weights}
+\subsubsection{Fractional Weights}
 A consequence of the approach taken in \autoref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is no longer guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
 
 Therefore, it is appropriate to think of such values as weighted contributions rather than individual spiral ganglia.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
@@ -206,7 +206,7 @@ Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-
 	\caption[Automated Exploration of Model Parameters]{\textbf{Automated exploration of model parameters} P$_i$ is one set of multiple parameter values required to specify one trajectory.  A total of $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
 	\label{fig:pypet-overview}
 \end{figure}
-\subsection{Design of new experiments} % (fold)
+\subsection{Design of New Experiments} % (fold)
 \label{sub:design_of_new_experiments}
 While \autoref{chapter:Results} focuses on a particular combination of trajectories, designed to replicate and explore the contributions of different modeling considerations to a particular stimulus, the method presented in \autoref{sec:automated_parameter_exploration} is much more generally applicable.  Using Corti, one can easily design and run many other modeling experiments using these techniques for a wide variety of stimuli or parameter values without modification of the code of the core model functionality. 
 % subsection design_of_new_experiments (end)
