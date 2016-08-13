@@ -78,12 +78,12 @@ The IC has long been regarded as the last pre-thalamic obligate waystation for a
 \label{sub:the_verhulst_model}
 A functional model of the auditory periphery was developed by~\cite{Verhulst2015Functional}.  As outlined in \autoref{fig:verhulst-1}, the model consists of a middle ear preprocessing model adapted from~\cite{Meddis2010Computational}.  Input is passed to a cochlear transmission line model, which estimates BM displacements and velocities for an arbitrary number of BM sections (default: 1000).  Motions of the BM are translated into IHC bundle deflections and passed through a nonlinearity.  Estimates of the Instantaneous Firing Rate (IFR) are made by a method adapted from~\cite{Westerman1988Diffusion}, which implements a three-store diffusion model of synaptic vesicle and neurotransmitter release and reuptake.  
 
-The version of the model given by~\cite{Verhulst2015Functional} also includes a CN and IC modeling stage from \cite{Nelson2004Phenomenological}, and the final model output are estimates of ABR Wave I, Wave III, and Wave V. 
+The version of the model given by~\cite{Verhulst2015Functional} also includes a CN and IC modeling stage from~\cite{Nelson2004Phenomenological}, and the final model output are estimates of ABR Wave I, Wave III, and Wave V. 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{verhulst-1.pdf}
-	\caption[The Verhulst Model]{Major subunits of the Verhulst transmission line model of the auditory periphery.  Figure is reprinted from \cite{Verhulst2015Functional}.}
+	\caption[The Verhulst Model]{Major subunits of the Verhulst transmission line model of the auditory periphery.  Figure is reprinted from~\cite{Verhulst2015Functional}.}
 	\label{fig:verhulst-1}
 \end{figure}
 
@@ -97,7 +97,7 @@ The approach is outlined in \autoref{fig:zilany-1} and consists of a phenomenolo
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{zilany-1.pdf}
-	\caption[The Zilany Model]{Major components of the Zilany model of the auditory periphery.  Figure reprinted from \cite{Zilany2009Phenomenological}}
+	\caption[The Zilany Model]{Major components of the Zilany model of the auditory periphery.  Figure reprinted from~\cite{Zilany2009Phenomenological}}
 	\label{fig:zilany-1}
 \end{figure}
 % subsection the_zilany_and_bruce_model (end)
@@ -105,16 +105,35 @@ The approach is outlined in \autoref{fig:zilany-1} and consists of a phenomenolo
 \label{sec:models_of_the_auditory_midbrain_and_brainstem}
 \subsection{The Nelson-Carney Model} % (fold)
 \label{sub:the_nelson_carney_model}
-\cite{Nelson2004Phenomenological}
+\cite{Nelson2004Phenomenological} proposed a two-stage phenomenological model of the midbrain and brainstem.  The Cochlear Nucleus and Inferior Colliculus are each represented by a single Same-Frequency Inhibition Exitation (SFIE) filter, which convolves the output of the previous stage with  excitatory and inhibitory alpha functions.  As shown in \autoref{fig:nelsoncarney-1}, these functions' delays, amplitudes, and onset times can be adjusted to provide a tuned response for a given unit, compared to electrophysiological measurements.  In each case, each unit acts as a band-pass filter tuned to a certain bandwidth. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{nelsoncarney-1.pdf}
+	\caption{The Nelson and Carney Brainstem. Figure reprinted from~\cite{Nelson2004Phenomenological}.}
+	\label{fig:nelsoncarney-1}
+\end{figure}
 
 \subsection{The Carney Model} % (fold)
 \label{sub:the_carney_model}
+\cite{Carney2015Speech} extended the two-stage \citeauthor{Nelson2004Phenomenological} model by the incorporation of three categories of IC responses, compared with the single filter in \autoref{sub:the_nelson_carney_model}, to better account for processing of spectrally complex vowel tones.  As shown in \autoref{fig:carney-1}, the IC is divided into three SFIE stages. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{carney-1.pdf}
+	\caption{The Carney (2015) Midbrain and Brainstem.  Figure reprinted from~\cite{Carney2015Speech}}
+	\label{fig:carney-1}
+\end{figure}
 
-% subsection the_carney_model (end)
-% subsection the_nelson_carney_model (end)
-% section models_of_the_auditory_midbrain_and_brainstem (end)
 
+Based on electrophysiological recordings in awake rabbits, \autoref{fig:carney-2} shows that \citeauthor{Carney2015Speech} represent 50\% of the IC as band-pass responses, 25\% as low-pass, and 25\% as band reject filters.  The weights were assigned based on the frequency of representation in IC.  
 
+This treatment more fully accounts for the neural diversities observed anatomically in IC, and is robust at high sound level and at background noise levels. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{carney-2.pdf}
+	\caption{Different Response Types in the Carney Model.  Figure reprinted from~\cite{Carney2015Speech}}
+	\label{fig:carney-2}
+\end{figure}
 
 \section{Candidate Objective Measures of Cochlear Synaptopathy} % (fold)
 \label{sec:objective_measures_of_cochlear_synaptopathy}
