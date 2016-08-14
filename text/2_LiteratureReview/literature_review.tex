@@ -8,7 +8,7 @@
 \graphicspath{{2_LiteratureReview/Figures/}}
 \section{Chapter Summary} % (fold)
 \label{sec:review_summary}
-This chapter lays out a review of the relevant literature this thesis relies on. First, an overview of the clinical significance and relevant neuroanatomy of cochlear synaptopathy are given.  Then, a review of the computational models that will be used is presented. 
+This chapter lays out a review of the relevant literature this thesis relies on. First, an overview of the clinical significance and relevant neuroanatomy of cochlear synaptopathy are given.  Then, a review of the computational models that will be used for the body of this thesis is presented. 
 
 % section review_summary (end)
 \section{Cochlear Synaptopathy} % (fold)
@@ -21,7 +21,7 @@ Deafferentiation is the loss of one or more synapses between an Inner Hair Cell 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{furman-2.pdf}
-	\caption[Deafferentation of Inner Hair Cells]{Deafferentiation of IHCs precedes hair cell death in noise exposed mice.  Figure is reprinted from~\cite{Furman2013NoiseInduced}}
+	\caption[Deafferentation of Inner Hair Cells]{Deafferentiation of IHCs precedes hair cell death in noise exposed mice.  Figure is reprinted from~\cite{Furman2013NoiseInduced}.  Panels A  and B show a triple-stained cross sectional view of an IHC.  Synaptic ribbons are in red, and glutamate-receptor patches are in green; deafferentiation is visible when they are not paired (in C).  }
 	\label{fig:furman-2}
 \end{figure}
 
@@ -53,13 +53,24 @@ Along the length of the basilar membrane, different percentages of low-, medium-
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-1c.pdf}
-	\caption[Distribution of Fiber Type]{Distribution of Fiber Type.  Reprinted from \cite{Temchin2008Threshold}}
+	\caption[Distribution of Fiber Type]{Distribution of Fiber Type. Conventional extracellular recording electrodes characterized the spontaneous rate of 4184 individual AN fibers in 228 chinchilla along the length of the Organ of Corti. Reprinted from \cite{Temchin2008Threshold}}
 	\label{fig:temchin-1}
 \end{figure}
 % subsection fiber_rates_are_tonotopically_nonuniform (end)
 
 \section{Relevant Functional Neuroanatomy of the Auditory Midbrain} % (fold)
 \label{sec:relevant_functional_neuroanatomy_of_the_auditory_midbrain}
+Ascending from the AN, auditory information passes through multiple brainstem and midbrain areas en route to the thalmus, and then auditory cortex.  A simplified schematic of pre-thalamic connections is given in \autoref{fig:comey-1}. 
+
+ABR Waves III and V are thought to reflect, in part, the synchronous contributions of the Cochlear Nucleus and Inferior Colliculus, it is important to consider both the effects of CS as well as more local physiology on the overall ABR.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{comey-1.pdf}
+	\caption[Ascending Auditory Pathway]{A simplified network diagram of the ascending auditory pathway in mammals.  Pathways in white arise from the DCN; pathways in black from the VCN.}
+	\label{fig:comey-1}
+\end{figure}
+
 \subsection{The Cochlear Nucleus} % (fold)
 \label{sub:the_cochlear_nucleus}
 The primary projection from the AN is the Cochlear Nucleus, an inhomogenous structure that is the first auditory relay station located in the ipsilateral medulla of the brainstem.  
@@ -72,15 +83,19 @@ Further, while projections are selective as shown in \autoref{fig:ryugo}, the pr
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{ryugo-1.pdf}
-	\caption[Low SR Fibers Project to the Small Cap]{Low-SR fibers project to the small cap of the DCN.  From~\cite{Ryugo2008Projections}, this shows a lateral view of a low SR fiber as it collateralizes (red) in the rostral and lateral SCC (CF=0.45 kHz; SR=1.2 s/s; Th=34 dB SPL).}
+	\caption[Low SR Fibers Project to the Small Cap]{Low-SR fibers project to the Small Cap area of the DCN.  From~\cite{Ryugo2008Projections}, this shows a lateral view of a low SR fiber as it collateralizes (red) in the rostral and lateral SCC (CF=0.45 kHz; SR=1.2 s/s; Th=34 dB SPL).}
 	\label{fig:ryugo}
 \end{figure}
 
-While the VCN is critically important for the processing of binaural phenomena, the specificities of projection observed in the DCN suggest an interesting role for synaptopathic losses that may be more monaural.
+While the VCN is critically important for the processing of binaural phenomena, the specificities of projection observed in the DCN suggest an interesting role for synaptopathic losses that may be more monaural.  Further, DCN projects directly to IC, wheras a proper consideration of contributions from the VCN would require a more involved treatment of pre-collicular regions such as the MSO. 
 % subsection the_ventral_cochlear_nucleus (end)
 \subsection{The Inferior Colliculus} % (fold)
 \label{sub:the_inferior_colliculus}
-The IC has long been regarded as the last pre-thalamic obligate waystation for ascending auditory information, and a major center of pre-cortical auditory processing with many diverse functions \citep{Cant2005Atlas,Covey2008Inputs,Moore1985Projections}.~\cite{Beebe2016Extracellular} has recently found at least four morphologically different GABAergic neuron types in IC that react in different ways to auditory stimuli.
+The IC has long been regarded as the last pre-thalamic obligate waystation for ascending auditory information, and a major center of pre-cortical auditory processing with many diverse functions \citep{Cant2005Atlas,Covey2008Inputs,Moore1985Projections}.
+
+Recently,~\cite{Beebe2016Extracellular} has reported at least four morphologically different GABAergic neural types in IC that react in different ways to auditory stimuli.  Considering the recent diversity of IC responses that have been observed and will be discussed in \autoref{sub:the_carney_model}, this is a tantalizing anatomical observation that may correlate with electrophysiologically observed behavior.  
+
+
 % subsection the_inferior_colliculus (end)
 % section functional_neuroanatomy_of_the_auditory_midbrain (end)
 
@@ -88,14 +103,14 @@ The IC has long been regarded as the last pre-thalamic obligate waystation for a
 \label{sec:models_of_the_auditory_periphery}
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model}
-A functional model of the auditory periphery was developed by~\cite{Verhulst2015Functional}.  As outlined in \autoref{fig:verhulst-1}, the model consists of a middle ear preprocessing model adapted from~\cite{Meddis2010Computational}.  Input is passed to a cochlear transmission line model, which estimates BM displacements and velocities for an arbitrary number of BM sections (default: 1000).  Motions of the BM are translated into IHC bundle deflections and passed through a nonlinearity.  Estimates of the Instantaneous Firing Rate (IFR) are made by a method adapted from~\cite{Westerman1988Diffusion}, which implements a three-store diffusion model of synaptic vesicle and neurotransmitter release and reuptake.  
+A functional model of the auditory periphery was developed by~\cite{Verhulst2015Functional}.  As outlined in \autoref{fig:verhulst-1}, the model consists of a middle ear preprocessing model adapted from~\cite{Meddis2010Computational}.  Input is passed to a cochlear transmission line model, which estimates BM displacements and velocities for an arbitrary number of BM sections (default: 1000).  Motions of the BM are translated into IHC bundle deflections and passed through a nonlinearity.  Estimates of the Instantaneous Firing Rate (IFR) are made by a method adapted from~\cite{Westerman1988Diffusion}, which implements a three-store diffusion model of synaptic vesicle and neurotransmitter release and reuptake.  Unlike the Zilany model, the Verhulst model does not account for per-fiber noise in spontaneous rate.
 
 The version of the model given by~\cite{Verhulst2015Functional} also includes a CN and IC modeling stage from~\cite{Nelson2004Phenomenological}, and the final model output are estimates of ABR Wave I, Wave III, and Wave V. 
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{verhulst-1.pdf}
-	\caption[The Verhulst Model]{Major subunits of the Verhulst transmission line model of the auditory periphery.  Figure is reprinted from~\cite{Verhulst2015Functional}.}
+	\caption[The Verhulst Model]{Major subunits of the Verhulst transmission line model of the auditory periphery.  Figure is reprinted from~\cite{Verhulst2015Functional}.  Input (stimulus) and outputs (OAEs, Wave I, Wave III, Wave V) are in red, and located at their physiologically relevant leves.}
 	\label{fig:verhulst-1}
 \end{figure}
 
@@ -117,21 +132,21 @@ The approach is outlined in \autoref{fig:zilany-1} and consists of a phenomenolo
 \label{sec:models_of_the_auditory_midbrain_and_brainstem}
 \subsection{The Nelson-Carney Model} % (fold)
 \label{sub:the_nelson_carney_model}
-\cite{Nelson2004Phenomenological} proposed a two-stage phenomenological model of the midbrain and brainstem.  The Cochlear Nucleus and Inferior Colliculus are each represented by a single Same-Frequency Inhibition Exitation (SFIE) filter, which convolves the output of the previous stage with  excitatory and inhibitory alpha functions.  As shown in \autoref{fig:nelsoncarney-1}, these functions' delays, amplitudes, and onset times can be adjusted to provide a tuned response for a given unit, compared to electrophysiological measurements.  In each case, each unit acts as a band-pass filter tuned to a certain bandwidth. 
+\cite{Nelson2004Phenomenological} proposed a two-stage phenomenological model of the midbrain and brainstem.  The Cochlear Nucleus and Inferior Colliculus are each represented by a single Same-Frequency Inhibition Excitation (SFIE) filter, which convolves the output of the previous stage with  excitatory and inhibitory alpha functions.  As shown in \autoref{fig:nelsoncarney-1}, these functions' delays, amplitudes, and onset times can be adjusted to provide a tuned response for a given unit, compared to electrophysiological measurements.  In each case, each unit acts as a band-pass filter tuned to a certain bandwidth. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{nelsoncarney-1.pdf}
-	\caption{The Nelson and Carney Brainstem. Figure reprinted from~\cite{Nelson2004Phenomenological}.}
+	\caption[The Nelson and Carney Model]{The Nelson and Carney Brainstem. Figure reprinted from~\cite{Nelson2004Phenomenological}.}
 	\label{fig:nelsoncarney-1}
 \end{figure}
 
 \subsection{The Carney Model} % (fold)
 \label{sub:the_carney_model}
-\cite{Carney2015Speech} extended the two-stage \citeauthor{Nelson2004Phenomenological} model by the incorporation of three categories of IC responses, compared with the single filter in \autoref{sub:the_nelson_carney_model}, to better account for processing of spectrally complex vowel tones.  As shown in \autoref{fig:carney-1}, the IC is divided into three SFIE stages. 
+\cite{Carney2015Speech} extended the two-stage \citeauthor{Nelson2004Phenomenological} model by the incorporation of three categories of IC responses, compared with the single filter in \autoref{sub:the_nelson_carney_model}, to better account for processing of spectrally complex vowel tones.  As shown in \autoref{fig:carney-1}, the IC is divided into three Same-Frequency Inhibition Excitation stages. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{carney-1.pdf}
-	\caption{The Carney (2015) Midbrain and Brainstem.  Figure reprinted from~\cite{Carney2015Speech}}
+	\caption[The Carney 2015 Model]{The Carney (2015) Midbrain and Brainstem.  Figure reprinted from~\cite{Carney2015Speech}}
 	\label{fig:carney-1}
 \end{figure}
 
@@ -143,15 +158,15 @@ This three-stage IC model more fully accounts for the neural diversities that ha
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{carney-2.pdf}
-	\caption{Different Response Types in the Carney Model.  Figure reprinted from~\cite{Carney2015Speech}}
+	\caption[IC Response Types]{Different Response Types in the Carney Model.  Figure reprinted from~\cite{Carney2015Speech}}
 	\label{fig:carney-2}
 \end{figure}
 
-\section{Candidate Objective Measures of Cochlear Synaptopathy} % (fold)
+\section{Candidate Objective Measures of Cochlear Synaptopathy in Humans} % (fold)
 \label{sec:objective_measures_of_cochlear_synaptopathy}
 To date, there is no objective test in humans that would give definitive insight into whether or not a patient exhibits signs of HHL, or be able to quantify the degree or location of impairment. 
 
-\citeauthor{Mehraei2015Auditory}, in an attempt to direct the search for such a diagnostic, correlated performance in a psychophysical task with markers in ABR.  In their work, 23 NHT listeners participated in a series of experiments to establish a relationship between task performance and putative cochlear synaptopathy.   Cochlear mechanics function was validated with CEOAE.  A behavioral measure of temporal sensitivity was established with an ITD envelope detection task with transposed tones.  Noise-masked ABRs were measured with increasing noise level.   As shown in \autoref{fig:mehraei-1}, Wave V latencies in increasing noise correlate with performance on ITD detection.
+\cite{Mehraei2015Auditory}, in an attempt to direct the search for such a diagnostic, correlated performance in a psychophysical task with markers in ABR.  In their work, 23 NHT listeners participated in a series of experiments to establish a relationship between task performance and putative cochlear synaptopathy.   Cochlear mechanics function was validated with click-evoked OAEs.  A behavioral measure of temporal sensitivity was established with an ITD envelope detection task with transposed tones.  Noise-masked ABRs were measured with increasing noise level.   As shown in \autoref{fig:mehraei-1}, Wave V latencies in increasing noise correlate with performance on ITD detection.
 
 \begin{figure}[htbp]
 	\centering
