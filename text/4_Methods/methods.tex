@@ -51,8 +51,7 @@ To run a simulation, the following parameters must be given.  Each parameter wil
 \label{sec:peripheral_models}
 Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
 
-Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of instantaneous firing rates for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane. 
-
+Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of Instantaneous Firing Rates (IFRs) for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane via the Greenwood function.
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model1}
 The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling Otoacoustic emissions in response to complex stimuli. 
@@ -70,15 +69,15 @@ The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014C
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
-The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  
+The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.  
 
-For the purposes of this work, both the Zilany and Verhulst model support this approach.  Therefore, while both the Verhulst and Zilany model support classification of spontaneous rates into three categories, for the purposes of weighting fiber types both low- and medium-SR populations may be treated identically.  
+Therefore, while both the Verhulst and Zilany model support classification of spontaneous rates into three categories, for the purposes of weighting fiber types both low- and medium-SR populations may be treated identically.  
 
 % subsection the_zilany_model (end)
 
 \subsection{Peripheral Model Output} % (fold)
 \label{sub:peripheral_model_output}
-The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 sections. 
+The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 section.  Each section corresponds to one CF, where the place-frequency map is obtained via the Greenwood function.
 
  While running the simulation, the following model outputs may be stored to disk for further analysis: 
 \begin{enumerate}
@@ -100,28 +99,27 @@ Both models provide estimates of Instantaneous Firing Rate as a function of post
 
 \section{Auditory Nerve Response Models} % (fold)
 \label{sec:auditory_nerve_response_models}
-This stage of processing converts IFRs of specific fiber populations into an estimate of the summed activity of the auditory nerve. It corresponds to the green region of \autoref{fig:corti-overview}. 
+This stage of processing converts IFRs of specific fiber populations made by either the Zilany or Verhulst model into an estimate of the summed activity of the auditory nerve. It corresponds to the green-shaded region of \autoref{fig:corti-overview}.  Depending on the parameters chosen, output of either the Zilany or Verhulst peripheral models are first summed into a population response of the AN by one of two means.  Next, degradation of the population response that corresponds to a model of synaptopathy is applied; finally, the summed population response is passed to the midbrain and brainstem models.
 
 \subsection{Modeling the Contributions of Inner Hair Cells} % (fold)
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
-Along the Organ of Corti, each inner hair cell is innervated by multiple spiral ganglia.  The Verhulst and Zilany models, however, give unitary responses for spontaneous rate type for each best center frequency, so modeling the summed response per IHC requires multiplicatively weighting and then summing the responses of each SR type to obtain the total contribution of one modeled hair cell. 
+The output of the Zilany and Verhulst peripheral models are IFRs for one stereotypical AN fiber of each SR type per CF.   However, tens of fibers innervate each IHC along the length of the cochlea.  Consequently, to generate an estimate of IFR per CF or per BM section, each stereotypical AN fiber must be scaled by some weighting factor so that its output becomes an estimate of the summed IFRs of its SR category for a given IHC.  Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model assigns 19 fibers to each inner hair cell.  The Zilany model makes no inherent assumptions about number of fibers per IHC, so to maintain equivalence with the Verhulst model and allow like-to-like comparison of model output, IFR estimates from both models are distributed among 19 fibers.
 
-Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model assigns 19 fibers to each inner hair cell.  
+In \autoref{fig:corti-overview}, this process is the first contribution of the AN processing area in green, and is accomplished by either a constant or nonlinear weight.
 
-The Zilany model's output is summed accordingly. 
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
 \subsection{Weighting of IHC contributions} % (fold)
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave-1 amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
 
-To produce comparable results in this work, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave-1 amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
+To produce comparable results in this work, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter. 
+Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter.   As shown in \autoref{fig:temchin-curvefit}, experimental data for SR distrubition as a function of CF was fitted via logistic regression in \textsc{}
 
 \begin{figure}[htbp]
 	\centering
