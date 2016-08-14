@@ -17,10 +17,10 @@ This chapter gives a detailed description of the modeling environment created fo
 \label{sec:overview_of_modeling_framework}
 The modeling framework created for this thesis has been named Corti \citep{Voysey2016Corti}. It is architecturally inspired by the EarLab project developed at Boston University as well as the Cochlea \citep{Rudnicki2014Cochlea} modeling environment developed at the Technical University of Munich, from which it incorporates a peripheral model.
 
-Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters define which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
+Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters determine which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
 
 \subsection{Configuration Options Define a Parameter Space}
-As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of parameters, ranging from sampling frequency to the time constants and relative inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
+As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of parameters, ranging from sampling frequency to the time constants and relative strength and latency of inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
 
 \begin{figure}[htbp]
 	\centering
@@ -34,14 +34,14 @@ As detailed in \autoref{chapter:literaturereview}, the constituent models of thi
 To run a simulation, the following parameters must be given.  Each parameter will be detailed in subsequent sections of this chapter. 
 
 \begin{enumerate}
-	\item The periphery model type.
-	\item Which components of the peripheral response to save to disk for later analysis.
-	\item The degree and kind of cochlear synaptopathy to simulate.
+	\item The periphery model type. (Verhulst or Zilany)
+	\item Which components of the peripheral response to save to disk for later analysis. (OAEs, IFR estimates, BM velocities)
+	\item The degree and kind of cochlear synaptopathy to simulate. (mild to severe; fiber specific or not)
 	\item Whether or not the distribution of fibers per inner hair cell should vary as a function of basilar membrane location.
 	\item Whether or not a brainstem/midbrain response should be simulated.
-	\item The brainstem/midbrain model type.
-	\item The stimulus to simulate a response to. 
-	\item The stimulus level.
+	\item The brainstem/midbrain model type. (Nelson Carney or Carny)
+	\item The stimulus to simulate a response to.  (click, custom WAV)
+	\item The stimulus level. (in dB SPL)
 	\item Whether or not the model is being run as part of a larger parallel simulation.
 \end{enumerate}
 % subsection model_parameters (end)
@@ -61,7 +61,7 @@ Since the development of the Verhulst model is still underway, it has been progr
 % subsection the_verhulst_model (end)
 \subsection{The Zilany Model} % (fold)
 \label{sub:the_zilany_model}
-The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model, originally developed based on measurements in animal models, was updated with humanized parameters to better reflect psychophysical data \citep{Zilany2014Updated,Zilany2007Predictions,Zilany2006Modeling}. 
+The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model was originally developed based on measurements in cat \citep{Zilany2006Modeling},and has since been updated to account for spectrally complex sounds via power-law adaptation \citep{Zilany2007Predictions} and later with humanized parameters to better reflect psychophysical data \citep{Zilany2014Updated}. 
 
 The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
 
@@ -70,7 +70,9 @@ The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014C
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
-The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.
+The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \citeauthor{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  
+
+For the purposes of this work, both the Zilany and Verhulst model support this approach.  Therefore, while both the Verhulst and Zilany model support classification of spontaneous rates into three categories, for the purposes of weighting fiber types both low- and medium-SR populations may be treated identically.  
 
 % subsection the_zilany_model (end)
 
@@ -78,7 +80,7 @@ The classification of SR types by mean spontaneous firing rate differs between t
 \label{sub:peripheral_model_output}
 The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 sections. 
 
- While running the simulation, the following model estimates may be stored to disk for further analysis: 
+ While running the simulation, the following model outputs may be stored to disk for further analysis: 
 \begin{enumerate}
 	\item Basilar membrane velocities for each section.
 	\item Basilar membrane displacements for each section.
