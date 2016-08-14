@@ -119,7 +119,7 @@ To produce comparable results in this work, the Zilany model was scaled accordin
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter.   As shown in \autoref{fig:temchin-curvefit}, experimental data for SR distrubition as a function of CF was fitted via logistic regression in \textsc{}
+Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter.   As shown in \autoref{fig:temchin-curvefit}, experimental data for SR distrubition as a function of CF was fitted via logistic regression in \textsc{matlab}, and this regression function was used to generate an empirical estimate of SR type. 
 
 \begin{figure}[htbp]
 	\centering
@@ -137,9 +137,9 @@ The empirical logistic fit equation that estimates $p$, the percentage of fibers
 where $k = 22$, $r = $ \num{9e-6} and $\mathit{cf}_0 = 2500$.
 
 \subsubsection{Fractional Weights}
-A consequence of the approach taken in \autoref{sub:weighting_of_fiber_types_per_ihc} is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is no longer guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
+A consequence of the IFR weighting approach taken here is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is not guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
 
-Therefore, it is appropriate to think of such values as weighted contributions rather than individual spiral ganglia.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
+Therefore, it is appropriate to think of the modeled IFR values as weighted contributions of a SR type, rather than the summed responses of individual fibers.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
 % subsection weighting_of_fiber_types_per_ihc (end)
 
 \subsection{Modeling Synaptopathy} % (fold)
@@ -151,7 +151,7 @@ Six predetermined severity levels, as given in \autoref{fig:synaptopathy} were c
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{percentage-degradation.pdf}
-	\caption[Cochlear Synaptopathy Parameters]{The default types of cochlear synaptopathy that may be simulated.}
+	\caption[Cochlear Synaptopathy Parameters]{The default types of cochlear synaptopathy that may be simulated. The percentage by which the IFRs of a given fiber type are reduced are given in each row.  In the case of the Low SR (ls) synaptopathies ls-mild, ls-moderate, and ls-severe, only the low- and medium- SR fibers are degraded.}
 	\label{fig:synaptopathy}
 \end{figure}
 % subsection modeling_synaptopathy (end)
