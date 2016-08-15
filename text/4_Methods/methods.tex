@@ -19,6 +19,8 @@ The modeling framework created for this thesis has been named Corti \citep{Voyse
 
 Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters determine which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
 
+Corti is publicly available and open source, licensed under the GNU GPLv3.  It is free to distribute and use by anyone.  The file format used to store large simulation output is the Hierarchial Data Format (HDF5), which is a database in a file that can be analyzed and accessed by any operating system and any modern programming language; while Corti is written in Python, analysis of its output may be done in \textsc{matlab} or R or SPSS or any other tool. 
+
 \subsection{Configuration Options Define a Parameter Space}
 As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of parameters, ranging from sampling frequency to the time constants and relative strength and latency of inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
 
@@ -77,7 +79,7 @@ Therefore, while both the Verhulst and Zilany model support classification of sp
 
 \subsection{Peripheral Model Output} % (fold)
 \label{sub:peripheral_model_output}
-The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 section.  Each section corresponds to one CF, where the place-frequency map is obtained via the Greenwood function.
+The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 section.  Each section corresponds to vone CF, where the place-frequency map is obtained via the Greenwood function.
 
  While running the simulation, the following model outputs may be stored to disk for further analysis: 
 \begin{enumerate}
@@ -112,9 +114,9 @@ In \autoref{fig:corti-overview}, this process is the first contribution of the A
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs logarithmically spaced between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \citeauthor{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
 
-To produce comparable results in this work, the Zilany model was scaled accordingly. By iteratively converging on a scaling factor with a tolerance of $\pm$1 nV, the scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
+To produce comparable results in this work, the Zilany model was scaled accordingly. We iteratively converged on a scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV, which was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
@@ -139,14 +141,14 @@ where $k = 22$, $r = $ \num{9e-6} and $\mathit{cf}_0 = 2500$.
 \subsubsection{Fractional Weights}
 A consequence of the IFR weighting approach taken here is that while the total fiber count per IHC is fixed at 19 fibers, the percentage of the summed response of that IHC that arises from a given fiber type is not guaranteed to represent an integer number of fibers.  For example, a CF of 8 kHz has 42.9 percent of its innervating spiral ganglia with spontaneous rates below 18 spikes/second, or a total of 8.133 low and medium spontaneous rate fibers.  
 
-Therefore, it is appropriate to think of the modeled IFR values as weighted contributions of a SR type, rather than the summed responses of individual fibers.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
+Therefore, it is appropriate to think of the modeled IFR values as the weighted contributions of a SR type to the overall IFR originating from a particular CF, rather than the summed responses of integer numbers of individual fibers.  In the context of producing auditory nerve responses---as are used in this work---this can be thought of as providing a more accurate representation of \emph{summed} physiological responses. Model responses of unitary fibers of different spontaneous rates are saved in the peripheral output, if desired.
 % subsection weighting_of_fiber_types_per_ihc (end)
 
 \subsection{Modeling Synaptopathy} % (fold)
 \label{sub:modeling_synaptopathy}
 Cochlear synaptopathy is the loss of the synapse between an inner hair cell and an individual spiral ganglion.  At the level of the summed auditory nerve response, selective degradation is modeled by reducing the contribution of each fiber type per hair cell by a scaling factor. 
 
-Six predetermined severity levels, as given in \autoref{fig:synaptopathy} were chosen to model cochlear synaptopathy, all of which work in a similar manner.  In each case, the portion of the response from a hair cell of a given center frequency is scaled by a percentage of its magnitude before being summed into the auditory nerve response.  
+Six predetermined severity levels, as given in \autoref{fig:synaptopathy} were chosen to model cochlear synaptopathy, all of which behave similarly.  In each case, the portion of the response from a hair cell of a given center frequency is scaled by a percentage of its magnitude before being summed into the auditory nerve response.  
 
 \begin{figure}[htbp]
 	\centering
@@ -170,7 +172,7 @@ In the case of the simpler brainstem and midbrain model of \citeauthor{Nelson200
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{nelson-carney-2004.pdf}
-	\caption[Overview of the Nelson-Carney Midbrain and Brainstem]{Overview of the processing stages of the Nelson-Carney brainstem model and model output at various stages for an 80dB click stimulus. Coefficients for the CN and IC are given. }
+	\caption[Overview of the Nelson-Carney Midbrain and Brainstem]{Overview of the processing stages of the Nelson-Carney brainstem model and model output at various stages for an 80dB click stimulus. Coefficients, which define the excitation and inhibition onset times and amplitudes for the CN and IC, are given. }
 	\label{fig:nelson-carney}
 \end{figure}
 % subsection the_nelson_carney_2004_brainstem (end)
@@ -192,7 +194,9 @@ Weights of contribution for each type are as shown in \autoref{fig:carney-2015},
 % section brainstem_models (end)
 \section{Stimulus Generation} % (fold)
 \label{sec:stimulus_generation}
-Corti supports simulations of stimuli of arbitrary duration and level.  Simple stimuli such as clicks are generated programmatically by specifying a series of parameters such as onset time and duration, and more complex stimuli can be specified as WAV files.  All WAV stimuli must specify a sound level in dB SPL re 20$\mu$Pa; the waveform is then normalized by the peak value (in the case of a click) or the RMS value (for spectrally complex stimuli) and rescaled to have units of Pascals prior to simulation.
+Corti supports simulations of stimuli of arbitrary duration and level.  Simple stimuli such as clicks are generated programmatically by specifying a series of parameters such as onset time and duration.  
+
+More complex stimuli can be created and passed in as WAV files.  All WAV stimuli must specify the sound level, in dB SPL re 20$\mu$Pa, at which they should be presented; the waveform is then normalized by the peak value (in the case of a click) or the RMS value (for spectrally complex stimuli) and rescaled to have units of Pascals prior to simulation.
 % section stimulus_generation (end)
 \section{Automated Parameter Exploration} % (fold)
 \label{sec:automated_parameter_exploration}

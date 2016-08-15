@@ -27,7 +27,7 @@ In all cases, the effects of a parameter change is of interest for the same two 
 
 \subsection{Stimuli} % (fold)
 \label{sub:stimuli}
-Following \citeauthor{Mehraei2015Auditory,Mehraei2016Auditory}, 6 stimului were programmatically generated and stored as WAV files with a sampling frequency of 100 kHz.  As shown in \autoref{fig:stimuli-used}, stimulus onset was delayed by 20 $\mu$s of silence, and then consisted of 80 dB SPL clicks with a repetition rate of 100 ms in the presence of Gaussian noise at different signal to noise ratios. 
+Following \citeauthor{Mehraei2015Auditory,Mehraei2016Auditory}, six stimului were programmatically generated and stored as WAV files with a sampling frequency of 100 kHz.  As shown in \autoref{fig:stimuli-used}, stimulus onset was delayed by 20 $\mu$s of silence, and then consisted of 80 dB SPL clicks with a repetition rate of 100 ms in the presence of Gaussian noise at different signal to noise ratios. 
 
 Importantly, these stimuli are all well above the threshold of audibility; the aim is to obtain a response of the auditory models as they react robustly to a clearly audible input. 
 
@@ -51,7 +51,7 @@ The effects of four types of synaptopathy---moderate, severe, low-SR specific mo
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{synaptopathy-all.pdf}
-	\caption[Effects of Synaptopathy]{The effects of varying levels of synaptopathy on model responses to a stimulus at multiple noise levels.  Some traces are present but not visible as they precisely overlay other results.}
+	\caption[Effects of Synaptopathy]{The effects of varying degrees of synaptopathy on model responses to a stimulus at multiple noise levels.  Some traces are present but not visible as they precisely overlay other results.}
 	\label{fig:synaptopathy_results}
 \end{figure}
 
@@ -64,7 +64,7 @@ Wave V latencies exhibit a consistent increase in latency relative to a pure cli
 
 \section{Effect of Peripheral Model Choice} % (fold)
 \label{sec:effect_of_peripheral_model}
-Because the response trends vary quite little as a function of the types of synaptopathy modeled in \autoref{sec:effect_of_synaptopathy}, the relative effects of model types can be explored while holding the type of synaptopathy fixed, thus eliminating one dimension of the parameter space.
+Because we observe little difference in the Wave I and Wave V responses as a function of the types of synaptopathy modeled in \autoref{sec:effect_of_synaptopathy}, the relative effects of peripheral and brainsetm model types can be explored while holding the type of synaptopathy fixed.  This temporarily removes one dimension of the parameter space. 
 
 The effects of peripheral model choice on Wave V peak latency and Wave I peak amplitudes are given in \autoref{fig:periphery_results}.   In general, the Verhulst model predicts both larger Wave V latencies and larger changes as a function of SNR compared to the Zilany model, which predicts generally small to no change in latencies.  This is contrary to earlier modeling results, which suggest the opposite effect of peripheral models. 
 
