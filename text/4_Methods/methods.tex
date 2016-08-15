@@ -39,29 +39,25 @@ As detailed in \autoref{chapter:literaturereview}, the constituent models of thi
 	\label{fig:corti-overview}
 	\end{figure}
 
-\subsection{Model Parameters} % (fold)
-\label{sub:model_parameters}
-To run a simulation, the following parameters must be given.  Each parameter will be detailed in subsequent sections of this chapter. 
-
-\begin{enumerate}
-	\item The periphery model type. (Verhulst or Zilany)
-	\item Which components of the peripheral response to save to disk for later analysis. (OAEs, IFR estimates, BM velocities)
-	\item The degree and kind of cochlear synaptopathy to simulate. (mild to severe; fiber specific or not)
-	\item Whether or not the distribution of fibers per inner hair cell should vary as a function of basilar membrane location.
-	\item Whether or not a brainstem/midbrain response should be simulated.
-	\item The brainstem/midbrain model type. (Nelson Carney or Carny)
-	\item The stimulus to simulate a response to.  (click, custom WAV)
-	\item The stimulus level. (in dB SPL)
-	\item Whether or not the model is being run as part of a larger parallel simulation.
-\end{enumerate}
-% subsection model_parameters (end)
-% section overview_of_modeling_framework (end)
+\section{Simulation using Corti} % (fold)
+\label{sec:simulation_using_corti}
+As shown in \autoref{fig:corti-overview}, a full simulation using Corti involves three primary processing stages: the Peripheral, Auditory Nerve, and Brainstem / Midbrain. The next sections of this chapter will treat each stage in detail. 
+% section simulation_using_corti (end)
 
 \section{Peripheral Models} % (fold)
 \label{sec:peripheral_models}
-Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
+The Peripheral stage takes a stimulus and produces estimates of the Instantaneous Firing Rate for three fibers per CF.  Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
 
-Both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of Instantaneous Firing Rates (IFRs) for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane via the Greenwood function.
+As detailed in \autoref{fig:periphery-stage}, both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of Instantaneous Firing Rates (IFRs) for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane via the Greenwood function.
+
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{periphery-subunit.pdf}
+	\caption[The Peripheral Stage]{The Peripheral stage. All model inputs are shown; inputs in italics are used in later stages.  Three estimates of fiber IFRs are always produced (in black text), and are passed to the Auditory Nerve modeling stage.  In grey, the Verhulst model may also produce other output which can be optionally stored, but is not used for ABR estimation. }
+	\label{fig:periphery-stage}
+\end{figure}
+
 \subsection{The Verhulst Model} % (fold)
 \label{sub:the_verhulst_model1}
 The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling Otoacoustic emissions in response to complex stimuli. 
@@ -109,7 +105,14 @@ Both models provide estimates of Instantaneous Firing Rate as a function of post
 
 \section{Auditory Nerve Response Models} % (fold)
 \label{sec:auditory_nerve_response_models}
-This stage of processing converts IFRs of specific fiber populations made by either the Zilany or Verhulst model into an estimate of the summed activity of the auditory nerve. It corresponds to the green-shaded region of \autoref{fig:corti-overview}.  Depending on the parameters chosen, output of either the Zilany or Verhulst peripheral models are first summed into a population response of the AN by one of two means.  Next, degradation of the population response that corresponds to a model of synaptopathy is applied; finally, the summed population response is passed to the midbrain and brainstem models.
+This stage of processing converts IFRs of specific fiber populations made by either the Zilany or Verhulst model into an estimate of the summed activity of the auditory nerve. It corresponds to the green-shaded region of \autoref{fig:corti-overview}, and is outlined in detail in \autoref{fig:an-subunit}.  Depending on the parameters chosen, output of either the Zilany or Verhulst peripheral models are first summed into a population response of the AN by one of two means.  Next, degradation of the population response that corresponds to a model of synaptopathy is applied; finally, the summed population response is passed to the midbrain and brainstem models.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{an-subunit.pdf}
+	\caption[The Auditory Nerve Stage]{The Auditory Nerve Stage. Single IFR estimates for fiber types at each CF are weighted to produce an estimate of the total IFR at each IHC/CF.  These are optionally degraded to model synaptopathy, weighted to produce physiologically appropriate Wave I amplitudes, and summed into the total population response of the Auditory Nerve.}
+	\label{fig:an-subunit}
+\end{figure}
 
 \subsection{Modeling the Contributions of Inner Hair Cells} % (fold)
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
@@ -169,7 +172,14 @@ Six predetermined severity levels, as given in \autoref{fig:synaptopathy} were c
 
 \section{Brainstem Models} % (fold)
 \label{sec:brainstem_models}
-This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.
+This section details the two brainstem models in use, given by~\cite{Nelson2004Phenomenological} and~\cite{Carney2015Speech}.  These correspond to the yellow region of \autoref{fig:corti-overview}, and are detailed in \autoref{fig:brainstem-subunit}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{brainstem-subunit.pdf}
+	\caption[The Brainstem and Midbrain Stage]{The Brainstem and Midbrain stage.  The summed Auditory Nerve population response is convolved with Same-Frequency Inihibition/Excitation models to produce estimates of the Cochlear Nucleus response.  Wave I estimates are made from the AN response.  The response of the IC is simulated with one or three SFIE model(s), depending on which brainstem model was chosen.  From the CN and IC responses, estimates of Waves III and V are made.}
+	\label{fig:brainstem-subunit}
+\end{figure}
 
 \subsection{Choice of Best Modulation Frequency}
 The included models of the CN and IC are tuned to a best modulation frequency---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by \citeauthor{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants.   It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', so this has not been implemented.
