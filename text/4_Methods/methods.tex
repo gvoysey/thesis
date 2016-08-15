@@ -23,7 +23,7 @@ Corti is a command-line tool written in Python. As detailed in \autoref{fig:cort
 \label{sub:software_design}
 Corti has been designed to be an easy to use and flexible command-line tool that should be immediately usable to anyone interested in auditory modeling who is familiar with basic auditory physiology and engineering.  It has a fully documented user interface, requires no special system configuration to use, and runs on Linux, Windows, and OSX.
 
-Corti is publicly available and open source, licensed under the GNU GPLv3.  It is free to distribute, use, and be contributed to by anyone.  The file format used to store large simulation output is the Hierarchial Data Format (HDF5), which is a database in a file that can be analyzed and accessed by any operating system and any modern programming language---while Corti is written in Python, analysis of its output may be done in \textsc{matlab}, R, SPSS or any other modern data analysis tool.
+Corti is publicly available and open source, licensed under the GNU GPLv3.  It is free to distribute, use, and be contributed to by anyone.  The file format used to store large simulation output is the Hierarchal Data Format (HDF5), which is a database in a file that can be analyzed and accessed by any operating system and any modern programming language---while Corti is written in Python, analysis of its output may be done in \textsc{matlab}, R, SPSS or any other modern data analysis tool.
 
 Corti was designed so that its output can be easily audited and examined to know not only which biophysical parameters were used, but also know comprehensive metadata about the simulation itself.  For example, model output contains which version of each model was used, the date and time of the computation, a copy of the stimulus used to stimulate the models, and a comprehensive record of other relevant parameters. 
 
@@ -83,7 +83,7 @@ Therefore, while both the Verhulst and Zilany model support classification of sp
 
 \subsection{Peripheral Model Output} % (fold)
 \label{sub:peripheral_model_output}
-The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 section.  Each section corresponds to vone CF, where the place-frequency map is obtained via the Greenwood function.
+The Verhulst model provides estimates of response behavior at many stages of the of the auditory periphery.   For models of motion in the middle ear, estimates are computed for each basilar membrane section.  By default, the BM is divided into 1000 section.  Each section corresponds to one CF, where the place-frequency map is obtained via the Greenwood function.
 
  While running the simulation, the following model outputs may be stored to disk for further analysis: 
 \begin{enumerate}
@@ -132,7 +132,7 @@ To produce comparable results in this work, the Zilany model was scaled accordin
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
-Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter.   As shown in \autoref{fig:temchin-curvefit}, experimental data for SR distrubition as a function of CF was fitted via logistic regression in \textsc{matlab}, and this regression function was used to generate an empirical estimate of SR type. 
+Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:physiology_of_the_auditory_nerve}, the distribution of SR fiber types per IHC may not be uniform along the length of the basilar membrane.  To account for this, we have extended the linear distribution of fiber types per hair cell with the option of a logistic distribution as a parameter.   As shown in \autoref{fig:temchin-curvefit}, experimental data for SR distribution as a function of CF was fitted via logistic regression in \textsc{matlab}, and this regression function was used to generate an empirical estimate of SR type. 
 
 \begin{figure}[htbp]
 	\centering
@@ -177,12 +177,12 @@ This section details the two brainstem models in use, given by~\cite{Nelson2004P
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{brainstem-subunit.pdf}
-	\caption[The Brainstem and Midbrain Stage]{The Brainstem and Midbrain stage.  The summed Auditory Nerve population response is convolved with Same-Frequency Inihibition/Excitation models to produce estimates of the Cochlear Nucleus response.  Wave I estimates are made from the AN response.  The response of the IC is simulated with one or three SFIE model(s), depending on which brainstem model was chosen.  From the CN and IC responses, estimates of Waves III and V are made.}
+	\caption[The Brainstem and Midbrain Stage]{The Brainstem and Midbrain stage.  The summed Auditory Nerve population response is convolved with Same-Frequency Inhibition/Excitation models to produce estimates of the Cochlear Nucleus response.  Wave I estimates are made from the AN response.  The response of the IC is simulated with one or three SFIE model(s), depending on which brainstem model was chosen.  From the CN and IC responses, estimates of Waves III and V are made.}
 	\label{fig:brainstem-subunit}
 \end{figure}
 
 \subsection{Choice of Best Modulation Frequency}
-The included models of the CN and IC are tuned to a best modulation frequency---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by \citeauthor{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants.   It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', so this has not been implemented.
+The included models of the CN and IC are tuned to a best modulation frequency (BMF)---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by \citeauthor{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants. These responses thus may be regarded as Modulation Transfer Functions (MTF).  It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', where units are tuned to multiple BMFs, so this has not been implemented.
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
 In the case of the simpler brainstem and midbrain model of \citeauthor{Nelson2004Phenomenological}, the CN and IC are both represented as single processing stages where an excitatory and inhibitory alpha function are convolved with, in the CN, the ANR population response, and in the IC, the output of the CN stage. 
