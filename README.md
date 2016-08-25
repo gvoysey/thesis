@@ -1,4 +1,4 @@
-Improved Brainstem Modeling to Characterize the Effect of Low Spontaneous Rate Fiber Loss on Auditory Neuropathy
+Development of a Flexible Modeling Environment for Evaluating Subcortical Auditory Systems
 =====
 
 Hidden Hearing Loss (HHL) is an emerging topic of hearing research that focuses on peripheral pathologies which leave audiometric thresholds unchanged but significantly impair threshold-independent hearing performance.  Primary among the proposed mechanisms of HHL is selective damage of low spontaneous rate (low SR) fibers of the auditory nerve (AN), yet no noninvasive quantitative measure of this mechanism yet exists in humans.
