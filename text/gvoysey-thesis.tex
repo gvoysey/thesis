@@ -10,11 +10,17 @@
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
-\usepackage{natbib}
+\usepackage[american]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+%% biblatex commands themselves
+\usepackage[natbib=true,style=apa, backend=biber]{biblatex}
+%\bibliography{Remote}
+\addbibresource{Remote.bib}
 \usepackage{subfiles}
-\usepackage{apalike}
-\usepackage{multirow}
-\usepackage{rotating}
+%\usepackage{apalike}
+%\usepackage{multirow}
+%\usepackage{rotating}
 \usepackage{float,subfigure}
 \usepackage[bf]{caption}       
 \setcaptionmargin{0.5in}
@@ -22,6 +28,7 @@
 \usepackage{bu_ece_thesis}
 \usepackage{url}
 \urlstyle{same}
+
 \usepackage{lscape,afterpage}
 \usepackage{xspace}
 \usepackage{color}
@@ -58,6 +65,9 @@ breaklinks=true,%                  % breaks lines, but links are very small
   pdfcreator  = {LaTeX/hyperref},
   pdfproducer = {LaTeX/P}
  }
+
+ \usepackage{doi}
+ \DeclareLanguageMapping{american}{american-apa}
 %==========================================================================%
 % customized commands can be placed here
 %\newcommand{\figref}[1]{Figure~\ref{#1}}
@@ -100,10 +110,12 @@ breaklinks=true,%                  % breaks lines, but links are very small
 % Bibliography
 \newpage
 \singlespace{}
-\bibliographystyle{apalike}
+%\bibliographystyle{biblatex-apa}
  % each subdirectory can have its own BiBTeX file
-\bibliography{Remote}
-\cleardoublepage{}
+%\bibliography{Remote}
+\printbibliography{}
+
+%\cleardoublepage{}
 
 %==========================================================================%
 % Curriculum Vitae
