@@ -15,6 +15,9 @@
 \usepackage{csquotes}
 %% biblatex commands themselves
 \usepackage[natbib=true,style=apa, backend=biber]{biblatex}
+\DefineBibliographyStrings{english}{%
+  bibliography = {References},
+}
 %\bibliography{Remote}
 \addbibresource{Remote.bib}
 \usepackage{subfiles}
@@ -113,9 +116,9 @@ breaklinks=true,%                  % breaks lines, but links are very small
 %\bibliographystyle{biblatex-apa}
  % each subdirectory can have its own BiBTeX file
 %\bibliography{Remote}
-\printbibliography{}
+\printbibliography[heading=bibintoc]{}
 
-%\cleardoublepage{}
+\cleardoublepage{}
 
 %==========================================================================%
 % Curriculum Vitae
