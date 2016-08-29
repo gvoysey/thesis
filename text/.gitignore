@@ -3,7 +3,8 @@ BUlogo_cmyk-eps-converted-to.pdf
 *.dvi
 *~
 *.log
-
+*.bcf
+*.run.xml
 *.aux
 *.glo
 *.idx
