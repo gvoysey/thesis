@@ -5,22 +5,29 @@
 %==========================================================================%
 \documentclass[12pt]{report}          % Single-sided printing for the library
 %\documentclass[12pt,twoside]{report} % Double-sided printing
-%\usepackage{draftwatermark}
-%\SetWatermarkText{DRAFT}
+%nicely formatted equations.
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+%bibliography configuration
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
-%% biblatex commands themselves
-\usepackage[natbib=true,style=apa, backend=biber]{biblatex}
+\usepackage[natbib=true, citestyle=apa, giveninits=true, uniquelist=false, 
+bibstyle=apa, maxcitenames=2, backend=biber]{biblatex}
 \DefineBibliographyStrings{english}{%
   bibliography = {References},
 }
-%\bibliography{Remote}
+%\DeclareNameFormat{author}{
+%\usebibmacro{name:last}
+%}
 \addbibresource{Remote.bib}
-\usepackage{subfiles}
+
+%% URLs shouldn't have stupid fonts.
+\usepackage{url}
+\urlstyle{same}
+%% standard options inserted by the template
+%\usepackage{subfiles}
 %\usepackage{apalike}
 %\usepackage{multirow}
 %\usepackage{rotating}
@@ -29,9 +36,6 @@
 \setcaptionmargin{0.5in}
 \usepackage{fancyheadings,fancybox,ifthen}
 \usepackage{bu_ece_thesis}
-\usepackage{url}
-\urlstyle{same}
-
 \usepackage{lscape,afterpage}
 \usepackage{xspace}
 \usepackage{color}
@@ -62,15 +66,15 @@ breaklinks=true,%                  % breaks lines, but links are very small
 %                                   % will be multiplied with 0.009 by ps2pdf
  \hypersetup{
   pdfauthor   = {Graham Voysey <gvoysey@bu.edu>},
-  pdftitle    = {gvoysey-thesis.pdf},
+  pdftitle    = {Development of a Flexible Modeling Environment for Evaluating Subcortical Auditory Systems.pdf},
   pdfsubject  = {Master's thesis},
   pdfkeywords = {biomedical engineering, hearing},
   pdfcreator  = {LaTeX/hyperref},
   pdfproducer = {LaTeX/P}
  }
+\usepackage{doi}
+\DeclareLanguageMapping{american}{american-apa}
 
- \usepackage{doi}
- \DeclareLanguageMapping{american}{american-apa}
 %==========================================================================%
 % customized commands can be placed here
 %\newcommand{\figref}[1]{Figure~\ref{#1}}

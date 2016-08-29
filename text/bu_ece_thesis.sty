@@ -95,7 +95,7 @@
 % Footnotes and long quotations may be single-spaced"
 %\input doublespace.sty          % available from Clarkson LaTeX-style collection
 \usepackage{setspace}
-
+\usepackage[scale=1.25]{ccicons}
 \def\baselinestretch{1.6}       % double spacing
 
 \renewcommand{\arraystretch}{.625} % to fix a problem with arrays
@@ -256,13 +256,12 @@ requirements for the \@degreeword\ of\\
 \def\copyrightpage{\newpage\thispagestyle{empty}
 \null\vfill\par
 \begin{singlespace}
-
 \hspace{2in}
-\large \copyright \hspace{1ex} 
+\large \ccLogo \hspace{1ex} 
 \begin{minipage}[t]{3in}
 \@degreeyear \ by \\
 \MakeUppercase{\@author}\\
-All rights reserved
+\href{https://creativecommons.org/licenses/by/4.0/}{\ccby}
 \end{minipage}
 \end{singlespace}}
 
