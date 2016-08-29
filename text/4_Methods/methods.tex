@@ -186,7 +186,7 @@ This section details the two brainstem models in use, given by~\cite{Nelson2004P
 \end{figure}
 
 \subsection{Choice of Best Modulation Frequency}
-The included models of the CN and IC are tuned to a best modulation frequency (BMF)---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by \cite{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants. These responses thus may be regarded as Modulation Transfer Functions (MTF).  It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', where units are tuned to multiple BMFs, so this has not been implemented.
+The included models of the CN and IC are tuned to a best modulation frequency (BMF)---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by~\cite{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants. These responses thus may be regarded as Modulation Transfer Functions (MTF).  It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', where units are tuned to multiple BMFs, so this has not been implemented.
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
 In the case of the simpler brainstem and midbrain model of \cite{Nelson2004Phenomenological}, the CN and IC are both represented as single processing stages where an excitatory and inhibitory alpha function are convolved with, in the CN, the ANR population response, and in the IC, the output of the CN stage. 
@@ -202,12 +202,12 @@ In the case of the simpler brainstem and midbrain model of \cite{Nelson2004Pheno
 \label{sub:the_carney_2015_brainstem}
 In the case of the more complex model proposed by \cite{Carney2015Speech}, the IC processing stage incorporates three types of filters, which better reflect the diversity of neural responses observed electrophysiologically. 
 
-Weights of contribution for each type are as shown in \autoref{fig:carney-2015}, and were chosen to represent the relative magnitudes of effect observed by \cite{Carney2015Speech} in electrophysiological study.  Weighing is uniform across center frequency.
+Weights of contribution for each type are as shown in \autoref{fig:carney-2015}, and were chosen to represent the relative magnitudes of effect observed by~\cite{Carney2015Speech} in electrophysiological study.  Weighing is uniform across center frequency.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{carney-2015.pdf}
-	\caption[Overview of the Carney Midbrain and Brainstem]{Overview of the processing stages of the \cite{Carney2015Speech} brainstem model for an 80dB click.  Coefficients and weights for the three-stage IC model are shown; other parameters are as in \autoref{fig:nelson-carney}}
+	\caption[Overview of the Carney Midbrain and Brainstem]{Overview of the processing stages of the~\cite{Carney2015Speech} brainstem model for an 80dB click.  Coefficients and weights for the three-stage IC model are shown; other parameters are as in \autoref{fig:nelson-carney}}
 	\label{fig:carney-2015}
 \end{figure}
 
