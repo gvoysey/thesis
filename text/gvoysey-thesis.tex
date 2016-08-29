@@ -13,8 +13,15 @@
 \usepackage[american]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
-\usepackage[natbib=true, citestyle=apa, giveninits=true, uniquelist=false, 
-bibstyle=apa, maxcitenames=2, backend=biber]{biblatex}
+\usepackage[natbib=true,
+			citestyle=apa, 
+			hyperref=true,
+			parentracker=true,
+			giveninits=true, 
+			uniquelist=false, 
+			bibstyle=apa, 
+			maxcitenames=2, 
+			backend=biber]{biblatex}
 \DefineBibliographyStrings{english}{%
   bibliography = {References},
 }
@@ -113,16 +120,11 @@ breaklinks=true,%                  % breaks lines, but links are very small
 % Bibliography
 \newpage
 \singlespace{}
-%\bibliographystyle{biblatex-apa}
- % each subdirectory can have its own BiBTeX file
-%\bibliography{Remote}
 \printbibliography[heading=bibintoc]{}
-
 \cleardoublepage{}
 
 %==========================================================================%
 % Curriculum Vitae
-% TODO -- uncomment this one day and check this symlink so that it points to the correct version of the CV. 
 \includepdf[pages={ - }]{0_Prelim/gvoysey-resume.pdf}
 
 %==========================================================================%

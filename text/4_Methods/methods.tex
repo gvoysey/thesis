@@ -10,27 +10,29 @@
 
 \section{Chapter Summary} % (fold)
 \label{sec:methodsummary}
-This chapter gives a detailed description of the modeling environment created for this thesis.  \hyperref[sec:overview_of_modeling_framework]{First}, the configuration of the overall system is detailed.  \hyperref[sec:peripheral_models]{Second}, the configuration and use of two models of the auditory periphery are detailed.  \hyperref[sec:auditory_nerve_response_models]{Third}, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  \hyperref[sec:brainstem_models]{Fourth}, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Responses.  \hyperref[sec:automated_parameter_exploration]{Finally}, the utility of the system for large-scale simulation is shown. 
+This chapter gives a detailed description of Corti, the modeling environment created for this thesis.  \hyperref[sec:overview_of_modeling_framework]{First}, the configuration of the overall system is detailed.  \hyperref[sec:peripheral_models]{Second}, the configuration and use of two models of the auditory periphery are detailed.  \hyperref[sec:auditory_nerve_response_models]{Third}, the creation of compound action potentials and population responses of the auditory nerve are given.  A method for the simulation of cochlear synaptopathy is also detailed, along with a new incorporation of a nonlinear distribution of auditory nerve fiber types as a function of center frequency.  \hyperref[sec:brainstem_models]{Fourth}, the use of these auditory nerve responses in simulation of the auditory brainstem and midbrain with two models are given, culminating in the creation of modeled Auditory Brainstem Responses.  \hyperref[sec:automated_parameter_exploration]{Finally}, the utility of the system for large-scale simulation is shown. 
 
 
 \section{Overview of Modeling Framework} % (fold)
 \label{sec:overview_of_modeling_framework}
 The modeling framework created for this thesis has been named Corti \citep{Voysey2016Corti}. It is architecturally inspired by the EarLab project developed at Boston University as well as the Cochlea \citep{Rudnicki2014Cochlea} modeling environment developed at the Technical University of Munich, from which it incorporates a peripheral model.
 
-Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the Auditory Brainstem Response, auditory nerve fiber, auditory nerve, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters determine which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
+Corti is a command-line tool written in Python. As detailed in \autoref{fig:corti-overview}, it is designed to produce estimates of the ABR, auditory nerve fiber, CAP, brainstem and midbrain responses to an arbitrary stimulus.  A set of configuration parameters, specified by the user, determine which models are used and how they are interconnected, as well as the spatiotemporal properties of the stimulus.
 
 \subsection{Software Design} % (fold)
 \label{sub:software_design}
-Corti has been designed to be an easy to use and flexible command-line tool that should be immediately usable to anyone interested in auditory modeling who is familiar with basic auditory physiology and engineering.  It has a fully documented user interface, requires no special system configuration to use, and runs on Linux, Windows, and OSX.
+Corti has been designed to be an easy to use and flexible command-line tool that should be immediately usable to anyone interested in auditory modeling and who is familiar with basic auditory physiology and engineering.  It has a fully documented user interface, requires no special system configuration to use, and runs on Linux, Windows, and OSX.
 
-Corti is publicly available and open source, licensed under the GNU GPLv3.  It is free to distribute, use, and be contributed to by anyone.  The file format used to store large simulation output is the Hierarchal Data Format (HDF5), which is a database in a file that can be analyzed and accessed by any operating system and any modern programming language---while Corti is written in Python, analysis of its output may be done in \textsc{matlab}, R, SPSS or any other modern data analysis tool.
+Corti is publicly available and open source. It is licensed under the GNU GPLv3, and as such is free to distribute, use, and be contributed to by anyone.  The file format used to store large simulation output is the Hierarchal Data Format (HDF5), which is a database-in-a-file that can be analyzed and accessed by any operating system and any modern programming language---while Corti is written in Python, analysis of its output may be done in \textsc{matlab}, R, SPSS or any other modern data analysis tool.
 
 Corti was designed so that its output can be easily audited and examined to know not only which biophysical parameters were used, but also know comprehensive metadata about the simulation itself.  For example, model output contains which version of each model was used, the date and time of the computation, a copy of the stimulus used to stimulate the models, and a comprehensive record of other relevant parameters. 
 
-Additionally, the development history of Corti is publicly accessible on the collaborative software repository website GitHub (\url{https://github.com/gvoysey/corti}).  Every change made, and every version released, is available so direct comparisons between output can be made, and software bugs fixed in a central location.  A permanent archive of the version of Corti described in this thesis has been assigned a Document Object Identifier (DOI), and is available via Zenodo, which is an EU and CERN funded research data repository.  At the time of this writing, Corti has been used to run simulations by research groups at Boston~University, the Massachusetts~General~Hospital, the Carl~von~Ossietzky~University~of~Oldenburg, and the Technical~University~of~Denmark.  
+Additionally, the development history of Corti is publicly accessible on the collaborative software repository website GitHub (\url{https://github.com/gvoysey/corti}).  Every change made, and every version released, is available so direct comparisons between output can be made, and software bugs fixed in a central location.  A permanent archive of the version of Corti described in this thesis has been assigned a Document Object Identifier (DOI), and is available via Zenodo (\url{https://zenodo.org/record/57111}), which is an EU and CERN funded research data repository.  At the time of this writing, Corti has been used to run simulations by research groups at Boston~University, the Massachusetts~General~Hospital, the Carl~von~Ossietzky~University~of~Oldenburg, and the Technical~University~of~Denmark.  
 
 \subsection{Configuration Options Define a Parameter Space}
-As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of user-selected parameters, ranging from sampling frequency to the time constants and relative strength and latency of inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  Any single run of the framework, using one collection of options, defines a particular trajectory though this space.
+As detailed in \autoref{chapter:literaturereview}, the constituent models of this framework each require many choices of user-selected parameters, ranging from sampling frequency to the time constants and relative strength and latency of inhibitory and excitatory contributions of brainstem areas. Several other parameters are introduced in the framework itself, as well as the choice of which model to use for each stage. Because these parameter choices directly modulate the simulation output, it quickly becomes natural to treat these different options as a high-dimensional parameter space.  
+
+Any single run of the framework, using one collection of user-specified options, defines a particular trajectory though this space.
 
 \begin{figure}[htbp]
 	\centering
@@ -48,8 +50,7 @@ As shown in \autoref{fig:corti-overview}, a full simulation using Corti involves
 \label{sec:peripheral_models}
 The Peripheral stage takes a stimulus and produces estimates of the Instantaneous Firing Rate for three fibers per CF.  Two models of the auditory periphery are included: the transmission-line model by~\cite{Verhulst2015Functional} (henceforth ``The Verhulst model'') and the phenomenological model by~\cite{Zilany2014Updated} (henceforth ``The Zilany model'').  This section corresponds to the first stage of \autoref{fig:corti-overview}, highlighted in blue.
 
-As detailed in \autoref{fig:periphery-stage}, both models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of Instantaneous Firing Rates (IFRs) for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane via the Greenwood function.
-
+As detailed in \autoref{fig:periphery-stage}, both the Verhulst and Zilany models simulate the response of the peripheral auditory system to a pressure wave, and both produce time-series estimates of Instantaneous Firing Rates (IFRs) for an arbitrary number of inner hair cells which are tonotopically distributed along the length of the basilar membrane via the Greenwood function.
 
 \begin{figure}[htbp]
 	\centering
@@ -58,19 +59,6 @@ As detailed in \autoref{fig:periphery-stage}, both models simulate the response 
 	\label{fig:periphery-stage}
 \end{figure}
 
-\subsection{The Verhulst Model} % (fold)
-\label{sub:the_verhulst_model1}
-The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling Otoacoustic emissions in response to complex stimuli. 
-
-Since the development of the Verhulst model is still underway, it has been programmatically isolated in a separate package.  This provides a separation of concerns between the projects, and allows both Corti and the Verhulst model to be updated independently of each other as new features are made available in both.
-% subsection the_verhulst_model (end)
-\subsection{The Zilany Model} % (fold)
-\label{sub:the_zilany_model}
-The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model was originally developed based on measurements in cat \citep{Zilany2006Modeling},and has since been updated to account for spectrally complex sounds via power-law adaptation \citep{Zilany2007Predictions} and later with humanized parameters to better reflect psychophysical data \citep{Zilany2014Updated}. 
-
-The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
-
-% subsection interoperability_of_the_zilany_and_verhulst_models (end)
 \subsection{Accounting for Variations in Spontaneous Rates Between Models} % (fold)
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
@@ -78,6 +66,29 @@ While both the Zilany and Verhulst models produce estimates of the instantaneous
 The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \cite{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.  
 
 Therefore, while both the Verhulst and Zilany model support classification of spontaneous rates into three categories, for the purposes of weighting fiber types both low- and medium-SR populations may be treated identically.  
+
+\subsection{Weighting of IHC contributions} % (fold)
+\label{sub:weighting_of_ihc_contribution}
+To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
+
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \cite{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
+
+To produce comparable results in this work, the Zilany model was scaled accordingly. We iteratively converged on a scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV, which was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
+% subsection weighting_of_ihc_contribution (end)
+
+
+\subsection{The Verhulst Model} % (fold)
+\label{sub:the_verhulst_model1}
+The Verhulst model is particularly well-suited for modeling broadband stimuli.  Since it is a transmission line model which gives estimates for the position and deflection of the entire basilar membrane even to a pure tone stimulus, it naturally accounts for dispersive effects, and produces detailed information about many stages of sound propagation. Though not used in this work, the Verhulst model is also capable of modeling Otoacoustic emissions in response to complex stimuli. 
+
+Since the development of the Verhulst model is still underway by Verhulst et.~al., it has been programmatically isolated in a separate package.  This provides a separation of concerns between the projects, and allows both Corti the modeling framework, and the Verhulst model itself to be updated independently of each other as new features are made available in both.
+% subsection the_verhulst_model (end)
+\subsection{The Zilany Model} % (fold)
+\label{sub:the_zilany_model}
+The Zilany model is a very commonly used model of the auditory periphery, and robustly accounts for many phenomena observed electrophysiologically to complex stimuli.  The model was originally developed based on measurements in cat \citep{Zilany2006Modeling},and has since been updated to account for spectrally complex sounds via power-law adaptation \citep{Zilany2007Predictions} and later with humanized parameters to better reflect psychophysical data \citep{Zilany2014Updated}. 
+
+The implementation of the Zilany model here was adapted from~\cite{Rudnicki2014Cochlea}, who provided a Python and C implementation that has been shown to produce identical output to the version documented by~\cite{Zilany2014Updated}.
+
 
 % subsection the_zilany_model (end)
 
@@ -116,19 +127,12 @@ This stage of processing converts IFRs of specific fiber populations made by eit
 
 \subsection{Modeling the Contributions of Inner Hair Cells} % (fold)
 \label{sub:contributions_to_the_response_by_inner_hair_cells}
-The output of the Zilany and Verhulst peripheral models are IFRs for one stereotypical AN fiber of each SR type per CF.   However, tens of fibers synapse on each IHC along the length of the cochlea.  Consequently, to generate an estimate of IFR per CF or per BM section, each stereotypical AN fiber must be scaled by some weighting factor so that its output becomes an estimate of the summed IFRs of its SR category for a given IHC.  Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model assigns 19 fibers to each inner hair cell.  The Zilany model makes no inherent assumptions about number of fibers per IHC, so to maintain equivalence with the Verhulst model and allow like-to-like comparison of model output, IFR estimates from both models are distributed among 19 fibers.
+The output of the Zilany and Verhulst peripheral models are IFRs for one stereotypical AN fiber of each SR type per CF.   However, tens of fibers synapse on each IHC along the length of the cochlea.  Consequently, to generate an estimate of IFR per CF or per BM section, each stereotypical AN fiber must be scaled by some weighting factor so that its output becomes an estimate of the summed IFRs of its SR category for a given IHC.  Based on anatomical data \citep{Liberman1978AuditoryNerve}, the Verhulst model assigns 19 fibers to each inner hair cell.  The Zilany model makes no inherent assumptions about the number of fibers per IHC. To maintain equivalence with the Verhulst model and allow like-to-like comparison of model output, IFR estimates from both models are distributed among 19 fibers.
 
 In \autoref{fig:corti-overview}, this process is the first contribution of the AN processing area in green, and is accomplished by either a constant or nonlinear weight.
 
 % subsection contributions_to_the_response_by_inner_hair_cells (end)
-\subsection{Weighting of IHC contributions} % (fold)
-\label{sub:weighting_of_ihc_contribution}
-To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \cite{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
-
-To produce comparable results in this work, the Zilany model was scaled accordingly. We iteratively converged on a scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV, which was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
-% subsection weighting_of_ihc_contribution (end)
 
 \subsection{Weighting of Fiber Types per IHC} % (fold)
 \label{sub:weighting_of_fiber_types_per_ihc}
@@ -220,12 +224,12 @@ More complex stimuli can be created and passed in as WAV files.  All WAV stimuli
 \label{sec:automated_parameter_exploration}
 Corti may be run in one of two modes.  In the first, a single set of parameters defines a single trajectory and the model is run once.   However, while this mode of operation is convenient for fast simulations whose parameters can be defined \emph{a priori}, it rapidly becomes impractical for situations where the relative effects of different parameter choices are to be compared, and reliable book-keeping of which parameters were used to generate which results becomes unnecessarily challenging.
 
-Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-overview}. The core of this mode is the Python Parameter Exploration Toolkit \citep{Meyer2016Pypet}. It provides the tools to allow a convenient interface to explore the parameter space generated by the specification of many available models, impairments, and options in a manner that allows easy \emph{post-hoc} analysis. Individual trajectories may be computed in parallel on a single workstation or in a high-performance cluster so that the relative effects of each model, neuropathic impairment, and other features may be directly compared.  The results for all combinations of model components are stored in one Hierarchical Data Format (HDF5) file.  Comparisons of the effect of using different trajectories to the same stimuli can then be made in a way that guarantees an internally consistent analysis.
+Therefore, a second means of use was created, as detailed in \autoref{fig:pypet-overview}. The core of this mode is the Python Parameter Exploration Toolkit \citep{Meyer2016Pypet}. It provides the tools to allow a convenient interface to explore the parameter space generated by the specification of many available models, impairments, and options in a manner that allows easy \emph{post-hoc} analysis. Individual trajectories may be computed in parallel on a single workstation or in a high-performance cluster so that the relative effects of each model, neuropathic impairment, and other features may be directly compared.  The results for all combinations of model components are stored in one Hierarchical Data Format (HDF5) file.  Comparisons of the effect of using different trajectories to the same stimuli (cross parameter differences) can then be made in a way that guarantees an internally consistent analysis.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{pypet-workflow.pdf}
-	\caption[Automated Exploration of Model Parameters]{\textbf{Automated exploration of model parameters} P$_i$ is one set of multiple parameter values required to specify one trajectory.  A total of $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis. }
+	\caption[Automated Exploration of Model Parameters]{\textbf{Automated exploration of model parameters} Each element P$_i$ in the matrix is a representation of one set of multiple parameter values that specify one trajectory through the parameter space.  A total of $N$ trajectories, where $N$ is the Cartesian product of the specified value ranges that a given parameter may take, are computed in parallel and stored in a database for further analysis.  Three possible analyses are shown: computation of a model ABR, visualization of population responses, and cross-parameter differences, or comparisons between trajectories. }
 	\label{fig:pypet-overview}
 \end{figure}
 \subsection{Design of New Experiments} % (fold)
