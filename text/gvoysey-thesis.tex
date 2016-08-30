@@ -9,26 +9,7 @@
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts,amssymb}
 \DeclareSymbolFontAlphabet{\mathbb}{AMSb}
-%bibliography configuration
-\usepackage[american]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{csquotes}
-\usepackage[natbib=true,
-			citestyle=apa, 
-			hyperref=true,
-			parentracker=true,
-			giveninits=true, 
-			uniquelist=false, 
-			bibstyle=apa, 
-			maxcitenames=2, 
-			backend=biber]{biblatex}
-\DefineBibliographyStrings{english}{%
-  bibliography = {References},
-}
-%\DeclareNameFormat{author}{
-%\usebibmacro{name:last}
-%}
-\addbibresource{Remote.bib}
+
 
 %% URLs shouldn't have stupid fonts.
 \usepackage{url}
@@ -75,9 +56,8 @@ breaklinks=true,%                  % breaks lines, but links are very small
   pdfcreator  = {LaTeX/hyperref},
   pdfproducer = {LaTeX/P}
  }
-\usepackage{doi}
-\DeclareLanguageMapping{american}{american-apa}
-
+%bibliography configuration
+\include{bib_preamble}
 %==========================================================================%
 % customized commands can be placed here
 %\newcommand{\figref}[1]{Figure~\ref{#1}}
