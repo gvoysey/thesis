@@ -16,6 +16,8 @@
 			]{biblatex}
 \DefineBibliographyStrings{english}{%
   bibliography = {References},
+  backrefpage={cited on p\adddot},
+  backrefpages={cited on pp\adddot}
 }
 
 \DeclareNameAlias{sortname}{last-first} 
@@ -138,11 +140,7 @@
 
 \makeatother
 
-% Backrefs "cited" instead of "cit"
-\DefineBibliographyStrings{english}{%
-backrefpage={cited on p\adddot},
-backrefpages={cited on pp\adddot}
-}
+
 
 \addbibresource{Remote.bib}
 
