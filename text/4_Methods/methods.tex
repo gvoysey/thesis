@@ -63,7 +63,7 @@ As detailed in \autoref{fig:periphery-stage}, both the Verhulst and Zilany model
 \label{sub:interoperability_of_the_zilany_and_verhulst_models}
 While both the Zilany and Verhulst models produce estimates of the instantaneous firing rate of the auditory nerve, the means by which they do so are different enough that care must be taken in directly comparing their estimates.  
 
-The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc}, \cite{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.  
+The classification of SR types by mean spontaneous firing rate differs between the Zilany and Verhulst models.  The Zilany model defines a low-SR fiber to have a spontaneous rate of 0.1 spikes/second, a medium-SR fiber to have a spontaneous rate of 10 spikes/second, and a high-SR fiber to have a rate of 100 spikes/second.  The Verhulst model defines these values as 1, 10, and 60 spikes/second, respectively.  As discussed in \autoref{sub:low_spontaneous_rate_fibers_suffer_selective_losses} and \autoref{sub:weighting_of_fiber_types_per_ihc},~\cite{Temchin2008Threshold} combine low- and medium-SR fibers into one population and define it to have a spontaneous rate of less than 18 spikes/second.  For the purposes of this work, both the Zilany and Verhulst model support this approach.  
 
 Therefore, while both the Verhulst and Zilany model support classification of spontaneous rates into three categories, for the purposes of weighting fiber types both low- and medium-SR populations may be treated identically.  
 
@@ -71,7 +71,7 @@ Therefore, while both the Verhulst and Zilany model support classification of sp
 \label{sub:weighting_of_ihc_contribution}
 To determine which proportion of the total contribution of a given hair cell arises from fibers of a given spontaneous rate, the Verhulst model applies a scalar weighting factor to the summed Auditory Nerve Response using an undamaged nerve with 19 total fibers. Three fibers are assigned for low- and medium- SR fibers and 13 for high-SR fibers per hair cell. 
 
-Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model, \cite{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
+Once each hair cell's contribution has been computed and summed into the total response,  a scalar weighting factor was empirically chosen such that the modeled and summed response of IHCs with CFs between 175Hz and 20kHz produces a model ABR Wave I amplitude of 15 $\mu$V.  For the Verhulst model,~\cite{Verhulst2015Functional} found the value of this weighting factor to be \num{0.15e-6} V $\times$ \num{2.7676e-07}.  This weighting factor is given as a product to emphasize that it directly fixes the peak Wave I output at 15$\mu$V. 
 
 To produce comparable results in this work, the Zilany model was scaled accordingly. We iteratively converged on a scaling factor that produced an ABR Wave I amplitude of 15$\mu$V$\pm 1$nV, which was found to be \num{0.15e-6} V $\times$ \num{7.30282e-07}.
 % subsection weighting_of_ihc_contribution (end)
@@ -121,7 +121,7 @@ This stage of processing converts IFRs of specific fiber populations made by eit
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{an-subunit.pdf}
-	\caption[The Auditory Nerve Stage]{The Auditory Nerve Stage. Single IFR estimates for fiber types at each CF are weighted to produce an estimate of the total IFR at each IHC/CF.  These are optionally degraded to model synaptopathy, weighted to produce physiologically appropriate Wave I amplitudes, and summed into the total population response of the Auditory Nerve.}
+	\caption[The Auditory Nerve Stage]{The Auditory Nerve Stage. Single IFR estimates for fiber types at each CF are weighted to produce an estimate of the total IFR at each IHC/CF. These are optionally degraded to model synaptopathy, weighted to produce physiologically appropriate Wave I amplitudes, and summed into the total population response of the Auditory Nerve.}
 	\label{fig:an-subunit}
 \end{figure}
 
@@ -141,7 +141,7 @@ Based on data from~\cite{Temchin2008Threshold}, and as reviewed in \autoref{sec:
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{temchin-curvefit.pdf}
-	\caption[Variation in Spontaneous Rate as a Function of Frequency]{Experimental results (blue circles) reported by \cite{Temchin2008Threshold} were fit to a logistic model (red solid line).}
+	\caption[Variation in Spontaneous Rate as a Function of Frequency]{Experimental results (blue circles) reported by~\cite{Temchin2008Threshold} were fit to a logistic model (red solid line).}
 	\label{fig:temchin-curvefit}
 \end{figure}
 
@@ -189,7 +189,7 @@ This section details the two brainstem models in use, given by~\cite{Nelson2004P
 The included models of the CN and IC are tuned to a best modulation frequency (BMF)---i.e., the stimulus modulation frequency at which they have a peak response---of 100 Hz, as this was found by~\cite{Carney2015Speech} to be the most relevant modulation frequency for speech-like complex sounds such as vowel formants. These responses thus may be regarded as Modulation Transfer Functions (MTF).  It is not clear the extent to which the CN or IC possess a ``MTF filter-bank'', where units are tuned to multiple BMFs, so this has not been implemented.
 
 \subsection{The Nelson Carney 2004 Brainstem} % (fold)
-In the case of the simpler brainstem and midbrain model of \cite{Nelson2004Phenomenological}, the CN and IC are both represented as single processing stages where an excitatory and inhibitory alpha function are convolved with, in the CN, the ANR population response, and in the IC, the output of the CN stage. 
+In the case of the simpler brainstem and midbrain model of~\cite{Nelson2004Phenomenological}, the CN and IC are both represented as single processing stages where an excitatory and inhibitory alpha function are convolved with, in the CN, the ANR population response, and in the IC, the output of the CN stage. 
 \label{sub:the_nelson_carney_2004_brainstem}
 \begin{figure}[htbp]
 	\centering
@@ -200,7 +200,7 @@ In the case of the simpler brainstem and midbrain model of \cite{Nelson2004Pheno
 % subsection the_nelson_carney_2004_brainstem (end)
 \subsection{The Carney 2015 Brainstem} % (fold)
 \label{sub:the_carney_2015_brainstem}
-In the case of the more complex model proposed by \cite{Carney2015Speech}, the IC processing stage incorporates three types of filters, which better reflect the diversity of neural responses observed electrophysiologically. 
+In the case of the more complex model proposed by~\cite{Carney2015Speech}, the IC processing stage incorporates three types of filters, which better reflect the diversity of neural responses observed electrophysiologically. 
 
 Weights of contribution for each type are as shown in \autoref{fig:carney-2015}, and were chosen to represent the relative magnitudes of effect observed by~\cite{Carney2015Speech} in electrophysiological study.  Weighing is uniform across center frequency.
 
