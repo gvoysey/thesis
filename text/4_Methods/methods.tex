@@ -37,7 +37,7 @@ Any single run of the framework, using one collection of user-specified options,
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{high-level-overview.pdf}
-	\caption[Overview of the Corti Modeling Environment.]{\textbf{Overview of the Corti modeling environment.} Two parameter trajectories are shown: a simulation of auditory neuropathy using the Verhulst periphery, nonlinear weights of fiber type contributions, and the Nelson and Carney brainstem (orange), and a simulation without neuropathy using the Zilany periphery, linear fiber weighting, and the Carney 2015 brainstem (red).}
+	\caption[Overview of the Corti Modeling Environment.]{\textbf{Overview of the Corti modeling environment.}  In the Periphery region (blue), either the Zilany or Verhulst models produce estimates of IFRs for AN fibers from user-supplied stimuli.  In the Auditory Nerve region (green), IFR estimates for each AN fiber type are combined into the CAP.  In the Brainstem/Midbrain region (yellow), the CAP is convolved with CN and IC models to produce an ABR.}
 	\label{fig:corti-overview}
 	\end{figure}
 
@@ -55,7 +55,7 @@ As detailed in \autoref{fig:periphery-stage}, both the Verhulst and Zilany model
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{periphery-subunit.pdf}
-	\caption[The Peripheral Stage]{The Peripheral stage. All model inputs are shown; inputs in italics are used in later stages.  Three estimates of fiber IFRs are always produced (in black text), and are passed to the Auditory Nerve modeling stage.  In grey, the Verhulst model may also produce other output which can be optionally stored, but is not used for ABR estimation. }
+	\caption[The Peripheral Stage]{The Peripheral stage. All model inputs are shown; inputs in italics are used in later stages.  Three estimates of fiber IFRs are always produced (black bordered boxes) and are passed to the Auditory Nerve modeling stage.  The Verhulst model may also produce other output (grey dashed boxes) which can be optionally stored, but is not used for ABR estimation. }
 	\label{fig:periphery-stage}
 \end{figure}
 
