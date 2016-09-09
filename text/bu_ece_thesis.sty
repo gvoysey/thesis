@@ -278,7 +278,6 @@ Approved by\\[2em]
 \unvbox\@approvalreader
 \end{center}\newpage}
 
-
 %               ABSTRACT PAGE
 
 \def\abstractpage{\newpage
@@ -297,7 +296,7 @@ Approved by\\[2em]
 % Major Professor: \@majorprofname, \@majorproftitle
 \ifcase\numadvisors\or
 	\mbox{Major Professor:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -306,7 +305,7 @@ Approved by\\[2em]
 	\end{minipage}}
 	\or
 	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
     	\vspace*{-0.7\baselineskip}
     	\begin{singlespace}
     		\flushleft{\@majorprofname \\
@@ -317,7 +316,7 @@ Approved by\\[2em]
     \end{minipage}}
     \or
     \mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -330,7 +329,7 @@ Approved by\\[2em]
 	\end{minipage}}
 	\or
 	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -353,7 +352,7 @@ Approved by\\[2em]
 % Major Professor: \@majorprofname, \@majorproftitle
 \ifcase\numadvisors\or
 	\mbox{Major Professor:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -362,7 +361,7 @@ Approved by\\[2em]
 	\end{minipage}}
 	\or
 	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -373,7 +372,7 @@ Approved by\\[2em]
 	\end{minipage}}
 	\or
 	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -386,7 +385,7 @@ Approved by\\[2em]
 	\end{minipage}}
 	\or
 	\mbox{Major Professors:
-	\begin{minipage}[t]{4.5in}
+	\begin{minipage}[t]{4in}
 		\vspace*{-0.7\baselineskip}
 		\begin{singlespace}
 			\flushleft{\@majorprofname \\
@@ -515,3 +514,61 @@ minus
 \def\Bu{Boston University}
 \def\COE{COLLEGE OF ENGINEERING}
 \def\Coe{College of Engineering}
+
+%        CV
+% here are some commands which might be useful for including a cv at
+% the end of the thesis.  They are modified from those in resume.sty
+% by Miklos Csuros csuros@cs.yale.edu
+
+\newcommand{\categoryfont}{\sl} 
+\newcounter{ccounter}
+\newlength{\categorytitlespace}
+\newlength{\categorytitlewidth}
+
+\setlength{\categorytitlespace}{1.1in}
+\setlength{\categorytitlewidth}{0.9in}
+
+\newif{\iffirstitem}
+\newenvironment{category}[1]%
+   {\firstitemtrue
+    \setcounter{ccounter}{0}
+   \def\makecategorytitle{%
+        \parbox[t][0pt]{0pt}{\hspace{-\categorytitlespace}\parbox[t]{\categorytitlewidth}{\categoryfont\raggedright#1}\vspace{-1in}}}
+   \par
+   \begin{list}{}{%
+      \setlength{\leftmargin}{\categorytitlespace}      
+      \setlength{\parsep}{0in}
+      }}
+   {\end{list}}
+
+%%%%%%% \citem
+\newcommand*{\citem}[1]{%
+   \iffirstitem
+       \item[]\leavevmode\makecategorytitle{\bf #1}%
+   \else
+      {\item[]{\bf #1}}%
+   \fi
+   \firstitemfalse
+    }
+
+
+%%%%%%% \citemnobullet
+\newcommand{\citemnobullet}{%
+        \iffirstitem
+                \item[] \leavevmode \makecategorytitle
+        \else
+                \item[]
+        \fi
+        \firstitemfalse
+                }
+
+%%%%%%% \citemenum
+\newcommand{\citemenum}{%
+        \stepcounter{ccounter}
+        \iffirstitem
+                \item[\arabic{ccounter}.] \leavevmode\makecategorytitle
+        \else
+                \item[\arabic{ccounter}.] 
+        \fi
+        \firstitemfalse
+                }
